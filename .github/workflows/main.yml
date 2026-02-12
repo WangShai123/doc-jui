@@ -10,6 +10,10 @@ on:
   # 允许你在 Actions 页面手动运行此工作流
   workflow_dispatch:
 
+  # 👇 关键：授予 actions 写入仓库内容的权限
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
