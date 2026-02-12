@@ -1,0 +1,27 @@
+{
+  "name": "docs",
+  "fullname": "docs",
+  "author": "Wang Shai",
+  "license": "MIT",
+  "description": "JEALER Documents",
+  "version": "1.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "keywords": [
+    "G3-Web",
+    "jui",
+    "document"
+  ],
+  "devDependencies": {
+    "vite": "^7.3.1",
+    "vitepress": "2.0.0-alpha.16"
+  },
+  "dependencies": {
+    "markdown-it-mathjax3": "^5.2.0"
+  }
+}
