@@ -4,18 +4,18 @@
 
 ```html
 <div class="j-radio is-{direction}">
-    <label class="radio-label">
-        <input type="radio" class="j-input" name="" checked>
-        <span class="radio-text">Option 1</span>
-    </label>
-    <label class="radio-label">
-        <input type="radio" class="j-input" name="">
-        <span class="radio-text">Option 2</span>
-    </label>
-    <label class="radio-label">
-        <input type="radio" class="j-input" name="">
-        <span class="radio-text">Option 3</span>
-    </label>
+  <label class="radio-label">
+    <input type="radio" name="" checked />
+    <span class="radio-text">Option 1</span>
+  </label>
+  <label class="radio-label">
+    <input type="radio" name="" />
+    <span class="radio-text">Option 2</span>
+  </label>
+  <label class="radio-label">
+    <input type="radio" name="" />
+    <span class="radio-text">Option 3</span>
+  </label>
 </div>
 ```
 
@@ -26,30 +26,30 @@
 
 <div class="j-radio is-horizontal my-4">
     <label class="radio-label">
-        <input type="radio" class="j-input" name="radio" checked="">
+        <input type="radio" name="radio" checked="">
         <span class="radio-text">Option 1</span>
     </label>
     <label class="radio-label">
-        <input type="radio" class="j-input" name="radio">
+        <input type="radio" name="radio">
         <span class="radio-text">Option 2</span>
     </label>
     <label class="radio-label">
-        <input type="radio" class="j-input" name="radio">
+        <input type="radio" name="radio">
         <span class="radio-text">Option 3</span>
     </label>
 </div>
 
 <div class="j-radio is-vertical my-4">
     <label class="radio-label">
-        <input type="radio" class="j-input" name="radio2" checked="">
+        <input type="radio" name="radio2" checked="">
         <span class="radio-text">Option 1</span>
     </label>
     <label class="radio-label">
-        <input type="radio" class="j-input" name="radio2">
+        <input type="radio" name="radio2">
         <span class="radio-text">Option 2</span>
     </label>
     <label class="radio-label">
-        <input type="radio" class="j-input" name="radio2">
+        <input type="radio" name="radio2">
         <span class="radio-text">Option 3</span>
     </label>
 </div>
@@ -57,24 +57,22 @@
 ## Custom Radio
 
 ```html
-<div class="j-radio is-{type}">
-    ...
-</div>
+<div class="j-radio is-{type}">...</div>
 ```
 
 1. `is-group`
 
 <div class="j-radio is-group">
     <label class="radio-label">
-        <input type="radio" class="j-input" name="demo-group" checked="">
+        <input type="radio" name="demo-group" checked="">
         <span class="radio-text">Option 1</span>
     </label>
     <label class="radio-label">
-        <input type="radio" class="j-input" name="demo-group">
+        <input type="radio" name="demo-group">
         <span class="radio-text">Option 2</span>
     </label>
     <label class="radio-label">
-        <input type="radio" class="j-input" name="demo-group">
+        <input type="radio" name="demo-group">
         <span class="radio-text">Option 3</span>
     </label>
 </div>

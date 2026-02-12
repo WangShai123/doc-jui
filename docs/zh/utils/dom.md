@@ -28,10 +28,10 @@ const lazyRender = (target, renderCallback, options = {}) => {};
 import { q, lazyRender, newEl } from "jui";
 
 // 观察 #loading 元素，当它出现在视口中时，执行渲染回调函数，创建 div.test 元素
-lazyRender(q("#loading"), () => {
+lazyRender("#loading", () => {
   console.log("Lazy Render: ready to render.");
   const test = newEl("div", {
-    class: "test",
+    className: "test",
     text: "Lazy Render Test",
   });
   q("#loading").after(test);

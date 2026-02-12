@@ -28,10 +28,10 @@ const lazyRender = (target, renderCallback, options = {}) => {};
 import { q, lazyRender, newEl } from "jui";
 
 // Observe the #loading element, and when it appears in the viewport, execute the render callback to create a div.test element
-lazyRender(q("#loading"), () => {
+lazyRender("#loading", () => {
   console.log("Lazy Render: ready to render.");
   const test = newEl("div", {
-    class: "test",
+    className: "test",
     text: "Lazy Render Test",
   });
   q("#loading").after(test);

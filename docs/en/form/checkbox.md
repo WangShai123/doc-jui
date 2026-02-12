@@ -4,18 +4,18 @@
 
 ```html
 <div class="j-checkbox is-{direction}">
-    <label>
-        <input type="checkbox" class="j-input" name="" checked>
-        <span>Option 1</span>
-    </label>
-    <label>
-        <input type="checkbox" class="j-input" name="">
-        <span>Option 2</span>
-    </label>
-    <label>
-        <input type="checkbox" class="j-input" name="">
-        <span>Option 3</span>
-    </label>
+  <label>
+    <input type="checkbox" name="" checked />
+    <span>Option 1</span>
+  </label>
+  <label>
+    <input type="checkbox" name="" />
+    <span>Option 2</span>
+  </label>
+  <label>
+    <input type="checkbox" name="" />
+    <span>Option 3</span>
+  </label>
 </div>
 ```
 
@@ -26,30 +26,30 @@
 
 <div class="j-checkbox is-horizontal">
     <label>
-        <input type="checkbox" class="j-input" name="checkbox-horizontal" checked="">
+        <input type="checkbox" name="checkbox-horizontal" checked="">
         <span>Option 1</span>
     </label>
     <label>
-        <input type="checkbox" class="j-input" name="checkbox-horizontal">
+        <input type="checkbox" name="checkbox-horizontal">
         <span>Option 2</span>
     </label>
     <label>
-        <input type="checkbox" class="j-input" name="checkbox-horizontal">
+        <input type="checkbox" name="checkbox-horizontal">
         <span>Option 3</span>
     </label>
 </div>
 
 <div class="j-checkbox is-vertical">
     <label>
-        <input type="checkbox" class="j-input" name="checkbox-vertical" checked="">
+        <input type="checkbox" name="checkbox-vertical" checked="">
         <span>Option 1</span>
     </label>
     <label>
-        <input type="checkbox" class="j-input" name="checkbox-vertical">
+        <input type="checkbox" name="checkbox-vertical">
         <span>Option 2</span>
     </label>
     <label>
-        <input type="checkbox" class="j-input" name="checkbox-vertical">
+        <input type="checkbox" name="checkbox-vertical">
         <span>Option 3</span>
     </label>
 </div>
@@ -58,12 +58,12 @@
 
 ```html
 <label class="j-switch is-{type} is-{sm|md}">
-    <input type="checkbox" name="">
-    <span class="switch-slider"></span>
+  <input type="checkbox" name="" />
+  <span class="switch-slider"></span>
 </label>
 ```
 
-1. `is-default`: Supports sizes `is-sm`, `is-md`
+1. `is-default`: Supports sizes `is-sm`, `is-md`, `is-lg`
 
 <div class="flex gap-4">
     <label class="j-switch is-default is-sm">
@@ -74,9 +74,13 @@
         <input type="checkbox" name="switch-default-md">
         <span class="switch-slider"></span>
     </label>
+    <label class="j-switch is-default is-lg">
+        <input type="checkbox" name="switch-default-md">
+        <span class="switch-slider"></span>
+    </label>
 </div>
 
-2. `is-line`: Supports sizes `is-sm`, `is-md`
+2. `is-line`: Supports sizes `is-sm`, `is-md`, `is-lg`
 
 <div class="flex gap-4">
     <label class="j-switch is-line is-sm">
@@ -84,6 +88,10 @@
         <span class="switch-slider"></span>
     </label>
     <label class="j-switch is-line is-md">
+        <input type="checkbox" name="switch-line-md">
+        <span class="switch-slider"></span>
+    </label>
+    <label class="j-switch is-line is-lg">
         <input type="checkbox" name="switch-line-md">
         <span class="switch-slider"></span>
     </label>
