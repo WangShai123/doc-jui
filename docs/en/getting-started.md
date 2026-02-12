@@ -41,6 +41,10 @@ const testModal = new modal({
 
 :::
 
+## Components Dashboard
+
+<a href="https://www.jealer.com/docs/jui/dashboard.html" target="_blank"><button type="button" class="j-button is-primary">Components Dashboard</button></a>
+
 ## Rebuilding
 
 You can rebuild the source files according to your needs. The `src` directory contains the source files.
