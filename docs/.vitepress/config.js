@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: "doc-jui",
+  // base: "doc-jui",
   title: "JUI",
   description: "JUI Document",
   head: [["link", { rel: "icon", type: "image/png", href: "/favicon.png" }]],
