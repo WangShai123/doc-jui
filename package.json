@@ -9,6 +9,7 @@
   "sideEffects": false,
   "scripts": {
     "dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs"
   },
