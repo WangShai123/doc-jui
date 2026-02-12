@@ -1,6 +1,6 @@
 {
-  "name": "docs",
-  "fullname": "docs",
+  "name": "doc-jui",
+  "fullname": "doc-jui",
   "author": "Wang Shai",
   "license": "MIT",
   "description": "JEALER Documents",
@@ -19,9 +19,8 @@
   ],
   "devDependencies": {
     "vite": "^7.3.1",
-    "vitepress": "2.0.0-alpha.16"
+    "vitepress": "2.0.0-alpha.16",
+    "markdown-it-mathjax3": "^4"
   },
-  "dependencies": {
-    "markdown-it-mathjax3": "^5.2.0"
-  }
+  "dependencies": {}
 }

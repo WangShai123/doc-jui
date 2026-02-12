@@ -23,15 +23,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "pnpm"
+          cache: "npm"
 
       - name: Install dependencies
-        run: |
-          npm install -g pnpm  # 👈 全局安装 pnpm
-          pnpm install
+        run: npm install
 
       - name: Build VitePress site
-        run: pnpm  build
+        run: npm build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
