@@ -26,7 +26,9 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          npm install -g pnpm  # 👈 全局安装 pnpm
+          pnpm install
 
       - name: Build VitePress site
         run: pnpm  build
