@@ -14,9 +14,7 @@
 - 表格 `table` `tr` `td` `th`
 
 ```html
-<div class="j-content">
-    {... 任何 HTML 标签 ...}
-</div>
+<div class="j-content">{... 任何 HTML 标签 ...}</div>
 ```
 
 ## 四种尺寸

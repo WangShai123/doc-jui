@@ -26,5 +26,5 @@ features:
     details: Provides UMD and ESM (jui.umd.js / jui.esm.js) formats, with all components mounted on the `jui` object. Ready to use via CDN for quick development.
   - title: Multi-Mode
     icon: 🌈
-    details: Designed for modern engineering, offering a Tree-shaking supported ES Module (jui.mjs) version for on-demand loading and reduced bundle size.
+    details: Designed for modern engineering, offering a Tree-shaking supported ES Module (jui.module.js) version for on-demand loading and reduced bundle size.
 ---

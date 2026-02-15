@@ -1,4 +1,4 @@
-name: Deploy VitePress to GitHub Pages
+name: Deploy doc-jui to GitHub Pages
 
 on:
   push:

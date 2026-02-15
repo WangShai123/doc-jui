@@ -1,0 +1,3187 @@
+<!doctype html>
+<html lang="zh-CN" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover"
+    />
+    <!-- SEO Component -->
+    <title>Dashboard - JUI</title>
+    <meta name="keywords" content="JUI, 仪表盘, Dashboard" />
+    <meta name="description" content="JUI Components Dashboard" />
+    <!-- Favicon Component -->
+    <link rel="shortcut icon" type="images/x-icon" href="./favicon.ico" />
+    <!-- StyleSheet Component -->
+    <link rel="stylesheet" href="./assets/jui.min.css" />
+    <!-- JavaScript Component -->
+    <script src="./assets/dashboard.js" type="module"></script>
+    <!-- Copyright Component -->
+    <meta name="author" content="JEALER" />
+  </head>
+
+  <body>
+    <!-- <div class="j-background-grid"></div> -->
+    <header class="flex justify-between align-center py-1 px-2 bg-dynamic">
+      <button type="button" class="dashboard-menu j-button is-ghost">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
+        </svg>
+        <span>Menu</span>
+      </button>
+      <h1 style="margin: 0; font-size: var(--font-size, 1rem)">Dashboard</h1>
+      <button type="button" class="j-button is-ghost theme-palette">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="none" d="M0 0h24v24H0z"></path>
+          <path
+            d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+          ></path>
+        </svg>
+        <span>Theme</span>
+      </button>
+    </header>
+
+    <div class="container main-container pt-4">
+      <div class="j-tip is-default mb-4">
+        <div class="tip-title">TIP</div>
+        <div class="tip-content">
+          <p>
+            <!-- 设计JUI的初衷，是为了用户更轻易简单地构造页面，特别是页面结构和元素。所有元素都是经过专业设计师设计，拥有良好的视图比例，可以自由组合使用，自定义样式和特征。 -->
+            The original intention of designing JUI is to allow beginner users
+            to easily and simply construct pages, especially page structures and
+            elements. All elements are designed by professional designers, have
+            good visual proportions, and can be freely combined and customized
+            in style and features.
+          </p>
+        </div>
+      </div>
+
+      <div class="j-content">
+        <h2 id="tabs">Tabs</h2>
+
+        <h5>Basic Tabs</h5>
+        <div class="j-tabs is-top" id="basic-tabs">
+          <div class="tab-wrap">
+            <nav class="tab-list">
+              <div class="tab-item is-active">
+                <span>Option One</span>
+              </div>
+              <div class="tab-item">
+                <span>Option Two</span>
+              </div>
+              <div class="tab-item">
+                <span>Option Three</span>
+              </div>
+            </nav>
+          </div>
+          <div class="tab-panel">
+            <div class="panel-item is-active">
+              <div>Option One Content</div>
+            </div>
+            <div class="panel-item">
+              <div>Option Two Content</div>
+            </div>
+            <div class="panel-item">
+              <div>Option Three Content</div>
+            </div>
+          </div>
+        </div>
+
+        <h5>Dynamic Tabs</h5>
+        <div id="dynamic-tabs"></div>
+        <div class="flex gap-4">
+          <button class="j-button is-outline add-tab-btn">Add Tab</button>
+          <button class="j-button is-error remove-tab-btn">Remove Tab</button>
+        </div>
+
+        <h2 id="toast">Toast</h2>
+
+        <h5>base usage</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-primary example-toast-info">
+            info msg
+          </button>
+          <button class="j-button is-success example-toast-success">
+            success
+          </button>
+          <button class="j-button is-warning example-toast-warning">
+            warning
+          </button>
+          <button class="j-button is-danger example-toast-error">
+            error msg
+          </button>
+        </div>
+        <div>
+          <button class="j-button is-default example-toast-lite">
+            lite msg
+          </button>
+        </div>
+
+        <h2 id="modal">Modal</h2>
+
+        <h5>base usage</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-default example-modal-basic">
+            basic modal
+          </button>
+          <button class="j-button is-primary example-modal-fullscreen">
+            fullscreen modal
+          </button>
+          <button class="j-button is-outline example-modal-form">
+            form modal
+          </button>
+        </div>
+
+        <h2 id="offcanvas">Offcanvas</h2>
+
+        <h5>animation</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-default example-offcanvas-slide">
+            slide
+          </button>
+          <button class="j-button is-default example-offcanvas-push">
+            push
+          </button>
+        </div>
+
+        <h5>direction</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-default example-offcanvas-top">top</button>
+          <button class="j-button is-default example-offcanvas-bottom">
+            bottom
+          </button>
+          <button class="j-button is-default example-offcanvas-right">
+            right
+          </button>
+        </div>
+
+        <h2 id="accordion">Accordion</h2>
+
+        <h5>base usage</h5>
+        <div class="example-accordion"></div>
+
+        <h2 id="drop">Drop</h2>
+
+        <h5>trigger modes</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-default drop-auto">hover</button>
+          <button class="j-button is-default drop-click">click</button>
+        </div>
+
+        <h5>positions</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-default drop-top-left">top-left</button>
+          <button class="j-button is-default drop-top-center">
+            top-center
+          </button>
+          <button class="j-button is-default drop-top-right">top-right</button>
+          <button class="j-button is-default drop-bottom-left">
+            bottom-left
+          </button>
+          <button class="j-button is-default drop-bottom-center">
+            bottom-center
+          </button>
+          <button class="j-button is-default drop-bottom-right">
+            bottom-right
+          </button>
+          <button class="j-button is-default drop-left">left</button>
+          <button class="j-button is-default drop-right">right</button>
+        </div>
+
+        <h2 id="tooltip">Tooltip</h2>
+        <h5>trigger</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-default tooltip-auto">hover</button>
+          <button class="j-button is-default tooltip-click">click</button>
+        </div>
+        <h5>positions</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-default tooltip-top-left">top-left</button>
+          <button class="j-button is-default tooltip-top-center">
+            top-center
+          </button>
+          <button class="j-button is-default tooltip-top-right">
+            top-right
+          </button>
+          <button class="j-button is-default tooltip-bottom-left">
+            bottom-left
+          </button>
+          <button class="j-button is-default tooltip-bottom-center">
+            bottom-center
+          </button>
+          <button class="j-button is-default tooltip-bottom-right">
+            bottom-right
+          </button>
+          <button class="j-button is-default tooltip-left">left</button>
+          <button class="j-button is-default tooltip-right">right</button>
+        </div>
+
+        <h2 id="parabola">Parabola</h2>
+        <div style="width: 280px">
+          <div class="flex justify-between" style="margin-bottom: 120px">
+            <button type="button" class="j-button is-default" id="from-point">
+              Start 1
+            </button>
+            <button type="button" class="j-button is-outline" id="end-point-2">
+              End 2
+            </button>
+          </div>
+          <div class="flex justify-between">
+            <button type="button" class="j-button is-default" id="from-point-2">
+              Start 2
+            </button>
+            <button type="button" class="j-button is-outline" id="end-point">
+              End 1
+            </button>
+          </div>
+        </div>
+
+        <h2 id="menu">Menu</h2>
+        <h5>horizontal menu</h5>
+        <div>
+          <nav class="j-menu">
+            <ul class="menu">
+              <li class="menu-item current-menu-item">
+                <a href="">
+                  <icon class="el-icon el-prefix">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20C20 20.5523 19.5523 21 19 21ZM6 19H18V9.15745L12 3.7029L6 9.15745V19ZM8 15H16V17H8V15Z"
+                      ></path>
+                    </svg>
+                  </icon>
+                  <span class="is-text">menu</span>
+                </a>
+              </li>
+              <li class="menu-item"><a href="">level-one</a></li>
+              <li class="menu-item menu-item-has-children">
+                <a href="">has-children</a>
+                <ul class="sub-menu">
+                  <li class="menu-item"><a href="">child one</a></li>
+                  <li class="menu-item"><a href="">child two</a></li>
+                  <li class="menu-item">
+                    <a href=""
+                      >child three: long text, it'll be automatically wrapped</a
+                    >
+                  </li>
+                  <li class="menu-item"><a href="">child four</a></li>
+                </ul>
+              </li>
+              <li class="menu-item">no-link-notice</li>
+              <li class="menu-item menu-item-has-children list-card-menu">
+                <a href="">list-card</a>
+                <ul class="sub-menu">
+                  <li class="menu-item"><a href="">child one</a></li>
+                  <li class="menu-item"><a href="">child two</a></li>
+                  <li class="menu-item">
+                    <a href="">child three: calmp 1 while triming</a>
+                  </li>
+                  <li class="menu-item"><a href="">child four</a></li>
+                  <li class="menu-item"><a href="">child five</a></li>
+                  <li class="menu-item"><a href="">child six</a></li>
+                  <li class="menu-item"><a href="">child seven</a></li>
+                  <li class="menu-item"><a href="">child eight</a></li>
+                  <li class="menu-item"><a href="">child nine</a></li>
+                  <li class="menu-item"><a href="">child ten</a></li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-has-children advanced-card-menu">
+                <a href="">advanced-card</a>
+                <ul class="sub-menu">
+                  <li class="menu-item"><a href="">child one</a></li>
+                  <li class="menu-item">
+                    <a href="">
+                      <img
+                        src="https://placehold.co/300x200/lightgray/gray?text=Option-2"
+                        alt=""
+                      />
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="">
+                      <img
+                        src="https://placehold.co/300x200/lightgray/gray?text=Option-3"
+                        alt=""
+                      />
+                    </a>
+                  </li>
+                  <li class="menu-item"><a href="">child four</a></li>
+                  <li class="menu-item"><a href="">child five</a></li>
+                  <li class="menu-item"><a href="">child six</a></li>
+                  <li class="menu-item">
+                    <a href="">
+                      <img
+                        src="https://placehold.co/300x200/lightgray/gray?text=Option-7"
+                        alt=""
+                      />
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="">
+                      <img
+                        src="https://placehold.co/300x200/lightgray/gray?text=Option-8"
+                        alt=""
+                      />
+                    </a>
+                  </li>
+                  <li class="menu-item"><a href="">child nine</a></li>
+                  <li class="menu-item"><a href="">child ten</a></li>
+                </ul>
+              </li>
+              <li class="menu-item"><a href="">level-one</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <h2 id="form">Form</h2>
+        <h5>vertical form</h5>
+        <form
+          class="j-form is-vertical is-item-vertical w-2xs mb-5"
+          id="form-validator"
+        >
+          <div class="form-item">
+            <label for="email" class="item-label is-required"
+              >Email address</label
+            >
+            <div class="form-control">
+              <input
+                type="email"
+                name="email"
+                class="j-input"
+                id="email"
+                placeholder="Enter email"
+                autocomplete="email"
+              />
+            </div>
+          </div>
+          <div class="form-item">
+            <label for="password" class="item-label is-required"
+              >Password</label
+            >
+            <div class="form-control">
+              <input
+                type="password"
+                name="password"
+                class="j-input"
+                id="password"
+                placeholder="Password"
+                autocomplete="current-password"
+              />
+            </div>
+          </div>
+          <div class="form-item">
+            <label for="password" class="item-label is-required"
+              >Password Confirm</label
+            >
+            <div class="form-control">
+              <input
+                type="password"
+                name="password_repeat"
+                class="j-input"
+                id="password_repeat"
+                placeholder="Password"
+                autocomplete="current-password"
+              />
+            </div>
+          </div>
+          <div class="form-item">
+            <label for="country" class="item-label">Country</label>
+            <div class="form-control">
+              <select
+                class="j-select"
+                id="country"
+                autocomplete="country"
+                required
+              >
+                <option value="">Please select</option>
+                <option value="1">China</option>
+                <option value="2">United States</option>
+                <option value="3">United Kingdom</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-item">
+            <label for="file" class="item-label">File input</label>
+            <div class="form-control">
+              <input type="file" id="file" class="j-input" />
+              <div class="help-block">Example block-level help text here.</div>
+            </div>
+          </div>
+          <div class="form-item">
+            <label class="form-control">
+              <div class="j-checkbox is-horizontal">
+                <label>
+                  <input type="checkbox" name="agreement" />
+                  <span>Agree to terms...</span>
+                </label>
+              </div>
+            </label>
+          </div>
+          <div class="form-buttons">
+            <button type="submit" class="j-button is-primary">Submit</button>
+            <button type="reset" class="j-button is-ghost">Reset</button>
+          </div>
+        </form>
+
+        <h5>horizontal form</h5>
+        <div class="w-full overflow-x-auto pt-1">
+          <form class="j-form is-horizontal is-item-horizontal">
+            <div class="form-item">
+              <label for="email-horizontal" class="item-label is-required"
+                >Email</label
+              >
+              <div class="form-control">
+                <input
+                  type="email"
+                  class="j-input"
+                  id="email-horizontal"
+                  placeholder="Enter email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-item">
+              <label for="password-horizontal" class="item-label is-required"
+                >Password</label
+              >
+              <div class="form-control">
+                <input
+                  type="password"
+                  class="j-input"
+                  id="password-horizontal"
+                  placeholder="Password"
+                  autocomplete="current-password"
+                  required
+                />
+                <div class="help-block">
+                  Example block-level help text here.
+                </div>
+              </div>
+            </div>
+            <div class="form-buttons">
+              <button type="submit" class="j-button is-primary">Submit</button>
+              <button type="reset" class="j-button is-ghost">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <h2 id="input">Input</h2>
+        <h5>input variants</h5>
+        <div
+          class="grid-container grid-col-2 grid-col-sm-2 grid-col-md-4 grid-col-lg-6"
+        >
+          <input
+            type="text"
+            class="j-input"
+            placeholder="default"
+            id="default-input"
+          />
+          <input
+            type="text"
+            class="j-input is-line"
+            placeholder="is-line"
+            id="line-input"
+          />
+          <input
+            type="text"
+            class="j-input is-ghost"
+            placeholder="is-ghost"
+            id="ghost-input"
+          />
+          <input
+            type="text"
+            class="j-input is-blank"
+            placeholder="is-blank"
+            id="blank-input"
+          />
+        </div>
+
+        <h5>disabled</h5>
+        <div
+          class="grid-container grid-col-2 grid-col-sm-2 grid-col-md-4 grid-col-lg-6"
+        >
+          <input
+            type="text"
+            class="j-input is-disabled"
+            placeholder="default disabled"
+            id="disabled-input"
+            disabled
+          />
+          <input
+            type="text"
+            class="j-input is-line"
+            placeholder="is-line disabled"
+            id="line-input-disabled"
+            disabled
+          />
+          <input
+            type="text"
+            class="j-input is-ghost"
+            placeholder="is-ghost disabled"
+            disabled
+            id="ghost-input-disabled"
+            disabled
+          />
+          <input
+            type="text"
+            class="j-input is-blank"
+            placeholder="is-blank disabled"
+            disabled
+            id="blank-input-disabled"
+            disabled
+          />
+        </div>
+
+        <h5>readonly</h5>
+        <div
+          class="grid-container grid-col-2 grid-col-sm-2 grid-col-md-4 grid-col-lg-6"
+        >
+          <input
+            type="text"
+            class="j-input"
+            placeholder="default readonly"
+            id="readonly-input"
+            readonly
+          />
+          <input
+            type="text"
+            class="j-input is-line"
+            placeholder="is-line readonly"
+            id="line-input-readonly"
+            readonly
+          />
+          <input
+            type="text"
+            class="j-input is-ghost"
+            placeholder="is-ghost readonly"
+            id="ghost-input-readonly"
+            readonly
+          />
+          <input
+            type="text"
+            class="j-input is-blank"
+            placeholder="is-blank readonly"
+            id="blank-input-readonly"
+            readonly
+          />
+        </div>
+
+        <h5>validation</h5>
+        <div
+          class="grid-container grid-col-2 grid-col-sm-2 grid-col-md-4 grid-col-lg-6"
+        >
+          <input
+            type="text"
+            class="j-input is-valid"
+            placeholder="valid"
+            id="valid-input"
+          />
+          <input
+            type="text"
+            class="j-input is-invalid"
+            placeholder="invalid"
+            id="invalid-input"
+          />
+        </div>
+
+        <h5>input sizes</h5>
+        <div
+          class="grid-container grid-col-2 grid-col-sm-2 grid-col-md-4 grid-col-lg-6"
+        >
+          <input
+            type="text"
+            class="j-input is-sm"
+            placeholder="is-sm"
+            id="small-input"
+          />
+          <input
+            type="text"
+            class="j-input is-md"
+            placeholder="is-md"
+            id="md-input"
+          />
+          <input
+            type="text"
+            class="j-input is-lg"
+            placeholder="is-lg"
+            id="large-input"
+          />
+        </div>
+
+        <div
+          class="grid-container grid-col-2 grid-col-sm-2 grid-col-md-4 grid-col-lg-6"
+        >
+          <input
+            type="color"
+            class="j-input"
+            placeholder="color"
+            id="color-input"
+          />
+          <input
+            type="date"
+            class="j-input"
+            placeholder="date-local"
+            id="date-input"
+          />
+          <input
+            type="time"
+            class="j-input"
+            placeholder="time-local"
+            id="time-input"
+          />
+          <input
+            type="datetime-local"
+            class="j-input"
+            placeholder="datetime-local"
+            id="datetime-local-input"
+          />
+          <input
+            type="month"
+            class="j-input"
+            placeholder="month"
+            id="month-input"
+          />
+          <input
+            type="week"
+            class="j-input"
+            placeholder="week"
+            id="week-input"
+          />
+        </div>
+
+        <div
+          class="grid-container grid-col-2 grid-col-sm-2 grid-col-md-4 grid-col-lg-6"
+        >
+          <input
+            type="color"
+            class="j-input is-sm"
+            placeholder="color"
+            id="color-input-sm"
+          />
+          <input
+            type="date"
+            class="j-input is-sm"
+            placeholder="date-local"
+            id="date-input-sm"
+          />
+          <input
+            type="time"
+            class="j-input is-sm"
+            placeholder="time-local"
+            id="time-input-sm"
+          />
+          <input
+            type="datetime-local"
+            class="j-input is-sm"
+            placeholder="datetime-local"
+            id="datetime-local-input-sm"
+          />
+          <input
+            type="month"
+            class="j-input is-sm"
+            placeholder="month"
+            id="month-input-sm"
+          />
+          <input
+            type="week"
+            class="j-input is-sm"
+            placeholder="week"
+            id="week-input-sm"
+          />
+        </div>
+
+        <h2 id="radio">Radio</h2>
+        <h5>horizontal radio</h5>
+        <div class="j-radio is-horizontal">
+          <label class="radio-label">
+            <input type="radio" name="radio-horizontal" checked />
+            <span class="radio-text">option one</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-horizontal" disabled />
+            <span class="radio-text">option two disabled</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-horizontal" />
+            <span class="radio-text">option three</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-horizontal" />
+            <span class="radio-text">option four</span>
+          </label>
+        </div>
+        <h5>vertical form</h5>
+        <div class="j-radio is-vertical">
+          <label class="radio-label">
+            <input type="radio" name="radio-vertical" checked />
+            <span class="radio-text">option one</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-vertical" disabled />
+            <span class="radio-text">option two disabled</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-vertical" />
+            <span class="radio-text">option three</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-vertical" />
+            <span class="radio-text">option four</span>
+          </label>
+        </div>
+
+        <h5>radio group</h5>
+        <div class="j-radio is-group is-sm">
+          <label class="radio-label">
+            <input type="radio" name="radio-special-sm" checked />
+            <span class="radio-text">is-sm</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-special-sm" />
+            <span class="radio-text">one</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-special-sm" />
+            <span class="radio-text">two</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-special-sm" disabled />
+            <span class="radio-text">disabled</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-special-sm" />
+            <span class="radio-text">four</span>
+          </label>
+        </div>
+        <div class="j-radio is-group">
+          <label class="radio-label">
+            <input type="radio" name="radio-special-md" checked />
+            <span class="radio-text">is-md</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-special-md" />
+            <span class="radio-text">one</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-special-md" />
+            <span class="radio-text">two</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-special-md" disabled />
+            <span class="radio-text">disabled</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-special-md" />
+            <span class="radio-text">four</span>
+          </label>
+        </div>
+        <div class="j-radio is-group is-lg">
+          <label class="radio-label">
+            <input type="radio" name="radio-special-lg" checked />
+            <span class="radio-text">is-lg</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-special-lg" checked />
+            <span class="radio-text">one</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-special-lg" />
+            <span class="radio-text">two</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-special-lg" disabled />
+            <span class="radio-text">disabled</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="radio-special-lg" />
+            <span class="radio-text">four</span>
+          </label>
+        </div>
+
+        <h2 id="checkbox">Checkbox</h2>
+        <h5>horizontal checkbox</h5>
+        <div class="j-checkbox is-horizontal">
+          <label>
+            <input type="checkbox" name="checkbox-horizontal" checked />
+            <span>option one</span>
+          </label>
+          <label>
+            <input type="checkbox" name="checkbox-horizontal" disabled />
+            <span>option two disabled</span>
+          </label>
+          <label>
+            <input type="checkbox" name="checkbox-horizontal" />
+            <span>option three</span>
+          </label>
+          <label>
+            <input type="checkbox" name="checkbox-horizontal" />
+            <span>option four</span>
+          </label>
+        </div>
+
+        <h5>vertical checkbox</h5>
+        <div class="j-checkbox is-vertical">
+          <label>
+            <input type="checkbox" name="checkbox-vertical" checked />
+            <span>option one</span>
+          </label>
+          <label>
+            <input type="checkbox" name="checkbox-vertical" disabled />
+            <span>option two disabled</span>
+          </label>
+          <label>
+            <input type="checkbox" name="checkbox-vertical" />
+            <span>option three</span>
+          </label>
+          <label>
+            <input type="checkbox" name="checkbox-vertical" />
+            <span>option four</span>
+          </label>
+        </div>
+
+        <h2 id="switch">Switch</h2>
+
+        <h5>default switch</h5>
+        <div class="flex gap-4 flex-wrap align-center">
+          <label class="j-switch is-default is-sm">
+            <input type="checkbox" />
+            <span class="switch-slider"></span>
+          </label>
+          <label class="j-switch is-default is-md">
+            <input type="checkbox" />
+            <span class="switch-slider"></span>
+          </label>
+          <label class="j-switch is-default is-lg">
+            <input type="checkbox" />
+            <span class="switch-slider"></span>
+          </label>
+        </div>
+
+        <h5>line switch</h5>
+        <div class="flex gap-4 flex-wrap align-center">
+          <label class="j-switch is-line is-sm">
+            <input type="checkbox" />
+            <span class="switch-slider"></span>
+          </label>
+          <label class="j-switch is-line is-md">
+            <input type="checkbox" />
+            <span class="switch-slider"></span>
+          </label>
+          <label class="j-switch is-line is-lg">
+            <input type="checkbox" />
+            <span class="switch-slider"></span>
+          </label>
+        </div>
+
+        <h2 id="textarea">Textarea</h2>
+
+        <h5>base usage</h5>
+        <div class="grid-container grid-col-2 grid-col-sm-2 grid-col-md-4">
+          <textarea name="" id="textarea" class="j-textarea">general</textarea>
+          <textarea name="" id="textarea-readonly" class="j-textarea" readonly>
+readonly</textarea
+          >
+          <textarea name="" id="textarea-disabled" class="j-textarea" disabled>
+disabled</textarea
+          >
+        </div>
+
+        <h2 id="button">Button</h2>
+
+        <h5>button variants</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-default">default</button>
+          <button class="j-button is-contrast">contrast</button>
+          <button class="j-button is-primary">primary</button>
+          <button class="j-button is-secondary">secondary</button>
+          <button class="j-button is-outline">outline</button>
+          <button class="j-button is-ghost">ghost</button>
+          <button class="j-button is-text">text</button>
+        </div>
+
+        <h5>action types</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-danger">danger</button>
+          <button class="j-button is-warning">warning</button>
+          <button class="j-button is-success">success</button>
+          <button class="j-button is-error">error</button>
+          <button class="j-button is-surface-sm">surface-sm</button>
+          <button class="j-button is-surface-md">surface-md</button>
+          <button class="j-button is-surface-lg">surface-lg</button>
+        </div>
+
+        <h5>disabled</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-default" disabled>default</button>
+          <button class="j-button is-contrast" disabled>contrast</button>
+          <button class="j-button is-primary" disabled>primary</button>
+          <button class="j-button is-secondary" disabled>secondary</button>
+          <button class="j-button is-outline" disabled>outline</button>
+          <button class="j-button is-ghost" disabled>ghost</button>
+          <button class="j-button is-text" disabled>text</button>
+          <button class="j-button is-danger" disabled>danger</button>
+          <button class="j-button is-warning" disabled>warning</button>
+          <button class="j-button is-success" disabled>success</button>
+          <button class="j-button is-error" disabled>error</button>
+          <button class="j-button is-surface-sm" disabled>surface-sm</button>
+          <button class="j-button is-surface-md" disabled>surface-md</button>
+          <button class="j-button is-surface-lg" disabled>surface-lg</button>
+        </div>
+
+        <h5>is-icon</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-default is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <button class="j-button is-contrast is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <button class="j-button is-primary is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <button class="j-button is-secondary is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <button class="j-button is-outline is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <button class="j-button is-ghost is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <button class="j-button is-danger is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <button class="j-button is-warning is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <button class="j-button is-success is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <button class="j-button is-error is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <button class="j-button is-surface-sm is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <button class="j-button is-surface-md is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <button class="j-button is-surface-lg is-icon">
+            <span class="el-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 2C17.5222 2 22 5.97778 22 10.8889C22 13.9556 19.5111 16.4444 16.4444 16.4444H14.4778C13.5556 16.4444 12.8111 17.1889 12.8111 18.1111C12.8111 18.5333 12.9778 18.9222 13.2333 19.2111C13.5 19.5111 13.6667 19.9 13.6667 20.3333C13.6667 21.2556 12.9 22 12 22C6.47778 22 2 17.5222 2 12C2 6.47778 6.47778 2 12 2ZM10.8111 18.1111C10.8111 16.0843 12.451 14.4444 14.4778 14.4444H16.4444C18.4065 14.4444 20 12.851 20 10.8889C20 7.1392 16.4677 4 12 4C7.58235 4 4 7.58235 4 12C4 16.19 7.2226 19.6285 11.324 19.9718C10.9948 19.4168 10.8111 18.7761 10.8111 18.1111ZM7.5 12C6.67157 12 6 11.3284 6 10.5C6 9.67157 6.67157 9 7.5 9C8.32843 9 9 9.67157 9 10.5C9 11.3284 8.32843 12 7.5 12ZM16.5 12C15.6716 12 15 11.3284 15 10.5C15 9.67157 15.6716 9 16.5 9C17.3284 9 18 9.67157 18 10.5C18 11.3284 17.3284 12 16.5 12ZM12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5C13.5 8.32843 12.8284 9 12 9Z"
+                ></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <h5>button sizes</h5>
+        <div class="flex gap-4 flex-wrap">
+          <button class="j-button is-default is-sm">small</button>
+          <button class="j-button is-default is-md">medium</button>
+          <button class="j-button is-default is-lg">large</button>
+        </div>
+
+        <h5>button group</h5>
+        <div class="flex gap-4 flex-wrap">
+          <div class="j-button-group">
+            <button class="j-button is-default">button-1</button>
+            <button class="j-button is-default">button-2</button>
+            <button class="j-button is-default">button-3</button>
+          </div>
+        </div>
+        <div class="flex gap-4 flex-wrap">
+          <div class="j-button-group is-vertical">
+            <button class="j-button is-outline">button-1</button>
+            <button class="j-button is-outline">button-2</button>
+            <button class="j-button is-outline">button-3</button>
+          </div>
+        </div>
+        <div class="flex gap-4 flex-wrap">
+          <div class="j-button-group">
+            <button class="j-button is-outline">only one in group</button>
+          </div>
+        </div>
+        <div class="flex gap-4 flex-wrap">
+          <div class="j-button-group">
+            <button class="j-button is-primary px-1">
+              <span class="el-icon animate-spin">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M11.9995 2C12.5518 2 12.9995 2.44772 12.9995 3V6C12.9995 6.55228 12.5518 7 11.9995 7C11.4472 7 10.9995 6.55228 10.9995 6V3C10.9995 2.44772 11.4472 2 11.9995 2ZM11.9995 17C12.5518 17 12.9995 17.4477 12.9995 18V21C12.9995 21.5523 12.5518 22 11.9995 22C11.4472 22 10.9995 21.5523 10.9995 21V18C10.9995 17.4477 11.4472 17 11.9995 17ZM20.6597 7C20.9359 7.47829 20.772 8.08988 20.2937 8.36602L17.6956 9.86602C17.2173 10.1422 16.6057 9.97829 16.3296 9.5C16.0535 9.02171 16.2173 8.41012 16.6956 8.13398L19.2937 6.63397C19.772 6.35783 20.3836 6.52171 20.6597 7ZM7.66935 14.5C7.94549 14.9783 7.78161 15.5899 7.30332 15.866L4.70525 17.366C4.22695 17.6422 3.61536 17.4783 3.33922 17C3.06308 16.5217 3.22695 15.9101 3.70525 15.634L6.30332 14.134C6.78161 13.8578 7.3932 14.0217 7.66935 14.5ZM20.6597 17C20.3836 17.4783 19.772 17.6422 19.2937 17.366L16.6956 15.866C16.2173 15.5899 16.0535 14.9783 16.3296 14.5C16.6057 14.0217 17.2173 13.8578 17.6956 14.134L20.2937 15.634C20.772 15.9101 20.9359 16.5217 20.6597 17ZM7.66935 9.5C7.3932 9.97829 6.78161 10.1422 6.30332 9.86602L3.70525 8.36602C3.22695 8.08988 3.06308 7.47829 3.33922 7C3.61536 6.52171 4.22695 6.35783 4.70525 6.63397L7.30332 8.13398C7.78161 8.41012 7.94549 9.02171 7.66935 9.5Z"
+                  ></path>
+                </svg>
+              </span>
+            </button>
+            <button class="j-button is-primary px-1">button</button>
+            <button class="j-button is-primary px-1">
+              <span class="el-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
+                  ></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div class="flex align-center select-none m-0">VS</div>
+          <button class="j-button is-primary px-2">
+            <span class="prefix animate-spin">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M11.9995 2C12.5518 2 12.9995 2.44772 12.9995 3V6C12.9995 6.55228 12.5518 7 11.9995 7C11.4472 7 10.9995 6.55228 10.9995 6V3C10.9995 2.44772 11.4472 2 11.9995 2ZM11.9995 17C12.5518 17 12.9995 17.4477 12.9995 18V21C12.9995 21.5523 12.5518 22 11.9995 22C11.4472 22 10.9995 21.5523 10.9995 21V18C10.9995 17.4477 11.4472 17 11.9995 17ZM20.6597 7C20.9359 7.47829 20.772 8.08988 20.2937 8.36602L17.6956 9.86602C17.2173 10.1422 16.6057 9.97829 16.3296 9.5C16.0535 9.02171 16.2173 8.41012 16.6956 8.13398L19.2937 6.63397C19.772 6.35783 20.3836 6.52171 20.6597 7ZM7.66935 14.5C7.94549 14.9783 7.78161 15.5899 7.30332 15.866L4.70525 17.366C4.22695 17.6422 3.61536 17.4783 3.33922 17C3.06308 16.5217 3.22695 15.9101 3.70525 15.634L6.30332 14.134C6.78161 13.8578 7.3932 14.0217 7.66935 14.5ZM20.6597 17C20.3836 17.4783 19.772 17.6422 19.2937 17.366L16.6956 15.866C16.2173 15.5899 16.0535 14.9783 16.3296 14.5C16.6057 14.0217 17.2173 13.8578 17.6956 14.134L20.2937 15.634C20.772 15.9101 20.9359 16.5217 20.6597 17ZM7.66935 9.5C7.3932 9.97829 6.78161 10.1422 6.30332 9.86602L3.70525 8.36602C3.22695 8.08988 3.06308 7.47829 3.33922 7C3.61536 6.52171 4.22695 6.35783 4.70525 6.63397L7.30332 8.13398C7.78161 8.41012 7.94549 9.02171 7.66935 9.5Z"
+                ></path>
+              </svg>
+            </span>
+            <span class="button-content">button</span>
+            <span class="suffix">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
+                ></path>
+              </svg>
+              <span> </span>
+            </span>
+          </button>
+        </div>
+
+        <h2 id="avatar">Avatar</h2>
+        <h5>avatar sizes</h5>
+        <div class="flex gap-4 flex-wrap">
+          <span class="j-avatar is-sm">
+            <img src="https://api.dicebear.com/9.x/dylan/svg" alt="avatar" />
+          </span>
+          <span class="j-avatar is-md">
+            <img src="https://api.dicebear.com/9.x/dylan/svg" alt="avatar" />
+          </span>
+          <span class="j-avatar is-lg">
+            <img src="https://api.dicebear.com/9.x/dylan/svg" alt="avatar" />
+          </span>
+        </div>
+        <h5>avatar shapes</h5>
+        <div class="flex gap-4 flex-wrap">
+          <span class="j-avatar">
+            <img src="https://api.dicebear.com/9.x/dylan/svg" alt="avatar" />
+          </span>
+          <span class="j-avatar is-circle">
+            <img src="https://api.dicebear.com/9.x/dylan/svg" alt="avatar" />
+          </span>
+          <span class="j-avatar is-round">
+            <img src="https://api.dicebear.com/9.x/dylan/svg" alt="avatar" />
+          </span>
+        </div>
+        <h5>text avatar</h5>
+        <div class="flex gap-4 flex-wrap">
+          <span class="j-avatar is-text">
+            <span>文</span>
+          </span>
+          <span class="j-avatar is-text">
+            <span>W</span>
+          </span>
+        </div>
+        <h5>avatar group</h5>
+        <div class="flex gap-4 flex-wrap">
+          <span class="j-avatar-group">
+            <span class="j-avatar is-circle">
+              <img src="https://api.dicebear.com/9.x/dylan/svg" alt="avatar" />
+            </span>
+            <span class="j-avatar is-circle">
+              <img src="https://api.dicebear.com/9.x/dylan/svg" alt="avatar" />
+            </span>
+            <span class="j-avatar is-circle">
+              <img src="https://api.dicebear.com/9.x/dylan/svg" alt="avatar" />
+            </span>
+            <span class="j-avatar is-circle">
+              <img src="https://api.dicebear.com/9.x/dylan/svg" alt="avatar" />
+            </span>
+            <span class="j-avatar is-circle is-text">
+              <span>99+</span>
+            </span>
+          </span>
+        </div>
+
+        <h2 id="badge">Badge</h2>
+        <div class="flex gap-4 flex-wrap">
+          <span class="j-badge">1</span>
+          <span class="j-badge is-contrast">100</span>
+          <span class="j-badge is-primary">100</span>
+          <span class="j-badge is-secondary">100</span>
+          <span class="j-badge is-success">100</span>
+          <span class="j-badge is-warning">100</span>
+          <span class="j-badge is-danger">100</span>
+          <span class="j-badge is-error">100</span>
+        </div>
+        <div class="flex gap-4 flex-wrap">
+          <span class="j-badge is-sm">1</span>
+          <span class="j-badge is-contrast is-sm">100</span>
+          <span class="j-badge is-primary is-sm">100</span>
+          <span class="j-badge is-secondary is-sm">100</span>
+          <span class="j-badge is-success is-sm">100</span>
+          <span class="j-badge is-warning is-sm">100</span>
+          <span class="j-badge is-danger is-sm">100</span>
+          <span class="j-badge is-error is-sm">100</span>
+        </div>
+
+        <h2 id="tag">Tag</h2>
+        <h5>Base Tags</h5>
+        <div class="flex flex-wrap gap-4">
+          <span class="j-tag is-default">default</span>
+          <span class="j-tag is-contrast">contrast</span>
+          <span class="j-tag is-primary">primary</span>
+          <span class="j-tag is-secondary">secondary</span>
+          <span class="j-tag is-outline">outline</span>
+          <span class="j-tag is-ghost">ghost</span>
+        </div>
+
+        <h5>Composite structure</h5>
+        <div class="flex flex-wrap gap-4">
+          <span class="j-tag is-default">
+            <span class="el-prefix">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M19.8001 3.77035C17.9455 0.859147 14.082 0.00263458 11.1708 1.85727L6.11044 5.08107C3.23141 6.91521 2.36191 10.714 4.13686 13.6135C2.93471 15.5852 2.87555 18.1496 4.20064 20.2296C6.05528 23.1408 9.91876 23.9973 12.83 22.1427L17.8903 18.9189C20.7693 17.0847 21.6388 13.2859 19.8639 10.3865C21.0656 8.41543 21.1254 5.85071 19.8001 3.77035ZM18.448 8.77425C17.6282 8.11539 16.6628 7.68286 15.6505 7.49851C15.6882 7.26497 15.6437 7.01723 15.5066 6.80202C15.2099 6.33623 14.5917 6.19918 14.1259 6.49593L9.06558 9.71973C8.59979 10.0165 8.46275 10.6346 8.75949 11.1004C9.05623 11.5662 9.67439 11.7033 10.1402 11.4065L12.2487 10.0633C14.2283 8.8021 16.8554 9.38453 18.1166 11.3641C19.3778 13.3438 18.7953 15.9709 16.8157 17.2321L11.7554 20.4559C9.77574 21.717 7.14858 21.1346 5.88742 19.155C5.11002 17.9347 5.03292 16.4671 5.55276 15.2257C6.37258 15.8846 7.33791 16.3171 8.35026 16.5014C8.31252 16.735 8.35701 16.9827 8.49412 17.1979C8.79086 17.6637 9.40902 17.8008 9.87481 17.504L14.9352 14.2802C15.401 13.9835 15.538 13.3653 15.2413 12.8995C14.9445 12.4337 14.3264 12.2967 13.8606 12.5934L11.7521 13.9367C9.77247 15.1978 7.1453 14.6154 5.88415 12.6358C4.62299 10.6562 5.20542 8.02901 7.18504 6.76786L12.2454 3.54406C14.225 2.2829 16.8522 2.86533 18.1133 4.84495C18.8906 6.06498 18.9681 7.5324 18.448 8.77425Z"
+                ></path>
+              </svg>
+            </span>
+            <span class="tag-content">svelte</span>
+            <span class="el-suffix el-icon" data-action="close">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"
+                ></path>
+              </svg>
+            </span>
+          </span>
+          <span class="j-tag is-contrast">
+            <span class="el-prefix">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M19.8001 3.77035C17.9455 0.859147 14.082 0.00263458 11.1708 1.85727L6.11044 5.08107C3.23141 6.91521 2.36191 10.714 4.13686 13.6135C2.93471 15.5852 2.87555 18.1496 4.20064 20.2296C6.05528 23.1408 9.91876 23.9973 12.83 22.1427L17.8903 18.9189C20.7693 17.0847 21.6388 13.2859 19.8639 10.3865C21.0656 8.41543 21.1254 5.85071 19.8001 3.77035ZM18.448 8.77425C17.6282 8.11539 16.6628 7.68286 15.6505 7.49851C15.6882 7.26497 15.6437 7.01723 15.5066 6.80202C15.2099 6.33623 14.5917 6.19918 14.1259 6.49593L9.06558 9.71973C8.59979 10.0165 8.46275 10.6346 8.75949 11.1004C9.05623 11.5662 9.67439 11.7033 10.1402 11.4065L12.2487 10.0633C14.2283 8.8021 16.8554 9.38453 18.1166 11.3641C19.3778 13.3438 18.7953 15.9709 16.8157 17.2321L11.7554 20.4559C9.77574 21.717 7.14858 21.1346 5.88742 19.155C5.11002 17.9347 5.03292 16.4671 5.55276 15.2257C6.37258 15.8846 7.33791 16.3171 8.35026 16.5014C8.31252 16.735 8.35701 16.9827 8.49412 17.1979C8.79086 17.6637 9.40902 17.8008 9.87481 17.504L14.9352 14.2802C15.401 13.9835 15.538 13.3653 15.2413 12.8995C14.9445 12.4337 14.3264 12.2967 13.8606 12.5934L11.7521 13.9367C9.77247 15.1978 7.1453 14.6154 5.88415 12.6358C4.62299 10.6562 5.20542 8.02901 7.18504 6.76786L12.2454 3.54406C14.225 2.2829 16.8522 2.86533 18.1133 4.84495C18.8906 6.06498 18.9681 7.5324 18.448 8.77425Z"
+                ></path>
+              </svg>
+            </span>
+            <span class="tag-content">svelte</span>
+            <span class="el-suffix el-icon" data-action="close">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"
+                ></path>
+              </svg>
+            </span>
+          </span>
+          <span class="j-tag is-primary">
+            <span class="el-prefix">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12.8873 1.36173C12.3396 1.03958 11.6604 1.03958 11.1127 1.36173L3.36271 5.92056C2.8282 6.23498 2.5 6.8088 2.5 7.42894V16.571C2.5 17.1912 2.8282 17.765 3.36272 18.0794L5.98596 19.6225C7.31923 20.4068 9 19.4454 9 17.8986V7.74655H7V17.8986L4.5 16.428V7.57193L12 3.16016L19.5 7.57193V16.428L12 20.8398L10.2316 19.7996L9.21757 21.5234L11.1127 22.6382C11.6604 22.9604 12.3396 22.9604 12.8873 22.6382L20.6373 18.0794C21.1718 17.765 21.5 17.1912 21.5 16.571V7.42894C21.5 6.8088 21.1718 6.23498 20.6373 5.92056L12.8873 1.36173ZM13.9999 7.49998C12.6372 7.49998 11.6712 7.85114 11.0504 8.46993C10.4336 9.08484 10.3135 9.80885 10.3135 10.2313C10.3135 10.7862 10.4705 11.289 10.7951 11.7048C11.1076 12.1053 11.5199 12.3537 11.9146 12.5159C12.6341 12.8116 13.5358 12.9086 14.2587 12.9863L14.346 12.9957C15.1774 13.0856 15.7998 13.1627 16.2263 13.3411C16.4189 13.4217 16.4983 13.4954 16.531 13.5379C16.5524 13.5658 16.5934 13.6278 16.5934 13.7977C16.5934 14.0618 16.5027 14.2319 16.2204 14.3926C15.873 14.5904 15.2596 14.7396 14.3368 14.7396C13.4218 14.7396 12.7838 14.5705 12.4192 14.3181C12.1357 14.1218 11.9273 13.821 11.9822 13.1683L9.98923 13.0007C9.88075 14.29 10.3479 15.3167 11.2808 15.9625C12.1325 16.5521 13.2518 16.7396 14.3368 16.7396C15.414 16.7396 16.4289 16.5753 17.2098 16.1307C18.0558 15.6491 18.5934 14.8482 18.5934 13.7977C18.5934 13.2414 18.4381 12.7369 18.1162 12.3184C17.8054 11.9144 17.3942 11.6617 16.9981 11.496C16.2701 11.1915 15.3576 11.0932 14.6296 11.0147H14.6296L14.5609 11.0073C13.7274 10.9172 13.1036 10.8423 12.6748 10.666C12.4808 10.5863 12.4025 10.5137 12.3716 10.4742C12.3528 10.4501 12.3135 10.394 12.3135 10.2313C12.3135 10.1538 12.3363 10.0121 12.4624 9.88637C12.5847 9.76449 12.9618 9.49998 13.9999 9.49998C14.9904 9.49998 15.5674 9.60515 15.897 9.80064C16.1123 9.92838 16.3451 10.1633 16.3761 10.9329L18.3745 10.8524C18.3243 9.60675 17.8694 8.64527 16.9173 8.08051C16.0795 7.58349 15.0094 7.49998 13.9999 7.49998Z"
+                ></path>
+              </svg>
+            </span>
+            <span class="tag-content">nodejs</span>
+            <span class="el-suffix el-icon" data-action="close">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"
+                ></path>
+              </svg>
+            </span>
+          </span>
+          <span class="j-tag is-secondary">
+            <span class="el-prefix">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M17.6644 17.6493L10.2602 8H8V16H10V10.9462L16.0869 18.8788C14.8907 19.5909 13.4931 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 14.2053 19.1077 16.2022 17.6644 17.6493ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM14 12V8H16V12H14Z"
+                ></path>
+              </svg>
+            </span>
+            <span class="tag-content">nextjs</span>
+            <span class="el-suffix el-icon" data-action="close">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"
+                ></path>
+              </svg>
+            </span>
+          </span>
+          <span class="j-tag is-outline">
+            <span class="el-prefix">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"
+                ></path>
+              </svg>
+            </span>
+            <span class="tag-content">github</span>
+            <span class="el-suffix el-icon" data-action="close">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"
+                ></path>
+              </svg>
+            </span>
+          </span>
+          <span class="j-tag is-ghost">
+            <span class="el-prefix">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M11 4C11.6487 4 12.2498 4.20569 12.7411 4.55646C11.4486 5.22914 10.2602 6.07623 8.99996 6.80385L9.99996 8.5359C11.575 7.62654 13.0517 6.48541 14.7608 5.83037C16.1134 5.31198 17.681 5.83976 18.4282 7.13398C18.7526 7.69582 18.8749 8.31917 18.8168 8.92006C17.588 8.13708 16.2602 7.53146 15 6.80385L14 8.5359C15.575 9.44525 17.3016 10.1536 18.7234 11.3061C19.8487 12.2183 20.1754 13.8398 19.4282 15.134C19.1037 15.696 18.6249 16.1137 18.0752 16.3638C18.1385 14.9081 18 13.4553 18 12H16C16 13.8184 16.2498 15.6685 15.9626 17.4758C15.7353 18.9063 14.4944 20 13 20C12.351 20 11.7498 19.7942 11.2584 19.4432C12.5508 18.7701 13.7396 17.9238 15 17.1962L14 15.4641C12.4252 16.3733 10.9478 17.5147 9.23912 18.1696C7.88657 18.688 6.31898 18.1602 5.57176 16.866C5.24729 16.304 5.12493 15.6805 5.18316 15.0794C6.41224 15.8621 7.73964 16.4685 8.99997 17.1962L9.99997 15.4641C8.42517 14.5549 6.69801 13.8462 5.27649 12.6939C4.15128 11.7817 3.82455 10.1602 4.57176 8.86602C4.89624 8.30402 5.37506 7.88628 5.9247 7.63618C5.86145 9.09192 5.99997 10.5447 5.99997 12H7.99997C7.99997 10.1816 7.75013 8.33148 8.03733 6.52422C8.26467 5.09369 9.50554 4 11 4ZM14.7925 3.74171C13.8765 2.67659 12.5176 2 11 2C8.7782 2 6.89621 3.44833 6.24435 5.45243C4.86393 5.71314 3.59851 6.55175 2.83971 7.86602C1.72883 9.79013 2.04213 12.1442 3.4518 13.7107C2.98737 15.0366 3.08092 16.5518 3.83971 17.866C4.95059 19.7901 7.14589 20.6958 9.20742 20.2583C10.1234 21.3234 11.4824 22 13 22C15.2217 22 17.1037 20.5517 17.7556 18.5476C19.136 18.2869 20.4014 17.4482 21.1602 16.134C22.2711 14.2099 21.9578 11.8559 20.5481 10.2893C21.0126 8.96345 20.919 7.44825 20.1602 6.13398C19.0493 4.20987 16.854 3.30419 14.7925 3.74171Z"
+                ></path>
+              </svg>
+            </span>
+            <span class="tag-content">openai</span>
+            <span class="el-suffix el-icon" data-action="close">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"
+                ></path>
+              </svg>
+            </span>
+          </span>
+        </div>
+
+        <h2 id="tip">Tip</h2>
+        <div class="j-tip">
+          <div class="tip-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path fill="none" d="M0 0h24v24H0z"></path>
+              <path
+                d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z"
+              ></path>
+            </svg>
+          </div>
+          <div class="tip-title">Unauthorized</div>
+          <div class="tip-content">
+            Your login has expired. Please log in again.
+          </div>
+        </div>
+        <div class="j-tip is-success">
+          <div class="tip-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path fill="none" d="M0 0h24v24H0z"></path>
+              <path
+                d="M12 1L20.2169 2.82598C20.6745 2.92766 21 3.33347 21 3.80217V13.7889C21 15.795 19.9974 17.6684 18.3282 18.7812L12 23L5.6718 18.7812C4.00261 17.6684 3 15.795 3 13.7889V3.80217C3 3.33347 3.32553 2.92766 3.78307 2.82598L12 1ZM12 3.04879L5 4.60434V13.7889C5 15.1263 5.6684 16.3752 6.7812 17.1171L12 20.5963L17.2188 17.1171C18.3316 16.3752 19 15.1263 19 13.7889V4.60434L12 3.04879ZM16.4524 8.22183L17.8666 9.63604L11.5026 16L7.25999 11.7574L8.67421 10.3431L11.5019 13.1709L16.4524 8.22183Z"
+              ></path>
+            </svg>
+          </div>
+          <div class="tip-title">Authorized</div>
+          <div class="tip-content">
+            You have been granted temporary authorization, valid for 1 hour.
+          </div>
+        </div>
+        <div class="j-tip is-warning">
+          <div class="tip-title">Warning</div>
+          <div class="tip-content">
+            Temporary authorization is about to expire. Please refresh in a
+            timely manner.
+          </div>
+        </div>
+        <div class="j-tip is-danger">
+          <div class="tip-content">
+            Your login has expired. Please log in again.
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px">
+        <div class="j-content">
+          <h2 id="table">Table</h2>
+          <h5>base usage</h5>
+          <p></p>
+        </div>
+        <table class="j-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Project Name</th>
+              <th>Status</th>
+              <th>Description</th>
+              <th>Owner</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>星际快递系统</td>
+              <td><strong>进行中</strong></td>
+              <td>
+                开发一套支持<strong>跨星系物流追踪</strong>的平台。详情见<a>项目文档</a>。
+              </td>
+              <td>艾伦·吴</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>猫咪情绪识别 App</td>
+              <td>已完成</td>
+              <td>
+                通过AI分析猫脸表情判断心情。用户反馈：<em
+                  >“终于知道主子为什么生气了！”</em
+                >
+                源码托管在<a>GitHub</a>。
+              </td>
+              <td>林小喵</td>
+            </tr>
+            <tr class="is-selected">
+              <td>3</td>
+              <td>反拖延症闹钟</td>
+              <td><strong style="color: #e74c3c">紧急</strong></td>
+              <td>
+                闹钟响起后必须完成一道数学题才能关闭！<strong>产品经理说</strong>：“这能拯救996打工人。”
+                <a>试用链接</a>
+              </td>
+              <td>王奋斗</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>会说话的盆栽</td>
+              <td>暂停</td>
+              <td>
+                结合IoT与植物传感器，当缺水时会说：“<strong>我快干死了！</strong>”
+                原型视频已上传至<a>YouTube</a>。
+              </td>
+              <td>陈绿叶</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>梦境记录仪</td>
+              <td>规划中</td>
+              <td>
+                利用脑电波+AI生成梦境短视频。技术难点：如何区分<strong>真实记忆</strong>与<strong>深夜吃泡面后的幻觉</strong>？<a
+                  >联系研究团队</a
+                >
+              </td>
+              <td>Dr. 周梦</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" style="text-align: right">Total Projects:</td>
+              <td>5</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="j-content">
+          <p></p>
+          <h5>bordered</h5>
+          <p></p>
+        </div>
+        <table class="j-table is-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Project Name</th>
+              <th>Status</th>
+              <th>Description</th>
+              <th>Owner</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" style="text-align: right">Total Projects:</td>
+              <td>5</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="j-content">
+          <p></p>
+          <h5>striped</h5>
+          <p></p>
+        </div>
+        <table class="j-table is-bordered is-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Project Name</th>
+              <th>Status</th>
+              <th>Description</th>
+              <th>Owner</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" style="text-align: right">Total Projects:</td>
+              <td>5</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="j-content">
+          <p></p>
+          <h5>selected</h5>
+          <p></p>
+        </div>
+        <table class="j-table is-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Project Name</th>
+              <th>Status</th>
+              <th>Description</th>
+              <th>Owner</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr class="is-selected">
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" style="text-align: right">Total Projects:</td>
+              <td>5</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="j-content">
+          <p></p>
+          <h5>hoverable</h5>
+          <p></p>
+        </div>
+        <table class="j-table is-bordered is-hoverable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Project Name</th>
+              <th>Status</th>
+              <th>Description</th>
+              <th>Owner</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" style="text-align: right">Total Projects:</td>
+              <td>5</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="j-content">
+          <p></p>
+          <h5>table container</h5>
+          <p></p>
+        </div>
+        <div class="j-table-container">
+          <table class="j-table is-bordered is-striped">
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+                <td>32</td>
+                <td>33</td>
+                <td>34</td>
+                <td>35</td>
+                <td>36</td>
+                <td>37</td>
+                <td>38</td>
+                <td>39</td>
+                <td>40</td>
+                <td>41</td>
+                <td>42</td>
+                <td>43</td>
+                <td>44</td>
+                <td>45</td>
+                <td>46</td>
+                <td>47</td>
+                <td>48</td>
+                <td>49</td>
+                <td>50</td>
+                <td>51</td>
+                <td>52</td>
+                <td>53</td>
+                <td>54</td>
+                <td>55</td>
+                <td>56</td>
+                <td>57</td>
+                <td>58</td>
+                <td>59</td>
+                <td>60</td>
+                <td>61</td>
+                <td>62</td>
+                <td>63</td>
+                <td>64</td>
+                <td>65</td>
+                <td>66</td>
+                <td>67</td>
+                <td>68</td>
+                <td>69</td>
+                <td>70</td>
+                <td>71</td>
+                <td>72</td>
+                <td>73</td>
+                <td>74</td>
+                <td>75</td>
+                <td>76</td>
+                <td>77</td>
+                <td>78</td>
+                <td>79</td>
+                <td>80</td>
+                <td>81</td>
+                <td>82</td>
+                <td>83</td>
+                <td>84</td>
+                <td>85</td>
+                <td>86</td>
+                <td>87</td>
+                <td>88</td>
+                <td>89</td>
+                <td>90</td>
+                <td>91</td>
+                <td>92</td>
+                <td>93</td>
+                <td>94</td>
+                <td>95</td>
+                <td>96</td>
+                <td>97</td>
+                <td>98</td>
+                <td>99</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>4</td>
+                <td>6</td>
+                <td>8</td>
+                <td>10</td>
+                <td>12</td>
+                <td>14</td>
+                <td>16</td>
+                <td>18</td>
+                <td>20</td>
+                <td>22</td>
+                <td>24</td>
+                <td>26</td>
+                <td>28</td>
+                <td>30</td>
+                <td>32</td>
+                <td>34</td>
+                <td>36</td>
+                <td>38</td>
+                <td>40</td>
+                <td>42</td>
+                <td>44</td>
+                <td>46</td>
+                <td>48</td>
+                <td>50</td>
+                <td>52</td>
+                <td>54</td>
+                <td>56</td>
+                <td>58</td>
+                <td>60</td>
+                <td>62</td>
+                <td>64</td>
+                <td>66</td>
+                <td>68</td>
+                <td>70</td>
+                <td>72</td>
+                <td>74</td>
+                <td>76</td>
+                <td>78</td>
+                <td>80</td>
+                <td>82</td>
+                <td>84</td>
+                <td>86</td>
+                <td>88</td>
+                <td>90</td>
+                <td>92</td>
+                <td>94</td>
+                <td>96</td>
+                <td>98</td>
+                <td>100</td>
+                <td>102</td>
+                <td>104</td>
+                <td>106</td>
+                <td>108</td>
+                <td>110</td>
+                <td>112</td>
+                <td>114</td>
+                <td>116</td>
+                <td>118</td>
+                <td>120</td>
+                <td>122</td>
+                <td>124</td>
+                <td>126</td>
+                <td>128</td>
+                <td>130</td>
+                <td>132</td>
+                <td>134</td>
+                <td>136</td>
+                <td>138</td>
+                <td>140</td>
+                <td>142</td>
+                <td>144</td>
+                <td>146</td>
+                <td>148</td>
+                <td>150</td>
+                <td>152</td>
+                <td>154</td>
+                <td>156</td>
+                <td>158</td>
+                <td>160</td>
+                <td>162</td>
+                <td>164</td>
+                <td>166</td>
+                <td>168</td>
+                <td>170</td>
+                <td>172</td>
+                <td>174</td>
+                <td>176</td>
+                <td>178</td>
+                <td>180</td>
+                <td>182</td>
+                <td>184</td>
+                <td>186</td>
+                <td>188</td>
+                <td>190</td>
+                <td>192</td>
+                <td>194</td>
+                <td>196</td>
+                <td>198</td>
+                <td>200</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>6</td>
+                <td>9</td>
+                <td>12</td>
+                <td>15</td>
+                <td>18</td>
+                <td>21</td>
+                <td>24</td>
+                <td>27</td>
+                <td>30</td>
+                <td>33</td>
+                <td>36</td>
+                <td>39</td>
+                <td>42</td>
+                <td>45</td>
+                <td>48</td>
+                <td>51</td>
+                <td>54</td>
+                <td>57</td>
+                <td>60</td>
+                <td>63</td>
+                <td>66</td>
+                <td>69</td>
+                <td>72</td>
+                <td>75</td>
+                <td>78</td>
+                <td>81</td>
+                <td>84</td>
+                <td>87</td>
+                <td>90</td>
+                <td>93</td>
+                <td>96</td>
+                <td>99</td>
+                <td>102</td>
+                <td>105</td>
+                <td>108</td>
+                <td>111</td>
+                <td>114</td>
+                <td>117</td>
+                <td>120</td>
+                <td>123</td>
+                <td>126</td>
+                <td>129</td>
+                <td>132</td>
+                <td>135</td>
+                <td>138</td>
+                <td>141</td>
+                <td>144</td>
+                <td>147</td>
+                <td>150</td>
+                <td>153</td>
+                <td>156</td>
+                <td>159</td>
+                <td>162</td>
+                <td>165</td>
+                <td>168</td>
+                <td>171</td>
+                <td>174</td>
+                <td>177</td>
+                <td>180</td>
+                <td>183</td>
+                <td>186</td>
+                <td>189</td>
+                <td>192</td>
+                <td>195</td>
+                <td>198</td>
+                <td>201</td>
+                <td>204</td>
+                <td>207</td>
+                <td>210</td>
+                <td>213</td>
+                <td>216</td>
+                <td>219</td>
+                <td>222</td>
+                <td>225</td>
+                <td>228</td>
+                <td>231</td>
+                <td>234</td>
+                <td>237</td>
+                <td>240</td>
+                <td>243</td>
+                <td>246</td>
+                <td>249</td>
+                <td>252</td>
+                <td>255</td>
+                <td>258</td>
+                <td>261</td>
+                <td>264</td>
+                <td>267</td>
+                <td>270</td>
+                <td>273</td>
+                <td>276</td>
+                <td>279</td>
+                <td>282</td>
+                <td>285</td>
+                <td>288</td>
+                <td>291</td>
+                <td>294</td>
+                <td>297</td>
+                <td>300</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>8</td>
+                <td>12</td>
+                <td>16</td>
+                <td>20</td>
+                <td>24</td>
+                <td>28</td>
+                <td>32</td>
+                <td>36</td>
+                <td>40</td>
+                <td>44</td>
+                <td>48</td>
+                <td>52</td>
+                <td>56</td>
+                <td>60</td>
+                <td>64</td>
+                <td>68</td>
+                <td>72</td>
+                <td>76</td>
+                <td>80</td>
+                <td>84</td>
+                <td>88</td>
+                <td>92</td>
+                <td>96</td>
+                <td>100</td>
+                <td>104</td>
+                <td>108</td>
+                <td>112</td>
+                <td>116</td>
+                <td>120</td>
+                <td>124</td>
+                <td>128</td>
+                <td>132</td>
+                <td>136</td>
+                <td>140</td>
+                <td>144</td>
+                <td>148</td>
+                <td>152</td>
+                <td>156</td>
+                <td>160</td>
+                <td>164</td>
+                <td>168</td>
+                <td>172</td>
+                <td>176</td>
+                <td>180</td>
+                <td>184</td>
+                <td>188</td>
+                <td>192</td>
+                <td>196</td>
+                <td>200</td>
+                <td>204</td>
+                <td>208</td>
+                <td>212</td>
+                <td>216</td>
+                <td>220</td>
+                <td>224</td>
+                <td>228</td>
+                <td>232</td>
+                <td>236</td>
+                <td>240</td>
+                <td>244</td>
+                <td>248</td>
+                <td>252</td>
+                <td>256</td>
+                <td>260</td>
+                <td>264</td>
+                <td>268</td>
+                <td>272</td>
+                <td>276</td>
+                <td>280</td>
+                <td>284</td>
+                <td>288</td>
+                <td>292</td>
+                <td>296</td>
+                <td>300</td>
+                <td>304</td>
+                <td>308</td>
+                <td>312</td>
+                <td>316</td>
+                <td>320</td>
+                <td>324</td>
+                <td>328</td>
+                <td>332</td>
+                <td>336</td>
+                <td>340</td>
+                <td>344</td>
+                <td>348</td>
+                <td>352</td>
+                <td>356</td>
+                <td>360</td>
+                <td>364</td>
+                <td>368</td>
+                <td>372</td>
+                <td>376</td>
+                <td>380</td>
+                <td>384</td>
+                <td>388</td>
+                <td>392</td>
+                <td>396</td>
+                <td>400</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>10</td>
+                <td>15</td>
+                <td>20</td>
+                <td>25</td>
+                <td>30</td>
+                <td>35</td>
+                <td>40</td>
+                <td>45</td>
+                <td>50</td>
+                <td>55</td>
+                <td>60</td>
+                <td>65</td>
+                <td>70</td>
+                <td>75</td>
+                <td>80</td>
+                <td>85</td>
+                <td>90</td>
+                <td>95</td>
+                <td>100</td>
+                <td>105</td>
+                <td>110</td>
+                <td>115</td>
+                <td>120</td>
+                <td>125</td>
+                <td>130</td>
+                <td>135</td>
+                <td>140</td>
+                <td>145</td>
+                <td>150</td>
+                <td>155</td>
+                <td>160</td>
+                <td>165</td>
+                <td>170</td>
+                <td>175</td>
+                <td>180</td>
+                <td>185</td>
+                <td>190</td>
+                <td>195</td>
+                <td>200</td>
+                <td>205</td>
+                <td>210</td>
+                <td>215</td>
+                <td>220</td>
+                <td>225</td>
+                <td>230</td>
+                <td>235</td>
+                <td>240</td>
+                <td>245</td>
+                <td>250</td>
+                <td>255</td>
+                <td>260</td>
+                <td>265</td>
+                <td>270</td>
+                <td>275</td>
+                <td>280</td>
+                <td>285</td>
+                <td>290</td>
+                <td>295</td>
+                <td>300</td>
+                <td>305</td>
+                <td>310</td>
+                <td>315</td>
+                <td>320</td>
+                <td>325</td>
+                <td>330</td>
+                <td>335</td>
+                <td>340</td>
+                <td>345</td>
+                <td>350</td>
+                <td>355</td>
+                <td>360</td>
+                <td>365</td>
+                <td>370</td>
+                <td>375</td>
+                <td>380</td>
+                <td>385</td>
+                <td>390</td>
+                <td>395</td>
+                <td>400</td>
+                <td>405</td>
+                <td>410</td>
+                <td>415</td>
+                <td>420</td>
+                <td>425</td>
+                <td>430</td>
+                <td>435</td>
+                <td>440</td>
+                <td>445</td>
+                <td>450</td>
+                <td>455</td>
+                <td>460</td>
+                <td>465</td>
+                <td>470</td>
+                <td>475</td>
+                <td>480</td>
+                <td>485</td>
+                <td>490</td>
+                <td>495</td>
+                <td>500</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px">
+        <div class="j-content">
+          <p></p>
+          <h2 id="breadcrumb">Breadcrumb</h2>
+          <h5>sizes</h5>
+          <p></p>
+        </div>
+        <div class="j-breadcrumb is-sm mb-3" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">step-one</a></li>
+            <li><a href="#">step-two</a></li>
+            <li class="is-active">
+              <a href="#" aria-current="page">current</a>
+            </li>
+          </ul>
+        </div>
+        <div class="j-breadcrumb is-md mb-3" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">step-one</a></li>
+            <li><a href="#">step-two</a></li>
+            <li class="is-active">
+              <a href="#" aria-current="page">current</a>
+            </li>
+          </ul>
+        </div>
+        <div class="j-breadcrumb is-lg" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">step-one</a></li>
+            <li><a href="#">step-two</a></li>
+            <li class="is-active">
+              <a href="#" aria-current="page">current</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="j-content">
+          <p></p>
+          <h5>positions</h5>
+          <p></p>
+        </div>
+        <div class="j-breadcrumb is-sm mb-3" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">step-one</a></li>
+            <li><a href="#">step-two</a></li>
+            <li class="is-active">
+              <a href="#" aria-current="page">current</a>
+            </li>
+          </ul>
+        </div>
+        <div class="j-breadcrumb is-sm is-center mb-3" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">step-one</a></li>
+            <li><a href="#">step-two</a></li>
+            <li class="is-active">
+              <a href="#" aria-current="page">current</a>
+            </li>
+          </ul>
+        </div>
+        <div class="j-breadcrumb is-sm is-right" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">step-one</a></li>
+            <li><a href="#">step-two</a></li>
+            <li class="is-active">
+              <a href="#" aria-current="page">current</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="j-content">
+          <p></p>
+          <h5>with divider</h5>
+          <p></p>
+        </div>
+        <div class="j-breadcrumb is-sm is-dot mb-3" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">step-one</a></li>
+            <li><a href="#">step-two</a></li>
+            <li class="is-active">
+              <a href="#" aria-current="page">current</a>
+            </li>
+          </ul>
+        </div>
+        <div class="j-breadcrumb is-sm is-arrow mb-3" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">step-one</a></li>
+            <li><a href="#">step-two</a></li>
+            <li class="is-active">
+              <a href="#" aria-current="page">current</a>
+            </li>
+          </ul>
+        </div>
+        <div class="j-breadcrumb is-sm is-dash" aria-label="breadcrumbs">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">step-one</a></li>
+            <li><a href="#">step-two</a></li>
+            <li class="is-active">
+              <a href="#" aria-current="page">current</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="j-content">
+          <p></p>
+          <h5>with icon</h5>
+          <p></p>
+        </div>
+        <div class="j-breadcrumb is-sm mb-3" aria-label="breadcrumbs">
+          <ul>
+            <li>
+              <a href="#">
+                <span class="el-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M6 19H18V9.15745L12 3.7029L6 9.15745V19ZM19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20C20 20.5523 19.5523 21 19 21ZM7.5 13H9.5C9.5 14.3807 10.6193 15.5 12 15.5C13.3807 15.5 14.5 14.3807 14.5 13H16.5C16.5 15.4853 14.4853 17.5 12 17.5C9.51472 17.5 7.5 15.4853 7.5 13Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="el-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M9 2.4578V4.58152C6.06817 5.76829 4 8.64262 4 12C4 16.4183 7.58172 20 12 20C15.3574 20 18.2317 17.9318 19.4185 15H21.5422C20.2679 19.0571 16.4776 22 12 22C6.47715 22 2 17.5228 2 12C2 7.52236 4.94289 3.73207 9 2.4578ZM12 2C17.5228 2 22 6.47715 22 12C22 12.3375 21.9833 12.6711 21.9506 13H11V2.04938C11.3289 2.01672 11.6625 2 12 2ZM13 4.06189V11H19.9381C19.4869 7.38128 16.6187 4.51314 13 4.06189Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>step-one</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="el-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M5 3V19H21V21H3V3H5ZM20.2929 6.29289L21.7071 7.70711L16 13.4142L13 10.415L8.70711 14.7071L7.29289 13.2929L13 7.58579L16 10.585L20.2929 6.29289Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>step-two</span>
+              </a>
+            </li>
+            <li class="is-active">
+              <a href="#" aria-current="page">
+                <span class="el-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M2 22L7.29117 20.8242C8.6944 21.5746 10.2975 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.7025 2.42544 15.3056 3.17581 16.7088L2 22ZM8.23428 19.0605L7.58075 18.711L4.63416 19.3658L5.28896 16.4192L4.93949 15.7657C4.32549 14.6175 4 13.3345 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C10.6655 20 9.38248 19.6745 8.23428 19.0605ZM15.4487 7H13.4411L13.2661 9.00024H11.2584L11.4334 7H9.42577L9.25077 9.00024H7V11.0002H9.0758L8.90082 13.0002H7V15.0002H8.72584L8.55089 17H10.5585L10.7335 15.0002H12.7411L12.5662 17H14.5738L14.7488 15.0002H17V13.0002H14.9237L15.0987 11.0002H17V9.00024H15.2737L15.4487 7ZM11.0834 11.0002H13.0911L12.9161 13.0002H10.9085L11.0834 11.0002Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>current</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="j-breadcrumb mb-3" aria-label="breadcrumbs">
+          <ul>
+            <li>
+              <a href="#">
+                <span class="el-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M6 19H18V9.15745L12 3.7029L6 9.15745V19ZM19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20C20 20.5523 19.5523 21 19 21ZM7.5 13H9.5C9.5 14.3807 10.6193 15.5 12 15.5C13.3807 15.5 14.5 14.3807 14.5 13H16.5C16.5 15.4853 14.4853 17.5 12 17.5C9.51472 17.5 7.5 15.4853 7.5 13Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="el-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M9 2.4578V4.58152C6.06817 5.76829 4 8.64262 4 12C4 16.4183 7.58172 20 12 20C15.3574 20 18.2317 17.9318 19.4185 15H21.5422C20.2679 19.0571 16.4776 22 12 22C6.47715 22 2 17.5228 2 12C2 7.52236 4.94289 3.73207 9 2.4578ZM12 2C17.5228 2 22 6.47715 22 12C22 12.3375 21.9833 12.6711 21.9506 13H11V2.04938C11.3289 2.01672 11.6625 2 12 2ZM13 4.06189V11H19.9381C19.4869 7.38128 16.6187 4.51314 13 4.06189Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>step-one</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="el-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M5 3V19H21V21H3V3H5ZM20.2929 6.29289L21.7071 7.70711L16 13.4142L13 10.415L8.70711 14.7071L7.29289 13.2929L13 7.58579L16 10.585L20.2929 6.29289Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>step-two</span>
+              </a>
+            </li>
+            <li class="is-active">
+              <a href="#" aria-current="page">
+                <span class="el-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M2 22L7.29117 20.8242C8.6944 21.5746 10.2975 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.7025 2.42544 15.3056 3.17581 16.7088L2 22ZM8.23428 19.0605L7.58075 18.711L4.63416 19.3658L5.28896 16.4192L4.93949 15.7657C4.32549 14.6175 4 13.3345 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C10.6655 20 9.38248 19.6745 8.23428 19.0605ZM15.4487 7H13.4411L13.2661 9.00024H11.2584L11.4334 7H9.42577L9.25077 9.00024H7V11.0002H9.0758L8.90082 13.0002H7V15.0002H8.72584L8.55089 17H10.5585L10.7335 15.0002H12.7411L12.5662 17H14.5738L14.7488 15.0002H17V13.0002H14.9237L15.0987 11.0002H17V9.00024H15.2737L15.4487 7ZM11.0834 11.0002H13.0911L12.9161 13.0002H10.9085L11.0834 11.0002Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>current</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="j-breadcrumb is-lg" aria-label="breadcrumbs">
+          <ul>
+            <li>
+              <a href="#">
+                <span class="el-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M6 19H18V9.15745L12 3.7029L6 9.15745V19ZM19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20C20 20.5523 19.5523 21 19 21ZM7.5 13H9.5C9.5 14.3807 10.6193 15.5 12 15.5C13.3807 15.5 14.5 14.3807 14.5 13H16.5C16.5 15.4853 14.4853 17.5 12 17.5C9.51472 17.5 7.5 15.4853 7.5 13Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="el-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M9 2.4578V4.58152C6.06817 5.76829 4 8.64262 4 12C4 16.4183 7.58172 20 12 20C15.3574 20 18.2317 17.9318 19.4185 15H21.5422C20.2679 19.0571 16.4776 22 12 22C6.47715 22 2 17.5228 2 12C2 7.52236 4.94289 3.73207 9 2.4578ZM12 2C17.5228 2 22 6.47715 22 12C22 12.3375 21.9833 12.6711 21.9506 13H11V2.04938C11.3289 2.01672 11.6625 2 12 2ZM13 4.06189V11H19.9381C19.4869 7.38128 16.6187 4.51314 13 4.06189Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>step-one</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="el-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M5 3V19H21V21H3V3H5ZM20.2929 6.29289L21.7071 7.70711L16 13.4142L13 10.415L8.70711 14.7071L7.29289 13.2929L13 7.58579L16 10.585L20.2929 6.29289Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>step-two</span>
+              </a>
+            </li>
+            <li class="is-active">
+              <a href="#" aria-current="page">
+                <span class="el-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M2 22L7.29117 20.8242C8.6944 21.5746 10.2975 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.7025 2.42544 15.3056 3.17581 16.7088L2 22ZM8.23428 19.0605L7.58075 18.711L4.63416 19.3658L5.28896 16.4192L4.93949 15.7657C4.32549 14.6175 4 13.3345 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C10.6655 20 9.38248 19.6745 8.23428 19.0605ZM15.4487 7H13.4411L13.2661 9.00024H11.2584L11.4334 7H9.42577L9.25077 9.00024H7V11.0002H9.0758L8.90082 13.0002H7V15.0002H8.72584L8.55089 17H10.5585L10.7335 15.0002H12.7411L12.5662 17H14.5738L14.7488 15.0002H17V13.0002H14.9237L15.0987 11.0002H17V9.00024H15.2737L15.4487 7ZM11.0834 11.0002H13.0911L12.9161 13.0002H10.9085L11.0834 11.0002Z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>current</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="j-content">
+          <p></p>
+          <h2 id="card">Card</h2>
+          <h5>basic usage</h5>
+          <p></p>
+        </div>
+        <div class="py-5">
+          <div
+            class="grid-container grid-col-1 grid-col-sm-2 grid-col-md-3 mb-5"
+          >
+            <div>
+              <div class="j-card" style="max-width: 300px">
+                <div class="card-header">
+                  <p class="header-title">Default Card</p>
+                  <span class="pr-4">
+                    <button
+                      class="j-button is-default is-sm"
+                      aria-label="more-actions"
+                    >
+                      <span class="button-c">Action</span>
+                    </button>
+                  </span>
+                </div>
+                <div class="card-content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris....
+                </div>
+                <footer class="card-footer px-4 pb-4 pt-1 border-t-transparent">
+                  <button class="j-button is-default w-full" type="button">
+                    Action Button
+                  </button>
+                </footer>
+              </div>
+            </div>
+            <div>
+              <div class="j-card is-vertical" style="max-width: 300px">
+                <div class="card-header">
+                  <p class="header-title">Default Card</p>
+                  <p class="header-description">
+                    This card uses the default size variant.
+                  </p>
+                </div>
+                <div class="card-content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris....
+                </div>
+                <footer class="card-footer">
+                  <button class="j-button is-default w-full" type="button">
+                    Action Button
+                  </button>
+                </footer>
+              </div>
+            </div>
+            <div>
+              <div class="j-card is-vertical" style="max-width: 300px">
+                <div class="card-header">
+                  <p class="header-title">Default Card</p>
+                </div>
+                <div class="card-content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris....
+                </div>
+                <footer class="card-footer">
+                  <button class="j-button is-text" type="button">
+                    <span class="button-content">See our guildeline</span>
+                    <div class="el-suffix el-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"
+                        ></path>
+                      </svg>
+                    </div>
+                  </button>
+                </footer>
+              </div>
+            </div>
+          </div>
+          <div class="grid-container grid-col-1 grid-col-sm-2 grid-col-md-3">
+            <div>
+              <div class="j-card" style="max-width: 300px">
+                <div class="card-header">
+                  <p class="header-title">Card Title</p>
+                  <span class="header-icon">
+                    <button
+                      class="j-button is-ghost is-icon is-sm"
+                      aria-label="more-options"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M5 10C3.9 10 3 10.9 3 12C3 13.1 3.9 14 5 14C6.1 14 7 13.1 7 12C7 10.9 6.1 10 5 10ZM19 10C17.9 10 17 10.9 17 12C17 13.1 17.9 14 19 14C20.1 14 21 13.1 21 12C21 10.9 20.1 10 19 10ZM12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10Z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </span>
+                </div>
+                <div class="card-media">
+                  <figure class="image aspect-video">
+                    <img
+                      src="https://placehold.co/600x400/lightgray/gray?text=Loading..."
+                      alt="card-image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris....
+                </div>
+                <footer class="card-footer px-3 py-2">
+                  <div class="j-button-group w-full">
+                    <button class="j-button is-ghost w-full" type="button">
+                      Action 1
+                    </button>
+                    <button class="j-button is-ghost w-full" type="button">
+                      Action 2
+                    </button>
+                    <button class="j-button is-ghost w-full" type="button">
+                      Action 3
+                    </button>
+                  </div>
+                </footer>
+              </div>
+            </div>
+            <div>
+              <div class="j-card" style="max-width: 300px">
+                <div class="card-media">
+                  <figure class="image aspect-video">
+                    <img
+                      src="https://placehold.co/600x400/lightgray/gray?text=Loading..."
+                      alt="card-image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="mb-3 flex justify-between">
+                    <button class="j-button is-default is-sm">
+                      <span class="el-icon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M5 18H19V11.0314C19 7.14806 15.866 4 12 4C8.13401 4 5 7.14806 5 11.0314V18ZM12 2C16.9706 2 21 6.04348 21 11.0314V20H3V11.0314C3 6.04348 7.02944 2 12 2ZM9.5 21H14.5C14.5 22.3807 13.3807 23.5 12 23.5C10.6193 23.5 9.5 22.3807 9.5 21Z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span class="button-content">notification</span>
+                    </button>
+                    <button class="j-button is-ghost is-sm">
+                      <span class="el-icon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M10.6144 17.7956C10.277 18.5682 9.20776 18.5682 8.8704 17.7956L7.99275 15.7854C7.21171 13.9966 5.80589 12.5726 4.0523 11.7942L1.63658 10.7219C.868536 10.381.868537 9.26368 1.63658 8.92276L3.97685 7.88394C5.77553 7.08552 7.20657 5.60881 7.97427 3.75892L8.8633 1.61673C9.19319.821767 10.2916.821765 10.6215 1.61673L11.5105 3.75894C12.2782 5.60881 13.7092 7.08552 15.5079 7.88394L17.8482 8.92276C18.6162 9.26368 18.6162 10.381 17.8482 10.7219L15.4325 11.7942C13.6789 12.5726 12.2731 13.9966 11.492 15.7854L10.6144 17.7956ZM4.53956 9.82234C6.8254 10.837 8.68402 12.5048 9.74238 14.7996 10.8008 12.5048 12.6594 10.837 14.9452 9.82234 12.6321 8.79557 10.7676 7.04647 9.74239 4.71088 8.71719 7.04648 6.85267 8.79557 4.53956 9.82234ZM19.4014 22.6899 19.6482 22.1242C20.0882 21.1156 20.8807 20.3125 21.8695 19.8732L22.6299 19.5353C23.0412 19.3526 23.0412 18.7549 22.6299 18.5722L21.9121 18.2532C20.8978 17.8026 20.0911 16.9698 19.6586 15.9269L19.4052 15.3156C19.2285 14.8896 18.6395 14.8896 18.4628 15.3156L18.2094 15.9269C17.777 16.9698 16.9703 17.8026 15.956 18.2532L15.2381 18.5722C14.8269 18.7549 14.8269 19.3526 15.2381 19.5353L15.9985 19.8732C16.9874 20.3125 17.7798 21.1156 18.2198 22.1242L18.4667 22.6899C18.6473 23.104 19.2207 23.104 19.4014 22.6899ZM18.3745 19.0469 18.937 18.4883 19.4878 19.0469 18.937 19.5898 18.3745 19.0469Z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span class="button-content">magic</span>
+                    </button>
+                  </div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris....
+                </div>
+                <footer class="card-footer px-4 pb-4 pt-1 border-t-transparent">
+                  <button class="j-button is-default w-full" type="button">
+                    Action Button
+                  </button>
+                </footer>
+              </div>
+            </div>
+            <div>
+              <div class="j-card" style="max-width: 300px">
+                <div class="card-content">
+                  <figure class="image aspect-video border-radius">
+                    <img
+                      src="https://placehold.co/600x400/lightgray/gray?text=Loading..."
+                      alt="card-image"
+                    />
+                  </figure>
+                  <div class="my-3 flex justify-between">
+                    <button class="j-tag is-default is-sm">
+                      <span class="el-icon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M5 18H19V11.0314C19 7.14806 15.866 4 12 4C8.13401 4 5 7.14806 5 11.0314V18ZM12 2C16.9706 2 21 6.04348 21 11.0314V20H3V11.0314C3 6.04348 7.02944 2 12 2ZM9.5 21H14.5C14.5 22.3807 13.3807 23.5 12 23.5C10.6193 23.5 9.5 22.3807 9.5 21Z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span class="tag-content">notification</span>
+                    </button>
+                    <button class="j-tag is-ghost is-sm">
+                      <span class="el-icon">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M10.6144 17.7956C10.277 18.5682 9.20776 18.5682 8.8704 17.7956L7.99275 15.7854C7.21171 13.9966 5.80589 12.5726 4.0523 11.7942L1.63658 10.7219C.868536 10.381.868537 9.26368 1.63658 8.92276L3.97685 7.88394C5.77553 7.08552 7.20657 5.60881 7.97427 3.75892L8.8633 1.61673C9.19319.821767 10.2916.821765 10.6215 1.61673L11.5105 3.75894C12.2782 5.60881 13.7092 7.08552 15.5079 7.88394L17.8482 8.92276C18.6162 9.26368 18.6162 10.381 17.8482 10.7219L15.4325 11.7942C13.6789 12.5726 12.2731 13.9966 11.492 15.7854L10.6144 17.7956ZM4.53956 9.82234C6.8254 10.837 8.68402 12.5048 9.74238 14.7996 10.8008 12.5048 12.6594 10.837 14.9452 9.82234 12.6321 8.79557 10.7676 7.04647 9.74239 4.71088 8.71719 7.04648 6.85267 8.79557 4.53956 9.82234ZM19.4014 22.6899 19.6482 22.1242C20.0882 21.1156 20.8807 20.3125 21.8695 19.8732L22.6299 19.5353C23.0412 19.3526 23.0412 18.7549 22.6299 18.5722L21.9121 18.2532C20.8978 17.8026 20.0911 16.9698 19.6586 15.9269L19.4052 15.3156C19.2285 14.8896 18.6395 14.8896 18.4628 15.3156L18.2094 15.9269C17.777 16.9698 16.9703 17.8026 15.956 18.2532L15.2381 18.5722C14.8269 18.7549 14.8269 19.3526 15.2381 19.5353L15.9985 19.8732C16.9874 20.3125 17.7798 21.1156 18.2198 22.1242L18.4667 22.6899C18.6473 23.104 19.2207 23.104 19.4014 22.6899ZM18.3745 19.0469 18.937 18.4883 19.4878 19.0469 18.937 19.5898 18.3745 19.0469Z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span class="tag-content">magic</span>
+                    </button>
+                  </div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris....
+                </div>
+                <footer
+                  class="card-footer px-4 pb-4 pt-1 border-t-transparent gap-2"
+                >
+                  <button class="j-button is-default w-full" type="button">
+                    Action 1
+                  </button>
+                  <button class="j-button is-default w-full" type="button">
+                    Action 2
+                  </button>
+                </footer>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="j-content">
+          <p></p>
+          <h2 id="pagination">Pagination</h2>
+          <h5>basic usage</h5>
+        </div>
+        <div class="py-5">
+          <div class="j-pagination">
+            <ul class="pagination">
+              <li class="item">
+                <a href="" class="j-button is-icon is-ghost">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"
+                    ></path>
+                  </svg>
+                </a>
+              </li>
+              <li class="item">
+                <a href="" class="j-button is-icon is-ghost">1</a>
+              </li>
+              <li class="item">
+                <a href="" class="j-button is-icon is-ghost">2</a>
+              </li>
+              <li class="item">
+                <span class="j-button is-icon is-active">3</span>
+              </li>
+              <li class="item">
+                <a href="" class="j-button is-icon is-ghost">4</a>
+              </li>
+              <li class="item more">
+                <span class="j-button is-icon is-ghost">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M5 10C3.9 10 3 10.9 3 12C3 13.1 3.9 14 5 14C6.1 14 7 13.1 7 12C7 10.9 6.1 10 5 10ZM19 10C17.9 10 17 10.9 17 12C17 13.1 17.9 14 19 14C20.1 14 21 13.1 21 12C21 10.9 20.1 10 19 10ZM12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10Z"
+                    ></path>
+                  </svg>
+                </span>
+              </li>
+              <li class="item">
+                <a href="" class="j-button is-icon is-ghost">8</a>
+              </li>
+              <li class="item">
+                <a href="" class="j-button is-icon is-ghost">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"
+                    ></path>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 id="loading">Loading State</h2>
+        <div class="flex gap-4 flex-wrap">
+          <div
+            style="width: 120px; height: 120px"
+            class="bg-gray-3 position-relative m-0"
+          >
+            <div class="j-loading is-active">
+              <div class="loading-spinner"></div>
+            </div>
+          </div>
+          <div
+            style="width: 120px; height: 120px"
+            class="bg-gray-3 position-relative m-0"
+          >
+            <div class="j-loading is-bold is-active">
+              <div class="loading-spinner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container main-container pb-5">
+      <h2 id="content">Content Container</h2>
+      <div class="j-radio is-group my-5" id="content-radio">
+        <label class="radio-label">
+          <input type="radio" name="content" value="sm" />
+          <span class="radio-text">is-sm</span>
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="content" value="md" checked />
+          <span class="radio-text">is-md</span>
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="content" value="lg" />
+          <span class="radio-text">is-lg</span>
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="content" value="xl" />
+          <span class="radio-text">is-xl</span>
+        </label>
+      </div>
+
+      <div
+        id="demo"
+        class="j-content is-md"
+        style="box-shadow: var(--shadow-sm); padding: 24px"
+      >
+        <!-- 全面 HTML 元素中文示例 - 用于 .j-content 容器 -->
+        <h1>一级标题：文档主标题</h1>
+        <p>
+          本文档旨在全面展示 <code>.j-content</code> 容器对各类 HTML
+          元素的渲染能力，涵盖从基础文本到复杂结构的所有常见场景。
+        </p>
+
+        <h2>二级标题：核心内容区块</h2>
+        <p>
+          这是段落文本，用于承载主要信息。支持多种内联语义标签，例如：<strong>加粗（strong）</strong>、<b>加粗（b）</b>、<em>强调（em）</em>、<i>斜体（i）</i>、<u>下划线（u）</u>、<s>删除线（s）</s>、<del>删除（del）</del>、<ins>插入（ins）</ins>。
+        </p>
+
+        <h3>三级标题：细节展开</h3>
+        <p>特殊文本类型示例：</p>
+        <ul>
+          <li><mark>高亮文本（mark）</mark>：用于突出显示</li>
+          <li><small>次要说明文字（small）</small>：如版权信息</li>
+          <li>上标：E = mc<sup>2</sup>；下标：H<sub>2</sub>O</li>
+          <li>缩写：<abbr title="层叠样式表">CSS</abbr> 是网页样式语言</li>
+          <li>
+            定义术语：<dfn>人工智能</dfn>（AI）指由机器模拟人类智能行为的技术
+          </li>
+          <li>变量：<var>x</var> = 10</li>
+          <li>程序输出：<samp>File not found.</samp></li>
+          <li>键盘输入：<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd></li>
+          <li>
+            时间标记：<time datetime="2026-02-08T14:30:00+08:00"
+              >2026年2月8日 14:30</time
+            >
+          </li>
+        </ul>
+
+        <h4>四级标题：列表与定义</h4>
+        <dl>
+          <dt>HTML</dt>
+          <dd>超文本标记语言，用于构建网页结构。</dd>
+          <dt>CSS</dt>
+          <dd>层叠样式表，用于控制网页外观。</dd>
+          <dt>JavaScript</dt>
+          <dd>一种脚本语言，用于实现网页交互功能。</dd>
+        </dl>
+
+        <h5>五级标题：引用与代码</h5>
+        <blockquote>
+          <p>“代码是写给人看的，附带能在机器上运行。”</p>
+          <cite>—— 《代码大全》</cite>
+        </blockquote>
+        <p>
+          行内引用：<q>所见即所得</q> 是 <code>富文本编辑</code> 的核心理念。
+        </p>
+
+        <pre><code>&lt;!-- 示例 HTML 结构 --&gt;
+&lt;div class="j-content"&gt;
+  &lt;h1&gt;标题&lt;/h1&gt;
+  &lt;p&gt;段落内容...&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+        <h6>六级标题：媒体与嵌入内容</h6>
+        <figure>
+          <img
+            src="https://placehold.co/600x400/lightgray/gray?text=Loading..."
+            alt="示例图片"
+          />
+          <figcaption>
+            图1：这是一张占位图片，alt 文本完整Description其用途。
+          </figcaption>
+        </figure>
+
+        <figure>
+          <video
+            controls
+            width="100%"
+            poster="https://placehold.co/600x300/lightgray/gray?text=Loading..."
+          >
+            <source src="./assets/sample.mp4" type="video/mp4" />
+            您的浏览器不支持 video 标签。
+          </video>
+          <figcaption>图2：视频嵌入示例</figcaption>
+        </figure>
+
+        <figure>
+          <audio controls>
+            <source src="./assets/new_order.mp3" type="audio/mpeg" />
+            您的浏览器不支持 audio 标签。
+          </audio>
+          <figcaption>音频播放控件</figcaption>
+        </figure>
+
+        <figure>
+          <iframe
+            src="https://www.example.com"
+            width="100%"
+            height="300"
+            frameborder="0"
+            title="嵌入网页"
+          ></iframe>
+          <figcaption>嵌入的第三方内容（如地图或文档）</figcaption>
+        </figure>
+
+        <h2>表格与数据展示</h2>
+        <table>
+          <caption>
+            用户信息表
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">姓名</th>
+              <th scope="col">邮箱</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001</td>
+              <td>张伟</td>
+              <td>zhangwei@example.com</td>
+              <td>活跃</td>
+            </tr>
+            <tr>
+              <td>002</td>
+              <td>李娜</td>
+              <td>lina@example.com</td>
+              <td>休眠</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>交互与元信息</h2>
+        <details>
+          <summary>点击展开技术栈详情</summary>
+          <p>本项目使用以下技术：</p>
+          <ul>
+            <li>前端：React + TypeScript</li>
+            <li>样式：CSS Modules + PostCSS</li>
+            <li>构建：Vite</li>
+          </ul>
+        </details>
+
+        <address>
+          联系我们：<br />
+          邮箱：<a href="mailto:contact@example.com">contact@example.com</a
+          ><br />
+          地址：中国上海市浦东新区世纪大道 100 号
+        </address>
+
+        <h2>较少使用的语义元素</h2>
+        <p>中文注音示例（适用于生僻字教学）：</p>
+        <p>
+          <ruby> 麒<rt>qí</rt> 麟<rt>lín</rt> </ruby>
+        </p>
+
+        <p>双向隔离文本（用于混合语言）：<bdi>用户名：张三</bdi></p>
+        <p>从右向左文本（如阿拉伯语）：<bdo dir="rtl">مرحبا بالعالم</bdo></p>
+
+        <p>
+          进度指示（仅展示，非交互）：<progress value="70" max="100">
+            70%
+          </progress>
+        </p>
+        <p>计量值：<meter value="0.8" min="0" max="1">良好</meter></p>
+
+        <h2>分隔与换行</h2>
+        <p>
+          此处为普通段落。天墬未形，冯冯翼翼，洞洞灟灟，故曰太昭。道始生虚廓，虚廓生宇宙，宇宙生气。气有涯垠，清阳者薄靡而为天，重浊者凝滞而为地。清妙之合专易，重浊之凝竭难，故天先成而地后定。天地之袭精为阴阳，阴阳之专精为四时，四时之散精为万物。积阳之热气生火，火气之精者为日；积阴之寒气为水，水气之精者为月；日月之淫为精者为星辰，天受日月星辰，地受水潦尘埃。
+        </p>
+        <hr />
+        <p>水平线（hr）下方的新内容区块。</p>
+        <p>强制<br />换行示例。</p>
+
+        <h2>只读表单控件（用于展示）</h2>
+        <p>
+          输入框（只读）：<input
+            class="j-input"
+            id="test-input-readonly"
+            type="text"
+            value="示例文本"
+            readonly
+            size="20"
+          />
+        </p>
+        <p>
+          选择器：<select class="j-select" name="test-select">
+            <option value="">test 1</option>
+            <option value="">test 2</option>
+          </select>
+        </p>
+        <p>多行文本（只读）：</p>
+        <p>
+          <textarea
+            class="j-textarea"
+            id="test-textarea-readonly"
+            readonly
+            rows="3"
+            cols="24"
+          >
+这是预填充的只读多行文本内容，用于展示样式。
+          </textarea>
+        </p>
+
+        <h2>其他</h2>
+        <p>空元素示例：<wbr />（无实际渲染，用于允许长单词换行）</p>
+        <p>
+          数据属性展示（视觉不可见，但结构存在）：<data value="CN">中国</data>
+        </p>
+
+        <hr />
+
+        <footer>
+          <p>
+            最后更新：<time datetime="2026-02-08">2026年2月8日</time> |
+            本内容为自动化测试样本，所有数据均为虚构。
+          </p>
+        </footer>
+      </div>
+    </div>
+
+    <style>
+      header {
+        border-bottom: 1px solid var(--border-color);
+      }
+      .main-container {
+        border-left: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+      }
+      #menu-offcanvas a:hover,
+      #menu-offcanvas a.is-current {
+        background-color: var(--primary);
+        color: var(--primary-foreground);
+      }
+    </style>
+  </body>
+</html>

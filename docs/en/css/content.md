@@ -14,9 +14,7 @@ It can handle almost any HTML tag:
 - Tables `table` `tr` `td` `th`
 
 ```html
-<div class="j-content">
-    {... any HTML tags ...}
-</div>
+<div class="j-content">{... any HTML tags ...}</div>
 ```
 
 ## Four Sizes
