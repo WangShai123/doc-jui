@@ -76,8 +76,11 @@ const testDrop = new drop(target, {
  *   - @property {HTMLElement|string} content The content of the drop container, if a custom container is used, pass in {HTMLElement}, if the default container is used, pass in {string}
  *   - @property {number|{show?:number,hide?:number}} delay Delay time for showing/hiding the drop container (unit: milliseconds), default 0
  *   - @property {boolean} hoverIntent Whether to enable hoverIntent mode, default true
- *   - @property {string|null} className Additional class name for customizing the drop container's style, default null
+ *   - @property {string|null} className Additional class name for drop, default null
  *   - @property {string|null} id Add an id attribute to the drop container, default null
+ *   - @property {String|null} containerClassName Add class attribute to the drop container, default null
+ *   - @property {Function|null} onShown Callback function after drop is shown, default null
+ *   - @property {Function|null} onHidden Callback function after drop is hidden, default null
  *
  * @return {jui.drop} Drop container instance
  */

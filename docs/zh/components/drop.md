@@ -76,8 +76,11 @@ const testDrop = new drop(target, {
  *   - @property {HTMLElement|string} content 下拉容器的内容，如果自定义容器，则传入{HTMLElement}，如果使用默认容器，则传入{string}
  *   - @property {number|{show?:number,hide?:number}} delay 下拉容器显示/隐藏的延迟时间（单位：毫秒），默认 0
  *   - @property {boolean} hoverIntent 是否启用 hoverIntent 模式，默认 true
- *   - @property {string|null} className 额外的类名，用于自定义下拉容器的样式，默认 null
+ *   - @property {string|null} className 为顶层 drop 添加额外的类名，默认 null
  *   - @property {string|null} id 为下拉容器添加id属性，默认 null
+ *   - @property {String|null} containerClassName 为下拉容器添加 class 属性，默认 null
+ *   - @property {Function|null} onShown 下拉容器显示后的回调函数，默认 null
+ *   - @property {Function|null} onHidden 下拉容器隐藏后的回调函数，默认 null
  *
  * @return {jui.drop} 下拉容器实例
  */
