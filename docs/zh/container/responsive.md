@@ -85,18 +85,18 @@
 | 类名            | 描述                              | 断点类名                                                                       |
 | --------------- | --------------------------------- | ------------------------------------------------------------------------------ |
 | .grid-container | Grid 容器，默认单列（移动端友好） |                                                                                |
-| .grid-col-1     | 固定列数 1                        | .grid-sm-col-1 <br> .grid-md-col-1 <br> .grid-lg-col-1 <br> .grid-xl-col-1     |
-| .grid-col-2     | 固定列数 2                        | .grid-sm-col-2 <br> .grid-md-col-2 <br> .grid-lg-col-2 <br> .grid-xl-col-2     |
-| .grid-col-3     | 固定列数 3                        | .grid-sm-col-3 <br> .grid-md-col-3 <br> .grid-lg-col-3 <br> .grid-xl-col-3     |
-| .grid-col-4     | 固定列数 4                        | .grid-sm-col-4 <br> .grid-md-col-4 <br> .grid-lg-col-4 <br> .grid-xl-col-4     |
-| .grid-col-5     | 固定列数 5                        | .grid-sm-col-5                                                                 |
-| .grid-col-6     | 固定列数 6                        | .grid-sm-col-6 <br> .grid-md-col-6 <br> .grid-lg-col-6 <br> .grid-xl-col-6     |
-| .grid-col-7     | 固定列数 7                        | .grid-sm-col-7                                                                 |
-| .grid-col-8     | 固定列数 8                        | .grid-sm-col-8                                                                 |
-| .grid-col-9     | 固定列数 9                        | .grid-sm-col-9                                                                 |
-| .grid-col-10    | 固定列数 10                       | .grid-sm-col-10                                                                |
-| .grid-col-11    | 固定列数 11                       | .grid-sm-col-11                                                                |
-| .grid-col-12    | 固定列数 12                       | .grid-sm-col-12 <br> .grid-md-col-12 <br> .grid-lg-col-12 <br> .grid-xl-col-12 |
+| .grid-col-1     | 固定列数 1                        | .grid-col-sm-1 <br> .grid-col-md-1 <br> .grid-col-lg-1 <br> .grid-col-xl-1     |
+| .grid-col-2     | 固定列数 2                        | .grid-col-sm-2 <br> .grid-col-md-2 <br> .grid-col-lg-2 <br> .grid-col-xl-2     |
+| .grid-col-3     | 固定列数 3                        | .grid-col-sm-3 <br> .grid-col-md-3 <br> .grid-col-lg-3 <br> .grid-col-xl-3     |
+| .grid-col-4     | 固定列数 4                        | .grid-col-sm-4 <br> .grid-col-md-4 <br> .grid-col-lg-4 <br> .grid-col-xl-4     |
+| .grid-col-5     | 固定列数 5                        | .grid-col-sm-5                                                                 |
+| .grid-col-6     | 固定列数 6                        | .grid-col-sm-6 <br> .grid-col-md-6 <br> .grid-col-lg-6 <br> .grid-col-xl-6     |
+| .grid-col-7     | 固定列数 7                        | .grid-col-sm-7                                                                 |
+| .grid-col-8     | 固定列数 8                        | .grid-col-sm-8                                                                 |
+| .grid-col-9     | 固定列数 9                        | .grid-col-sm-9                                                                 |
+| .grid-col-10    | 固定列数 10                       | .grid-col-sm-10                                                                |
+| .grid-col-11    | 固定列数 11                       | .grid-col-sm-11                                                                |
+| .grid-col-12    | 固定列数 12                       | .grid-col-sm-12 <br> .grid-col-md-12 <br> .grid-col-lg-12 <br> .grid-col-xl-12 |
 
 ## Grid 示例
 
