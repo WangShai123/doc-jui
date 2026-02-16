@@ -110,7 +110,7 @@ testModal.hide();
  *  - @property {boolean} fullscreen 是否全屏显示，默认 `false`
  *  - @property {boolean} header 是否显示标题栏，默认 `true`
  *  - @property {boolean} footer 是否显示底部栏，默认 `true`
- *  - @property {boolean} position 模态框位置，默认 `center`，可选 `center`, `top`, `bottom`, `left`, `right`, `top-left`, `top-right`, `bottom-left`, `bottom-right`
+ *  - @property {boolean} position 模态框位置，默认 `center`，可选 `center`, `top-center`, `bottom-center`, `left`, `right`, `top-left`, `top-right`, `bottom-left`, `bottom-right`
  *  - @property {boolean} escClose 是否允许按下 ESC 键关闭模态框，默认 `false`
  *  - @property {boolean} bgClose 是否允许点击背景关闭模态框，默认 `false`
  *  - @property {string} style 为 j-modal 容器自定义行内样式，默认 `null`

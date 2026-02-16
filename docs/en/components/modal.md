@@ -112,7 +112,7 @@ testModal.hide();
  *  - @property {boolean} fullscreen Whether to display fullscreen, default `false`
  *  - @property {boolean} header Whether to display the header bar, default `true`
  *  - @property {boolean} footer Whether to display the footer bar, default `true`
- *  - @property {boolean} position Modal position, default `center`, optional values: `center`, `top`, `bottom`, `left`, `right`, `top-left`, `top-right`, `bottom-left`, `bottom-right`
+ *  - @property {boolean} position Modal position, default `center`, optional values: `center`, `top-cener`, `bottom-center`, `left`, `right`, `top-left`, `top-right`, `bottom-left`, `bottom-right`
  *  - @property {boolean} escClose Whether to allow closing the modal by pressing ESC key, default `false`
  *  - @property {boolean} bgClose Whether to allow closing the modal by clicking the background, default `false`
  *  - @property {string} style Custom inline style for the j-modal container, default `null`

@@ -16,7 +16,7 @@ JUI includes `CSS` stylesheets and a `JavaScript` component library; the former 
 1. Basic Atomic Classes: Preset common atomic classes to help quickly define element styles.
 2. Components: Provides a variety of common components by default to help quickly define interactive behaviors.
 
-## Component Formats
+## Component Files
 
 JUI provides three different forms of `JavaScript` files, Use as needed:
 
@@ -37,6 +37,11 @@ ES Module Standard. All components are mounted on the `jui` object, does not sup
 ES Module standard, supports Tree-shaking, effectively reducing bundle size.
 
 :::
+
+JUI provides two different forms of `CSS` files, which can be used as needed:
+
+- `jui.min.css` Full `CSS` style file.
+- `jui.pure.min.css` Pure theme and component `CSS` style file without `utilities` classes.
 
 ## Naming Conventions
 
