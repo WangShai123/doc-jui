@@ -37,6 +37,7 @@ export default [
       { title: { zh: '卡片', en: 'Card' }, link: '#card' },
       { title: { zh: '分页', en: 'Pagination' }, link: '#pagination' },
       { title: { zh: '加载状态', en: 'Loading' }, link: '#loading' },
+      { title: { zh: '工具栏', en: 'Toolbar' }, link: '#toolbar' },
       { title: { zh: '内容域', en: 'Content' }, link: '#content' },
     ],
   },

@@ -1,6 +1,6 @@
 import {
   copy,
-  manager as cm,
+  service,
   accordion,
   drop,
   modal,
@@ -13,8 +13,10 @@ import {
   validator,
   on,
   q,
+  menu,
   t as ts,
-} from "./jui.module.js";
+} from "jealer-jui/dist/jui.module.js";
+
 import locales from "./locales.js";
 const { show, success, error, lite } = toast;
 const t = (key) => {
@@ -166,7 +168,7 @@ export const __modal = () => {
   const form = q(".example-modal-form");
 
   if (basic) {
-    const basicModal = cm.get("basicModal", () => {
+    const basicModal = service.get("basicModal", () => {
       return new modal({
         title: t("tip"),
         content: t("thisIsAModal"),
@@ -197,7 +199,7 @@ export const __modal = () => {
   }
 
   if (fullscreen) {
-    const fullscreenModal = cm.get("fullscreenModal", () => {
+    const fullscreenModal = service.get("fullscreenModal", () => {
       return new modal({
         title: t("tip"),
         content: t("thisIsAFullWidthModal"),
@@ -228,7 +230,7 @@ export const __modal = () => {
   }
 
   if (form) {
-    const formModal = cm.get("formModal", () => {
+    const formModal = service.get("formModal", () => {
       return new modal({
         title: t("edit"),
         confirmText: t("submit"),
@@ -647,4 +649,115 @@ export const __content = () => {
       }
     }
   });
+};
+
+const menuData = [
+  {
+    id: 10,
+    title: "首页",
+    url: "#home",
+  },
+  {
+    id: 20,
+    title: "产品中心",
+    url: "#products",
+    children: [
+      {
+        id: 21,
+        title: "智能硬件",
+        url: "#hardware",
+      },
+      {
+        id: 22,
+        title: "软件服务",
+        url: "#software",
+        children: [
+          {
+            id: 221,
+            title: "SaaS 平台",
+            url: "#saas",
+          },
+          {
+            id: 222,
+            title: "企业定制",
+            url: "#enterprise",
+            children: [
+              {
+                id: 2221,
+                title: "CRM 系统",
+                url: "#crm",
+              },
+              {
+                id: 2222,
+                title: "ERP 系统",
+                url: "#erp",
+              },
+              {
+                id: 2223,
+                title: "OA 系统",
+                url: "#oa",
+              },
+            ],
+          },
+          {
+            id: 223,
+            title: "移动应用",
+            url: "#mobile",
+          },
+        ],
+      },
+      {
+        id: 23,
+        title: "云服务",
+        url: "#cloud",
+      },
+    ],
+  },
+  {
+    id: 30,
+    title: "解决方案",
+    url: "#solutions",
+    children: [
+      {
+        id: 31,
+        title: "零售行业",
+        url: "#retail",
+      },
+      {
+        id: 32,
+        title: "制造业",
+        url: "#manufacturing",
+      },
+      {
+        id: 33,
+        title: "金融行业",
+        url: "#finance",
+      },
+    ],
+  },
+  {
+    id: 40,
+    title: "关于我们",
+    url: "#about",
+    children: [
+      {
+        id: 41,
+        title: "公司简介",
+        url: "#company",
+      },
+      {
+        id: 42,
+        title: "联系我们",
+        url: "#contact",
+      },
+    ],
+  },
+];
+export const __mobileMenu = () => {
+  const _menu = new menu(false, {
+    backText: t("Back"),
+    items: menuData,
+  });
+  _menu.build();
+  q("#mobile-menu-container").append(_menu.menu);
 };

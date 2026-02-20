@@ -22,10 +22,11 @@ singleton(Class, args = [], cacheKey = '', isReset = false, ttl = null) {}
 ```
 
 ```js [示例]
-const inst1 = singleton(MyService)
+const inst1 = singleton(MyService);
 
-const inst2 = singleton(MyService, [opt], 'my-service', false, 60000)
+const inst2 = singleton(MyService, [opt], "my-service", false, 60000);
 ```
+
 :::
 
 ## 释放实例
@@ -38,7 +39,7 @@ const inst2 = singleton(MyService, [opt], 'my-service', false, 60000)
  * @param {string} key - 缓存键
  * @returns {void}
  */
-const release = (key) => {}
+const release = (key) => {};
 ```
 
 ## 销毁所有
@@ -50,13 +51,14 @@ const release = (key) => {}
  * @description 销毁所有缓存实例与计时器
  * @returns {void}
  */
-const destroyAll = () => {}
+const destroyAll = () => {};
 ```
 
-## 管理对象
+## 服务管理
 
-`manager` 是一个简单的组件实例管理对象，包含：
-  - `instances`：内部 Map
-  - `get(key, factory)`：惰性创建并返回实例
-  - `destroy(key)`：调用实例的 `destroy()`（若存在），并从 Map 删除
-  - `destroyAll()`：销毁并清空所有实例
+`service` 是一个简单的服务管理对象，包含：
+
+- `instances`：内部 Map
+- `get(key, factory)`：惰性创建并返回实例
+- `destroy(key)`：调用实例的 `destroy()`（若存在），并从 Map 删除
+- `destroyAll()`：销毁并清空所有实例

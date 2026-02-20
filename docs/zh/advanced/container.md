@@ -25,26 +25,26 @@
 ::: code-group
 
 ```js [index.js]
-import {container} from 'jui'
+import { container } from "jui";
 
-const container = Container.run()
+const container = Container.run();
 
 class Logger {}
 class Service {
-    constructor(logger, name) {
-        this.logger = logger;
-        this.name = name
-    }
+  constructor(logger, name) {
+    this.logger = logger;
+    this.name = name;
+  }
 }
 
-container.bind('logger', Logger, { singleton: true })
-container.bind('service', Service, { deps: ['logger'] })
-container.bind('config', { port: 3000 })
+container.bind("logger", Logger, { singleton: true });
+container.bind("service", Service, { deps: ["logger"] });
+container.bind("config", { port: 3000 });
 
 // 获取单例 service（依赖 logger）
-const svc = container.get('service')
+const svc = container.get("service");
 // 传入运行时参数，绕过单例缓存
-const svc2 = container.get('service', 'runArg')
+const svc2 = container.get("service", "runArg");
 ```
 
 :::
@@ -72,6 +72,15 @@ const svc2 = container.get('service', 'runArg')
 
 - `has(id)` -> `boolean`
   - 检查服务是否已绑定。
+
+- `unbind(id)` -> `boolean`
+  - 移除指定服务的绑定，并释放服务实例，删除服务数据
+
+- `destroy(id)` -> `boolean`
+  - 销毁指定服务的实例缓存（不清空绑定）
+
+- `destroyAll()` -> `void`
+  - 销毁所有服务实例（不清空绑定）
 
 - `reset()` -> `void`
   - 清空所有绑定与实例缓存（用于测试）。

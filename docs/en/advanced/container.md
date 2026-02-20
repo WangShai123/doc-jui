@@ -25,26 +25,26 @@ Get global singleton container instance through `Container.run()`.
 ::: code-group
 
 ```js [index.js]
-import {container} from 'jui'
+import { container } from "jui";
 
-const container = Container.run()
+const container = Container.run();
 
 class Logger {}
 class Service {
-    constructor(logger, name) {
-        this.logger = logger;
-        this.name = name
-    }
+  constructor(logger, name) {
+    this.logger = logger;
+    this.name = name;
+  }
 }
 
-container.bind('logger', Logger, { singleton: true })
-container.bind('service', Service, { deps: ['logger'] })
-container.bind('config', { port: 3000 })
+container.bind("logger", Logger, { singleton: true });
+container.bind("service", Service, { deps: ["logger"] });
+container.bind("config", { port: 3000 });
 
 // Get singleton service (depends on logger)
-const svc = container.get('service')
+const svc = container.get("service");
 // Pass runtime parameters, bypass singleton cache
-const svc2 = container.get('service', 'runArg')
+const svc2 = container.get("service", "runArg");
 ```
 
 :::
@@ -72,6 +72,15 @@ const svc2 = container.get('service', 'runArg')
 
 - `has(id)` -> `boolean`
   - Check if service is bound.
+
+- `unbind(id)` -> `boolean`
+  - Remove service binding and release service instance, delete service data
+
+- `destroy(id)` -> `boolean`
+  - Destroy service instance cache (do not clear bindings)
+
+- `destroyAll()` -> `void`
+  - Destroy all service instances (do not clear bindings)
 
 - `reset()` -> `void`
   - Clear all bindings and instance cache (for testing).

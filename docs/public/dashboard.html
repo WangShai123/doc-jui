@@ -13,6 +13,7 @@
     <!-- Favicon Component -->
     <link rel="shortcut icon" type="images/x-icon" href="./favicon.ico" />
     <!-- StyleSheet Component -->
+    <!-- <link rel="stylesheet" href="../dist/jui.min.css" /> -->
     <link rel="stylesheet" href="./assets/jui.min.css" />
     <!-- JavaScript Component -->
     <script src="./assets/dashboard.js" type="module"></script>
@@ -130,6 +131,14 @@
             </button>
             <button class="j-button is-outline example-modal-form">
               form modal
+            </button>
+          </div>
+          <div class="flex gap-4 flex-wrap">
+            <button class="j-button is-secondary example-modal-custom">
+              custom demo 1
+            </button>
+            <button class="j-button is-secondary example-modal-custom-2">
+              custom demo 2
             </button>
           </div>
 
@@ -252,7 +261,7 @@
           </div>
 
           <h2 id="menu">Menu</h2>
-          <h5>horizontal menu</h5>
+          <h5>horizontal menu (desktop)</h5>
           <div>
             <nav class="j-menu">
               <ul class="menu">
@@ -274,7 +283,7 @@
                 </li>
                 <li class="menu-item"><a>level-one</a></li>
                 <li class="menu-item menu-item-has-children">
-                  <a>has-children</a>
+                  <a href="#">has-children</a>
                   <ul class="sub-menu">
                     <li class="menu-item"><a>child one</a></li>
                     <li class="menu-item"><a>child two</a></li>
@@ -289,7 +298,7 @@
                 </li>
                 <li class="menu-item">no-link-notice</li>
                 <li class="menu-item menu-item-has-children list-card-menu">
-                  <a>list-card</a>
+                  <a href="#">list-card</a>
                   <ul class="sub-menu">
                     <li class="menu-item"><a>child one</a></li>
                     <li class="menu-item"><a>child two</a></li>
@@ -306,7 +315,7 @@
                   </ul>
                 </li>
                 <li class="menu-item menu-item-has-children advanced-card-menu">
-                  <a>advanced-card</a>
+                  <a href="#">advanced-card</a>
                   <ul class="sub-menu">
                     <li class="menu-item"><a>child one</a></li>
                     <li class="menu-item">
@@ -368,7 +377,90 @@
             </nav>
           </div>
 
-          <h5>vertical menu</h5>
+          <h5>vertical menu (mobile)</h5>
+          <div style="border: 1px solid var(--border-color-sm); width: 240px">
+            <nav class="j-mobile-menu" id="mobile-menu">
+              <ul class="menu">
+                <li class="menu-item">
+                  <a>
+                    <icon class="el-icon el-prefix">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20C20 20.5523 19.5523 21 19 21ZM6 19H18V9.15745L12 3.7029L6 9.15745V19ZM8 15H16V17H8V15Z"
+                        ></path>
+                      </svg>
+                    </icon>
+                    <span class="menu-text">menu</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a><span class="menu-text">level-one</span></a>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                  <a href="#">has-children</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item">
+                      <a><span class="menu-text">child one</span></a>
+                    </li>
+                    <li class="menu-item menu-item-has-children">
+                      <a>child two</a>
+                      <ul class="sub-menu">
+                        <li class="menu-item"><a>sub child one</a></li>
+                        <li class="menu-item"><a>sub child two</a></li>
+                        <li class="menu-item">
+                          <a>
+                            <span class="menu-text">
+                              sub child three: long text, it'll be automatically
+                              wrapped
+                            </span>
+                          </a>
+                        </li>
+                        <li class="menu-item"><a>sub child four</a></li>
+                        <li class="menu-item"><a>sub child five</a></li>
+                      </ul>
+                    </li>
+                    <li class="menu-item">
+                      <a>
+                        <span class="menu-text"
+                          >child three: long text, it'll be automatically
+                          wrapped
+                        </span>
+                      </a>
+                    </li>
+                    <li class="menu-item"><a>child four</a></li>
+                    <li class="menu-item"><a>child five</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item">no-link-notice</li>
+                <li class="menu-item">
+                  <a href="#">
+                    <span class="el-icon el-prefix">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M3 12H5V21H3V12ZM19 8H21V21H19V8ZM11 2H13V21H11V2Z"
+                        ></path>
+                      </svg>
+                    </span>
+                    <span class="menu-text">level-one</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a><span class="menu-text">level-one</span></a>
+                </li>
+                <li class="menu-item">
+                  <a><span class="menu-text">level-one</span></a>
+                </li>
+              </ul>
+            </nav>
+          </div>
 
           <h5>drop menu</h5>
           <div>
@@ -4270,7 +4362,7 @@ disabled</textarea
               width="100%"
               poster="https://placehold.co/600x300/lightgray/gray?text=Loading..."
             >
-              <source src="../public/sample.mp4" type="video/mp4" />
+              <source src="./assets/sample.mp4" type="video/mp4" />
               您的浏览器不支持 video 标签。
             </video>
             <figcaption>图2：视频嵌入示例</figcaption>
@@ -4278,7 +4370,7 @@ disabled</textarea
 
           <figure>
             <audio controls>
-              <source src="../public/new_order.mp3" type="audio/mpeg" />
+              <source src="./assets/new_order.mp3" type="audio/mpeg" />
               您的浏览器不支持 audio 标签。
             </audio>
             <figcaption>音频播放控件</figcaption>

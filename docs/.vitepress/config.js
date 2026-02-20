@@ -26,7 +26,7 @@ export default defineConfig({
           "/zh/": [
             {
               text: "简介",
-              collapsed: true,
+              collapsed: false,
               items: [
                 { text: "什么是 JUI?", link: "/zh/what-is-jui" },
                 { text: "快速开始", link: "/zh/getting-started" },
@@ -49,6 +49,7 @@ export default defineConfig({
                 { text: "选项卡", link: "/zh/components/tabs" },
                 { text: "手风琴", link: "/zh/components/accordion" },
                 { text: "抛物线", link: "/zh/components/parabola" },
+                { text: "菜单", link: "/zh/components/menu" },
                 { text: "主题模式", link: "/zh/components/theme" },
                 { text: "表单验证", link: "/zh/components/validator" },
               ],
@@ -114,6 +115,7 @@ export default defineConfig({
                 { text: "Cookie", link: "/zh/utils/cookie" },
                 { text: "HTTP", link: "/zh/utils/http" },
                 { text: "DOM 操作", link: "/zh/utils/dom" },
+                { text: "图标", link: "/zh/utils/icons" },
                 { text: "常量", link: "/zh/utils/const" },
                 { text: "日志", link: "/zh/utils/log" },
               ],
@@ -149,6 +151,7 @@ export default defineConfig({
           "/en/": [
             {
               text: "Introduction",
+              collapsed: false,
               items: [
                 { text: "What is JUI?", link: "/en/what-is-jui" },
                 { text: "Getting Started", link: "/en/getting-started" },
@@ -156,10 +159,12 @@ export default defineConfig({
             },
             {
               text: "Color System",
+              collapsed: true,
               items: [{ text: "Color System", link: "/en/color/palette" }],
             },
             {
               text: "Interaction Components",
+              collapsed: false,
               items: [
                 { text: "Modal", link: "/en/components/modal" },
                 { text: "Toast", link: "/en/components/toast" },
@@ -169,42 +174,60 @@ export default defineConfig({
                 { text: "Tabs", link: "/en/components/tabs" },
                 { text: "Accordion", link: "/en/components/accordion" },
                 { text: "Parabola", link: "/en/components/parabola" },
+                { text: "Menu", link: "/en/components/menu" },
                 { text: "Theme", link: "/en/components/theme" },
                 { text: "Form Validator", link: "/en/components/validator" },
               ],
             },
             {
               text: "Static Components",
+              collapsed: true,
               items: [
-                { text: "Icon", link: "/en/css/icon" },
-                { text: "Button", link: "/en/css/button" },
-                { text: "Avatar", link: "/en/css/avatar" },
-                { text: "Badge", link: "/en/css/badge" },
-                { text: "Tag", link: "/en/css/tag" },
-                { text: "Tip", link: "/en/css/tip" },
-                { text: "Table", link: "/en/css/table" },
-                { text: "Card", link: "/en/css/card" },
-                { text: "Breadcrumb", link: "/en/css/breadcrumb" },
-                { text: "Pagination", link: "/en/css/pagination" },
-                { text: "Content", link: "/en/css/content" },
-                { text: "Animation", link: "/en/css/animation" },
+                {
+                  text: "Container & Fonts",
+                  items: [
+                    { text: "Container", link: "/en/container/container" },
+                    {
+                      text: "Responsive",
+                      link: "/en/container/responsive",
+                    },
+                    { text: "Fonts", link: "/en/css/font-family" },
+                  ],
+                },
+                {
+                  text: "Basic Elements",
+                  items: [
+                    { text: "Icon", link: "/en/css/icon" },
+                    { text: "Button", link: "/en/css/button" },
+                    { text: "Avatar", link: "/en/css/avatar" },
+                    { text: "Badge", link: "/en/css/badge" },
+                    { text: "Tag", link: "/en/css/tag" },
+                    { text: "Tip", link: "/en/css/tip" },
+                    { text: "Table", link: "/en/css/table" },
+                    { text: "Card", link: "/en/css/card" },
+                    { text: "Breadcrumb", link: "/en/css/breadcrumb" },
+                    { text: "Pagination", link: "/en/css/pagination" },
+                    { text: "Content", link: "/en/css/content" },
+                    { text: "Animation", link: "/en/css/animation" },
+                  ],
+                },
+                {
+                  text: "Form Elements",
+                  items: [
+                    { text: "Form", link: "/en/form/form" },
+                    { text: "Input", link: "/en/form/input" },
+                    { text: "Textarea", link: "/en/form/textarea" },
+                    { text: "Radio", link: "/en/form/radio" },
+                    { text: "Checkbox", link: "/en/form/checkbox" },
+                    { text: "Select", link: "/en/form/select" },
+                    { text: "File", link: "/en/form/file" },
+                  ],
+                },
+                {
+                  text: "CSS Utilities",
+                  items: [{ text: "Utilities", link: "/en/css/utilities" }],
+                },
               ],
-            },
-            {
-              text: "Form Elements",
-              items: [
-                { text: "Form", link: "/en/form/form" },
-                { text: "Input", link: "/en/form/input" },
-                { text: "Textarea", link: "/en/form/textarea" },
-                { text: "Radio", link: "/en/form/radio" },
-                { text: "Checkbox", link: "/en/form/checkbox" },
-                { text: "Select", link: "/en/form/select" },
-                { text: "File", link: "/en/form/file" },
-              ],
-            },
-            {
-              text: "CSS Utilities",
-              items: [{ text: "Utilities", link: "/en/css/utilities" }],
             },
             {
               text: "Utilities Function",
@@ -217,6 +240,7 @@ export default defineConfig({
                 { text: "Cookie", link: "/en/utils/cookie" },
                 { text: "HTTP", link: "/en/utils/http" },
                 { text: "DOM", link: "/en/utils/dom" },
+                { text: "Icons", link: "/en/utils/icons" },
                 { text: "Const", link: "/en/utils/const" },
                 { text: "Log", link: "/en/utils/log" },
               ],

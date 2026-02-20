@@ -22,10 +22,11 @@ singleton(Class, args = [], cacheKey = '', isReset = false, ttl = null) {}
 ```
 
 ```js [Example]
-const inst1 = singleton(MyService)
+const inst1 = singleton(MyService);
 
-const inst2 = singleton(MyService, [opt], 'my-service', false, 60000)
+const inst2 = singleton(MyService, [opt], "my-service", false, 60000);
 ```
+
 :::
 
 ## Release Instance
@@ -38,7 +39,7 @@ Release instance under specified cache key; if instance defines `destroy()` meth
  * @param {string} key - Cache key
  * @returns {void}
  */
-const release = (key) => {}
+const release = (key) => {};
 ```
 
 ## Destroy All
@@ -50,13 +51,14 @@ Destroy and clear all cached instances and timers, will attempt to call `destroy
  * @description Destroy all cached instances and timers
  * @returns {void}
  */
-const destroyAll = () => {}
+const destroyAll = () => {};
 ```
 
-## Management Object
+## Service Management
 
-`manager` is a simple component instance management object, containing:
-  - `instances`: Internal Map
-  - `get(key, factory)`: Lazily create and return instance
-  - `destroy(key)`: Call instance's `destroy()` (if exists), and delete from Map
-  - `destroyAll()`: Destroy and clear all instances
+`service` is a simple service management object, containing:
+
+- `instances`: Internal Map
+- `get(key, factory)`: Lazily create and return instance
+- `destroy(key)`: Call instance's `destroy()` (if exists), and delete from Map
+- `destroyAll()`: Destroy and clear all instances
