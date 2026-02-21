@@ -78,11 +78,12 @@ q(".test-menu-container").append(mobileMenu.menu);
 
 ```js
 /**
- * @description 绑定或创建一个手机版菜单
+ * @description 绑定或创建一个手机版菜单（侧边栏菜单 或 底部工具栏菜单）
  * @param {HTMLElement|Strting|false} element - 菜单元素或选择器或 false（创建一个新的）
  * @param {Object} options - 菜单选项参数
  *  - @property {String} id - 菜单id，默认 自动生成随机id
  *  - @property {String} backText - 返回按钮文本，默认 "Back"
+ *  - @property {String} type - 菜单类型，默认 "mobile"，可选 "bottom"
  *  - @property {Array[Object]} items - 菜单项数据，必填。每个项是一个对象，包含以下属性：
  *     - @var {String} id - 菜单项id
  *     - @var {String} title - 菜单项标题
@@ -90,7 +91,7 @@ q(".test-menu-container").append(mobileMenu.menu);
  *     - @var {String} target - 菜单项链接的 target 属性
  *     - @var {String} classes - 菜单项的类名
  *     - @var {Number} menu_item_parent - 菜单项的父级id
- *     - @var {array[object]} children - 菜单项的子项集
+ *     - @var {Array[Object]} children - 菜单项的子项集
  *
  * @return {Object} 菜单实例
  */

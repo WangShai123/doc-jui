@@ -83,6 +83,7 @@ q(".test-menu-container").append(mobileMenu.menu);
  * @param {Object} options - menu options
  *  - @property {String} id - menu id, default: a random id generated
  *  - @property {String} backText - back button text, default: "Back"
+ *  - @property {String} type - menu type, default "mobile", optional "bottom"
  *  - @property {Array[Object]} items - menu items data, required. Each item is an object with the following properties:
  *     - @var {String} id - menu item id
  *     - @var {String} title - menu item title

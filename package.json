@@ -19,7 +19,7 @@
     "document"
   ],
   "devDependencies": {
-    "jealer-jui": "^0.2.9",
+    "jealer-jui": "^0.3.0",
     "markdown-it-mathjax3": "^4",
     "vite": "^7.3.1",
     "vitepress": "2.0.0-alpha.16"
