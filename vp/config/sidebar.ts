@@ -1,0 +1,92 @@
+import type { SidebarConfig } from 'vanilla-press';
+
+export default [
+  { label: 'sidebar.quickStart', path: 'quick-start' },
+  {
+    label: 'sidebar.componentArchitecture',
+    collapse: true,
+    children: [
+      { label: 'sidebar.designStandard', path: 'core/standard' },
+      { label: 'sidebar.defineComponent', path: 'core/define' },
+      { label: 'sidebar.view', path: 'core/view' },
+      { label: 'sidebar.scheduler', path: 'core/scheduler' },
+      { label: 'sidebar.animation', path: 'core/animation' },
+    ],
+  },
+  {
+    label: 'sidebar.cssArchitecture',
+    collapse: true,
+    children: [
+      { label: 'sidebar.tokens', path: 'tokens/tokens' },
+      { label: 'sidebar.colorTokens', path: 'tokens/color-tokens' },
+      { label: 'sidebar.colorSystem', path: 'tokens/color-system' },
+    ],
+  },
+  {
+    label: 'sidebar.interactionComponents',
+    children: [
+      { label: 'sidebar.modal', path: 'components/modal' },
+      { label: 'sidebar.form', path: 'components/form' },
+      { label: 'sidebar.validator', path: 'components/validator' },
+      { label: 'sidebar.offcanvas', path: 'components/offcanvas' },
+      { label: 'sidebar.accordion', path: 'components/accordion' },
+      { label: 'sidebar.tabs', path: 'components/tabs' },
+      { label: 'sidebar.flow', path: 'components/flow' },
+      { label: 'sidebar.swiper', path: 'components/swiper' },
+      { label: 'sidebar.pagination', path: 'components/pagination' },
+      { label: 'sidebar.menu', path: 'components/menu' },
+      { label: 'sidebar.toc', path: 'components/toc' },
+
+      { label: 'sidebar.toast', path: 'components/toast' },
+      { label: 'sidebar.drop', path: 'components/drop' },
+      { label: 'sidebar.tooltip', path: 'components/tooltip' },
+      { label: 'sidebar.theme', path: 'components/theme' },
+      { label: 'sidebar.parabola', path: 'components/parabola' },
+      { label: 'sidebar.popup', path: 'components/popup' },
+      { label: 'sidebar.sticky', path: 'components/sticky' },
+      { label: 'sidebar.icons', path: 'components/icons' },
+    ],
+  },
+  {
+    label: 'sidebar.staticComponents',
+    collapse: true,
+    children: [
+      { label: 'sidebar.container', path: 'css/container' },
+      { label: 'sidebar.layout', path: 'css/layout' },
+      { label: 'sidebar.fonts', path: 'css/fonts' },
+      { label: 'sidebar.icons', path: 'css/icons' },
+      { label: 'sidebar.button', path: 'css/button' },
+      { label: 'sidebar.avatar', path: 'css/avatar' },
+      { label: 'sidebar.badge', path: 'css/badge' },
+      { label: 'sidebar.tag', path: 'css/tag' },
+      { label: 'sidebar.tip', path: 'css/tip' },
+      { label: 'sidebar.breadcrumb', path: 'css/breadcrumb' },
+      { label: 'sidebar.animation', path: 'css/animation' },
+      { label: 'sidebar.editor', path: 'css/editor' },
+    ],
+  },
+  {
+    label: 'sidebar.utilitiesFunctions',
+    collapse: true,
+    children: [
+      { label: 'ID', path: 'utilities/id' },
+      { label: 'DOM', path: 'utilities/dom' },
+      { label: 'sidebar.browser', path: 'utilities/browser' },
+      { label: 'sidebar.event', path: 'utilities/event' },
+      { label: 'sidebar.timer', path: 'utilities/timer' },
+      { label: 'HTTP', path: 'utilities/http' },
+      { label: 'sidebar.object', path: 'utilities/object' },
+      { label: 'sidebar.refs', path: 'utilities/refs' },
+      { label: 'sidebar.state', path: 'utilities/state' },
+      { label: 'Types', path: 'utilities/types' },
+    ],
+  },
+  {
+    label: 'sidebar.others',
+    collapse: true,
+    children: [
+      { label: 'sidebar.relatedLibraries', path: 'others/related-libraries' },
+      { label: 'sidebar.changelog', path: 'others/changelog' },
+    ],
+  },
+] satisfies SidebarConfig;

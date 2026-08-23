@@ -1,0 +1,235 @@
+.margin-block {
+  margin-block: 1rem;
+}
+
+.odd-bg {
+  color: white;
+}
+
+.odd-bg > div:nth-child(odd) {
+  background-color: var(--ui-indigo);
+}
+
+.odd-bg > div:nth-child(even) {
+  background-color: var(--ui-gray);
+}
+
+.test-card {
+  height: 240px;
+  border: 1px solid var(--ui-border-subtle);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-gradient-sunrise,
+.bg-gradient-aurora,
+.bg-gradient-ocean,
+.bg-gradient-meadow,
+.bg-gradient-ember,
+.bg-gradient-dusk,
+.bg-gradient-gold,
+.bg-gradient-forest {
+  color: var(--ui-fg);
+  background-color: var(--ui-bg);
+}
+
+.bg-gradient-auto {
+  background:
+    radial-gradient(
+      circle at 16% 16%,
+      color-mix(in srgb, var(--tone-solid) 30%, transparent),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 84% 0%,
+      color-mix(in srgb, var(--tone-tint) 24%, transparent),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ui-bg) 78%, var(--ui-surface-raised)),
+      color-mix(in srgb, var(--ui-surface-raised) 86%, var(--tone-subtle))
+    );
+}
+
+.bg-gradient-sunrise {
+  background:
+    radial-gradient(
+      circle at 16% 16%,
+      color-mix(in srgb, var(--tone-solid) 30%, transparent),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 84% 0%,
+      color-mix(in srgb, var(--state-warning) 24%, transparent),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ui-bg) 78%, var(--ui-surface-raised)),
+      color-mix(in srgb, var(--ui-surface-raised) 86%, var(--tone-subtle))
+    );
+}
+
+.bg-gradient-aurora {
+  background:
+    radial-gradient(
+      circle at 12% 12%,
+      color-mix(in srgb, var(--state-info) 24%, transparent),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 84% 18%,
+      color-mix(in srgb, var(--state-success) 20%, transparent),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ui-bg) 82%, var(--state-info-subtle)),
+      color-mix(
+        in srgb,
+        var(--ui-surface-raised) 84%,
+        var(--state-success-subtle)
+      )
+    );
+}
+
+.bg-gradient-ocean {
+  background:
+    radial-gradient(
+      circle at 22% 12%,
+      color-mix(in srgb, var(--state-info) 28%, transparent),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 78% 0%,
+      color-mix(in srgb, var(--ui-blue) 22%, transparent),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ui-bg) 76%, var(--ui-blue-tint)),
+      color-mix(
+        in srgb,
+        var(--ui-surface-raised) 84%,
+        var(--ui-teal-subtle, var(--state-info-subtle))
+      )
+    );
+}
+
+.bg-gradient-meadow {
+  background:
+    radial-gradient(
+      circle at 18% 16%,
+      color-mix(in srgb, var(--state-success) 28%, transparent),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 82% 14%,
+      color-mix(in srgb, var(--ui-mint) 24%, transparent),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ui-bg) 80%, var(--state-success-subtle)),
+      color-mix(in srgb, var(--ui-surface-raised) 84%, var(--ui-mint-tint))
+    );
+}
+
+.bg-gradient-ember {
+  background:
+    radial-gradient(
+      circle at 18% 10%,
+      color-mix(in srgb, var(--state-warning) 30%, transparent),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 84% 18%,
+      color-mix(in srgb, var(--state-danger) 22%, transparent),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ui-bg) 80%, var(--state-warning-subtle)),
+      color-mix(
+        in srgb,
+        var(--ui-surface-raised) 84%,
+        var(--state-danger-subtle)
+      )
+    );
+}
+
+.bg-gradient-dusk {
+  background:
+    radial-gradient(
+      circle at 18% 16%,
+      color-mix(in srgb, var(--tone-solid) 28%, transparent),
+      transparent 33%
+    ),
+    radial-gradient(
+      circle at 82% 14%,
+      color-mix(in srgb, var(--ui-violet) 22%, transparent),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ui-bg) 78%, var(--tone-wash)),
+      color-mix(
+        in srgb,
+        var(--ui-surface-raised) 86%,
+        var(--ui-violet-subtle, var(--tone-subtle))
+      )
+    );
+}
+
+.bg-gradient-gold {
+  background:
+    radial-gradient(
+      circle at 20% 16%,
+      color-mix(in srgb, var(--ui-gold) 24%, transparent),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      color-mix(in srgb, var(--state-warning) 18%, transparent),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(
+        in srgb,
+        var(--ui-bg) 80%,
+        var(--ui-gold-surface, var(--state-warning-subtle))
+      ),
+      color-mix(in srgb, var(--ui-surface-raised) 86%, var(--ui-gold-tint))
+    );
+}
+
+.bg-gradient-forest {
+  background:
+    radial-gradient(
+      circle at 16% 16%,
+      color-mix(in srgb, var(--ui-olive) 24%, transparent),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 84% 14%,
+      color-mix(in srgb, var(--state-success) 18%, transparent),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ui-bg) 80%, var(--ui-olive-tint)),
+      color-mix(
+        in srgb,
+        var(--ui-surface-raised) 86%,
+        var(--state-success-subtle)
+      )
+    );
+}
+
+.swiper-demo .j-swiper {
+  max-width: 600px;
+  aspect-ratio: 3 / 2;
+}

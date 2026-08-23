@@ -1,0 +1,19 @@
+{
+  "name": "doc-jui",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vanilla-press build",
+    "dev": "vanilla-press dev",
+    "fix": "vp check --fix"
+  },
+  "devDependencies": {
+    "vanilla-press": "^1.4.19",
+    "vite-plus": "^0.2.9"
+  },
+  "allowScripts": {
+    "esbuild": true,
+    "fsevents@2.3.3": true
+  }
+}
