@@ -60,6 +60,7 @@ export default [
       { label: 'sidebar.badge', path: 'css/badge' },
       { label: 'sidebar.tag', path: 'css/tag' },
       { label: 'sidebar.tip', path: 'css/tip' },
+      { label: 'sidebar.input', path: 'css/input' },
       { label: 'sidebar.breadcrumb', path: 'css/breadcrumb' },
       { label: 'sidebar.animation', path: 'css/animation' },
       { label: 'sidebar.editor', path: 'css/editor' },

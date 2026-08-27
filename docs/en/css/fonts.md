@@ -4,6 +4,8 @@
 
 CSS font classes in the default stylesheet.
 
+<Badge text="CSS" theme="warning"/>
+
 ## Emoji Font
 
 Emoji

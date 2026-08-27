@@ -4,6 +4,8 @@
 
 默认样式文件中的 CSS 图标类：内置若干常用 CSS 图标。
 
+<Badge text="CSS" theme="warning"/>
+
 ## close
 
 类名：`icon-close`

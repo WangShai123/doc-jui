@@ -4,6 +4,8 @@
 
 默认样式文件中的 CSS 字体类。
 
+<Badge text="CSS" theme="warning"/>
+
 ## 表情符号字体
 
 Emoji

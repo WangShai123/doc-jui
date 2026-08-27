@@ -4,6 +4,8 @@
 
 默认样式文件中的 CSS 动画类。
 
+<Badge text="CSS" theme="warning"/>
+
 ## 动画类
 
 ```css

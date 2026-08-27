@@ -4,13 +4,15 @@
 
 CSS container classes in the default stylesheet.
 
+<Badge text="CSS" theme="warning"/>
+
 ## Basic Containers
 
-| Class            | Description                                                        |
-| ---------------- | ------------------------------------------------------------------ |
+| Class            | Description                                                                     |
+| ---------------- | ------------------------------------------------------------------------------- |
 | `container`      | Centered container, max width `--screen-xl` (1200px), horizontal padding `1rem` |
-| `auto-container` | Full-width scrollable container                                    |
-| `block-center`   | Block-level centering with automatic height                        |
+| `auto-container` | Full-width scrollable container                                                 |
+| `block-center`   | Block-level centering with automatic height                                     |
 
 ## Flex Container
 
@@ -33,14 +35,14 @@ Useful for iOS apps running in standalone mode:
 <div class="ios-safe-bottom">Bottom safe area</div>
 ```
 
-| Class             | Description               |
-| ----------------- | ------------------------- |
-| `ios-safe-x`      | Left + right padding      |
-| `ios-safe-y`      | Top + bottom padding      |
-| `ios-safe-left`   | Left padding only         |
-| `ios-safe-right`  | Right padding only        |
-| `ios-safe-top`    | Top padding only          |
-| `ios-safe-bottom` | Bottom padding only       |
+| Class             | Description          |
+| ----------------- | -------------------- |
+| `ios-safe-x`      | Left + right padding |
+| `ios-safe-y`      | Top + bottom padding |
+| `ios-safe-left`   | Left padding only    |
+| `ios-safe-right`  | Right padding only   |
+| `ios-safe-top`    | Top padding only     |
+| `ios-safe-bottom` | Bottom padding only  |
 
 ## Background Decoration
 
@@ -52,8 +54,8 @@ A decorative grid background for landing pages:
 <div class="j-background-grid"></div>
 ```
 
-| Class               | Description                                  |
-| ------------------- | -------------------------------------------- |
+| Class               | Description                                    |
+| ------------------- | ---------------------------------------------- |
 | `j-background-grid` | Full-screen decorative grid with gradient mask |
 
 ### Background Gradients
@@ -109,33 +111,33 @@ JUI provides 9 default background gradients. Use `bg-gradient-*` utility classes
 <div class="w-screen">100vw width</div>
 ```
 
-| Class      | Width | Description                  |
-| ---------- | ----- | ---------------------------- |
-| `w-full`   | 100%  | Full width of parent         |
-| `w-half`   | 50%   | Half width of parent         |
-| `w-screen` | 100vw | Full viewport width          |
+| Class      | Width | Description          |
+| ---------- | ----- | -------------------- |
+| `w-full`   | 100%  | Full width of parent |
+| `w-half`   | 50%   | Half width of parent |
+| `w-screen` | 100vw | Full viewport width  |
 
 ### Column Width Classes
 
-| Class          | Width | Width px | Description      |
-| -------------- | ----- | -------- | ---------------- |
+| Class          | Width | Width px | Description            |
+| -------------- | ----- | -------- | ---------------------- |
 | `columns-auto` | auto  | auto     | Automatic column width |
-| `columns-6xs`  | 10rem | 160px    | 6xs column width |
-| `columns-5xs`  | 12rem | 192px    | 5xs column width |
-| `columns-4xs`  | 14rem | 224px    | 4xs column width |
-| `columns-3xs`  | 16rem | 256px    | 3xs column width |
-| `columns-2xs`  | 18rem | 288px    | 2xs column width |
-| `columns-xs`   | 20rem | 320px    | xs column width  |
-| `columns-sm`   | 24rem | 384px    | sm column width  |
-| `columns-md`   | 28rem | 448px    | md column width  |
-| `columns-lg`   | 32rem | 512px    | lg column width  |
-| `columns-xl`   | 36rem | 576px    | xl column width  |
-| `columns-2xl`  | 42rem | 672px    | 2xl column width |
-| `columns-3xl`  | 48rem | 768px    | 3xl column width |
-| `columns-4xl`  | 56rem | 896px    | 4xl column width |
-| `columns-5xl`  | 64rem | 1024px   | 5xl column width |
-| `columns-6xl`  | 72rem | 1152px   | 6xl column width |
-| `columns-7xl`  | 80rem | 1280px   | 7xl column width |
+| `columns-6xs`  | 10rem | 160px    | 6xs column width       |
+| `columns-5xs`  | 12rem | 192px    | 5xs column width       |
+| `columns-4xs`  | 14rem | 224px    | 4xs column width       |
+| `columns-3xs`  | 16rem | 256px    | 3xs column width       |
+| `columns-2xs`  | 18rem | 288px    | 2xs column width       |
+| `columns-xs`   | 20rem | 320px    | xs column width        |
+| `columns-sm`   | 24rem | 384px    | sm column width        |
+| `columns-md`   | 28rem | 448px    | md column width        |
+| `columns-lg`   | 32rem | 512px    | lg column width        |
+| `columns-xl`   | 36rem | 576px    | xl column width        |
+| `columns-2xl`  | 42rem | 672px    | 2xl column width       |
+| `columns-3xl`  | 48rem | 768px    | 3xl column width       |
+| `columns-4xl`  | 56rem | 896px    | 4xl column width       |
+| `columns-5xl`  | 64rem | 1024px   | 5xl column width       |
+| `columns-6xl`  | 72rem | 1152px   | 6xl column width       |
+| `columns-7xl`  | 80rem | 1280px   | 7xl column width       |
 
 ### Aspect Ratio
 

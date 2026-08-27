@@ -4,6 +4,8 @@
 
 CSS layout classes in the default stylesheet: basic reset, Flex/Grid responsive layout, and related helpers.
 
+<Badge text="CSS" theme="warning"/>
+
 ## Reset
 
 ### Basic Reset
@@ -89,11 +91,11 @@ Flex layout is suitable for **one-dimensional arrangement** such as navigation, 
 </div>
 ```
 
-| Class            | Description                                   |
-| ---------------- | --------------------------------------------- |
+| Class            | Description                                     |
+| ---------------- | ----------------------------------------------- |
 | `flex-container` | Flex row container, `flex-wrap: wrap`, with gap |
-| `flex-cols`      | Flexible column, equal width, `flex: 1 1 0%`  |
-| `flex-col-auto`  | Auto-width column, fits content               |
+| `flex-cols`      | Flexible column, equal width, `flex: 1 1 0%`    |
+| `flex-col-auto`  | Auto-width column, fits content                 |
 
 ### Custom Gap
 
@@ -275,10 +277,10 @@ Grid layout is suitable for **two-dimensional layouts** such as card grids, dash
 </div>
 ```
 
-| Class            | Description                         |
-| ---------------- | ----------------------------------- |
+| Class            | Description                            |
+| ---------------- | -------------------------------------- |
 | `grid-container` | Grid container with gap and full width |
-| `grid-col-{n}`   | Fixed column count (1-12)           |
+| `grid-col-{n}`   | Fixed column count (1-12)              |
 
 ### Custom Gap
 
@@ -358,12 +360,12 @@ Auto-fill: each column is at least 200px
 ```
 :::
 
-| Class               | Min width | Description |
-| ------------------- | --------- | ----------- |
-| `grid-col-auto-150` | 150px     | Small cards |
-| `grid-col-auto-200` | 200px     | Medium cards |
+| Class               | Min width | Description   |
+| ------------------- | --------- | ------------- |
+| `grid-col-auto-150` | 150px     | Small cards   |
+| `grid-col-auto-200` | 200px     | Medium cards  |
 | `grid-col-auto-250` | 250px     | Default cards |
-| `grid-col-auto-300` | 300px     | Large cards |
+| `grid-col-auto-300` | 300px     | Large cards   |
 
 ### Responsive Columns
 

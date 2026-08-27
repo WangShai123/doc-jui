@@ -4,6 +4,8 @@
 
 CSS editor preview classes in the default stylesheet.
 
+<Badge text="CSS" theme="warning"/>
+
 ## Basic DOM
 
 ```html

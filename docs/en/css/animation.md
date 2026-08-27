@@ -4,6 +4,8 @@
 
 CSS animation classes in the default stylesheet.
 
+<Badge text="CSS" theme="warning"/>
+
 ## Animation Classes
 
 ```css
@@ -12,20 +14,20 @@ animation-delay: 5s;
 animation-duration: 3s;
 ```
 
-| Class                     | Description        | Example                               | Loop |
-| ------------------------- | ------------------ | ------------------------------------- | ---- |
-| `animate-none`            | Disable animation  |                                       | -    |
-| `animate-spin`            | Spin animation     | <span class="spin"></span>            | Yes  |
-| `animate-ping`            | Strong pulse       | <span class="ping"></span>            | Yes  |
-| `animate-pulse`           | Soft pulse         | <span class="pulse"></span>           | Yes  |
-| `animate-bounce`          | Bounce animation   | <span class="bounce"></span>          | Yes  |
-| `animate-fade-in`         | Fade in            | <span class="fade-in"></span>         | -    |
-| `animate-fade-out`        | Fade out           | <span class="fade-out"></span>        | -    |
-| `animate-shake`           | Shake animation    | <span class="shake"></span>           | -    |
-| `animate-slide-to-top`    | Slide upward       | <span class="slide-to-top"></span>    | -    |
-| `animate-slide-to-bottom` | Slide downward     | <span class="slide-to-bottom"></span> | -    |
-| `animate-slide-to-left`   | Slide left         | <span class="slide-to-left"></span>   | -    |
-| `animate-slide-to-right`  | Slide right        | <span class="slide-to-right"></span>  | -    |
+| Class                     | Description       | Example                               | Loop |
+| ------------------------- | ----------------- | ------------------------------------- | ---- |
+| `animate-none`            | Disable animation |                                       | -    |
+| `animate-spin`            | Spin animation    | <span class="spin"></span>            | Yes  |
+| `animate-ping`            | Strong pulse      | <span class="ping"></span>            | Yes  |
+| `animate-pulse`           | Soft pulse        | <span class="pulse"></span>           | Yes  |
+| `animate-bounce`          | Bounce animation  | <span class="bounce"></span>          | Yes  |
+| `animate-fade-in`         | Fade in           | <span class="fade-in"></span>         | -    |
+| `animate-fade-out`        | Fade out          | <span class="fade-out"></span>        | -    |
+| `animate-shake`           | Shake animation   | <span class="shake"></span>           | -    |
+| `animate-slide-to-top`    | Slide upward      | <span class="slide-to-top"></span>    | -    |
+| `animate-slide-to-bottom` | Slide downward    | <span class="slide-to-bottom"></span> | -    |
+| `animate-slide-to-left`   | Slide left        | <span class="slide-to-left"></span>   | -    |
+| `animate-slide-to-right`  | Slide right       | <span class="slide-to-right"></span>  | -    |
 
 ## Animation Attributes
 

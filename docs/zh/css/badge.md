@@ -4,6 +4,8 @@
 
 默认样式文件中的 CSS 徽章类。
 
+<Badge text="CSS" theme="warning"/>
+
 ## 基础 DOM
 
 ```html

@@ -4,6 +4,8 @@
 
 默认样式文件中的 CSS 容器类。
 
+<Badge text="CSS" theme="warning"/>
+
 ## 基础容器
 
 | 类名             | 描述                                                         |

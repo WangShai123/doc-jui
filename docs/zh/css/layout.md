@@ -4,6 +4,8 @@
 
 默认样式文件中的 CSS 布局类：提供基础重置、Flex/Grid 响应式布局等。
 
+<Badge text="CSS" theme="warning"/>
+
 ## 重置
 
 ### 基础重置

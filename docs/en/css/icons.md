@@ -4,6 +4,8 @@
 
 CSS icon classes in the default stylesheet. Several common CSS icons are included.
 
+<Badge text="CSS" theme="warning"/>
+
 ## close
 
 Class name: `icon-close`
