@@ -58,7 +58,6 @@ export default [
       { label: 'sidebar.button', path: 'css/button' },
       { label: 'sidebar.avatar', path: 'css/avatar' },
       { label: 'sidebar.badge', path: 'css/badge' },
-      { label: 'sidebar.tag', path: 'css/tag' },
       { label: 'sidebar.tip', path: 'css/tip' },
       { label: 'sidebar.input', path: 'css/input' },
       { label: 'sidebar.breadcrumb', path: 'css/breadcrumb' },
