@@ -16,11 +16,6 @@
 
 <button class="j-button is-default is-icon"><span class="icon-close"></span></button>
 
-<div class="j-tag is-reverse">
-    <span class="el-text">标签</span>
-    <span class="icon-close"></span>
-</div>
-
 ## loader
 
 基础 DOM 结构：

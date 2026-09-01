@@ -16,11 +16,6 @@ Use it in buttons and similar elements:
 
 <button class="j-button is-default is-icon"><span class="icon-close"></span></button>
 
-<div class="j-tag is-reverse">
-    <span class="el-text">Tag</span>
-    <span class="icon-close"></span>
-</div>
-
 ## loader
 
 Basic DOM structure:
