@@ -3,7 +3,7 @@
 ## 导入
 
 ```ts
-import { randomId, uuid } from 'vanilla-jui';
+import { hashQueryParams, randomId, uuid } from 'vanilla-jui';
 ```
 
 ## uuid
@@ -41,3 +41,44 @@ export function randomId(length: number = 8): string {}
 ```
 
 该函数不是 UUID，也不承诺跨系统的永久唯一性；安全令牌应使用专门的协议与编码。
+
+## hashQueryParams
+
+`hashQueryParams(params, bytes?)`
+
+对查询参数对象生成稳定的 SHA-256 哈希片段，常用于缓存 key、请求去重 key 或列表查询状态标识。
+
+```ts
+const key = await hashQueryParams({
+  page: 1,
+  sort: ' desc ',
+});
+```
+
+处理规则：
+
+- `params` 必须是非 null 对象。
+- 顶层 key 会按字典序排序。
+- 顶层字符串值会执行 `trim()`。
+- 规范化后的对象使用 `JSON.stringify()` 序列化。
+- 对序列化字符串计算 SHA-256。
+- 默认取前 8 字节，转换为 36 进制字符串。
+
+```ts
+export async function hashQueryParams(
+  params: Record<string, unknown>,
+  bytes: number = 8
+): Promise<string> {}
+```
+
+参数值应是可 JSON 序列化的查询状态，例如 string、number、boolean、null、数组或普通对象。
+
+`bytes` 范围是 `1` 到 `32`。值越大，碰撞概率越低，生成的 key 通常也越长。
+
+当前实现依赖 `crypto.subtle.digest('SHA-256', ...)`。在不支持 Web Crypto digest 的环境中会抛出：
+
+```txt
+hashQueryParams only works in secure context.
+```
+
+非安全上下文、旧浏览器或测试环境中如需使用该方法，应先确认运行环境提供 `crypto.subtle`。

@@ -78,7 +78,8 @@ export default [
       { label: 'sidebar.object', path: 'utilities/object' },
       { label: 'sidebar.refs', path: 'utilities/refs' },
       { label: 'sidebar.state', path: 'utilities/state' },
-      { label: 'Types', path: 'utilities/types' },
+      { label: 'sidebar.config', path: 'utilities/config' },
+      { label: 'sidebar.types', path: 'utilities/types' },
     ],
   },
   {

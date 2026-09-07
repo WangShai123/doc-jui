@@ -100,7 +100,7 @@ JUI 基于 `W3` 模块 构建，项目依赖以外部库的形式存在，并未
 // 直接解构使用 JUI
 const { Toast } = jui;
 // 直接解构使用关联依赖
-`const { createSignal } = vanillaSignal`;
+const { createSignal } = vanillaSignal;
 ```
 
 使用 `Frontend::esm('jui')` 引入 JUI 时，会自动在页面中写入 import map，无需手动引用，直接在你的 JS 脚本中使用静态导入。如：

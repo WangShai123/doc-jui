@@ -64,7 +64,8 @@ export default {
       refs: '引用',
       state: '状态',
       object: '对象',
-      Types: '类型定义',
+      config: '配置',
+      types: '类型',
 
       relatedLibraries: '相关库',
       others: '其他',
@@ -155,7 +156,8 @@ export default {
       refs: 'Refs',
       state: 'State',
       object: 'Object',
-      Types: 'Types',
+      config: 'Config',
+      types: 'Types',
 
       relatedLibraries: 'Related Libraries',
       others: 'Others',

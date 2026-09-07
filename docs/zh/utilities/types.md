@@ -1,4 +1,4 @@
-# 类型定义
+# 类型与校验
 
 ## 导入
 
@@ -11,7 +11,6 @@ import {
   isNilValue,
   isRenderablePrimitive,
   isRenderableValue,
-  resolveProps,
   validateParam,
 } from 'vanilla-jui';
 ```
@@ -20,7 +19,7 @@ import {
 
 | 方法                    | 判定范围                                         |
 | ----------------------- | ------------------------------------------------ |
-| `isNilValue`            | `null                                            | undefined` |
+| `isNilValue`            | `null` 或 `undefined`                            |
 | `isDomNodeValue`        | DOM `Node`                                       |
 | `isDomElementValue`     | DOM `Element`                                    |
 | `isHtmlElementValue`    | DOM `HTMLElement`                                |
@@ -91,44 +90,6 @@ validateParam(
 | `validate`                | 任意         | 最后的业务谓词                   |
 | `message`                 | 任意         | 仅覆盖 `validate` 失败消息       |
 
-长度/数字/plain 等专项约束只在值属于对应类别时运行，因此 schema 应同时声明
-`type`。例如 `{ nonEmpty: true }` 本身不会拒绝数字。
+长度、数字和 plain object 等专项约束只在值属于对应类别时运行，因此 schema 应同时声明 `type`。例如 `{ nonEmpty: true }` 本身不会拒绝数字。
 
-## resolveProps
-
-`resolveProps(input?, schema?, namespace?)`
-
-统一完成组件 props 解析，顺序固定为：
-
-1. 浅复制用户 input，并为 schema 中缺失的 key 填入 default。
-2. 按 schema 顺序执行所有 `normalize(value, context)`。
-3. 按 schema 顺序执行 `validateParam()`。
-
-```ts
-const schema = {
-  id: {
-    default: null,
-    types: ['string', 'null'],
-    normalize: (value) => (typeof value === 'string' ? value.trim() : value),
-  },
-  data: {
-    default: [],
-    type: 'array',
-    items: { type: 'plainObject' },
-  },
-};
-
-const props = resolveProps(input, schema, 'List.props');
-```
-
-### Defaults 与 normalize
-
-- 数组和 plain object default 每次浅克隆，避免实例间共享顶层容器。
-- `factory: true` 且 default 为函数时，函数用于生成默认值。
-- 普通函数 default 不会执行。
-- normalize context 包含 `{ key, input, options, schema }`；`options` 是正在解析的
-  完整结果，因此可读取其他已填充 default 的字段。
-- schema 未声明的 input key 会保留在返回对象中，不会被剔除。
-
-input 必须为非数组对象；`null`/`undefined` 按空对象处理。`resolveProps` 不会深克隆
-用户值，组件若需要隔离可变 data，应在 normalize 或解析后显式克隆。
+`validateParam()` 只负责校验单个值或数据结构；组件配置解析、默认值合并、浅/深合并和 normalize 应使用 `resolveConfig()`。
