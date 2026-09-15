@@ -82,12 +82,13 @@ export default {
       empty: '没有找到匹配内容',
       hint: '输入关键词搜索标题和正文',
     },
+    editor: {
+      editLink: '在 GitHub 上编辑此页面',
+      lastUpdated: '最后更新于',
+    },
     prevNext: {
       previous: '上一页',
       next: '下一页',
-    },
-    theme: {
-      button: '主题',
     },
     auth: {
       login: '登录',
@@ -174,12 +175,13 @@ export default {
       empty: 'No results found',
       hint: 'Search titles and page content',
     },
+    editor: {
+      editLink: 'Edit this page on GitHub',
+      lastUpdated: 'Last updated',
+    },
     prevNext: {
       previous: 'Previous',
       next: 'Next',
-    },
-    theme: {
-      button: 'Theme',
     },
     auth: {
       login: 'Login',

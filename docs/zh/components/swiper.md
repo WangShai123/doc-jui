@@ -1,3 +1,10 @@
+---
+client:
+  entry:
+    - swiper
+    - common
+---
+
 # 轮播图
 
 Swiper 是轻量轮播组件，支持数据响应式管理、触摸与拖拽、自动播放、循环播放、分页、导航、懒加载、图片轮播、自定义内容轮播、自定义样式等功能。
@@ -164,59 +171,3 @@ type SwiperDataLoader = (
 
 - Swipers 常为确定数据，低频更新，建议存储在客户端 `localStorage` 或 `indexedDB` 中，设定合理的缓存策略，减少非必要请求。
 - 建议根据业务设计，对容器设置 `max-width` 最大宽度，使用 `aspect-ratio` 属性控制 `data-swiper` 比例。
-
-```vp-script
-import { createSwiper, q } from 'vanilla-jui';
-import { jsx, insert, createEffect } from 'vanilla-signal';
-
-const link= jsx`<link rel="stylesheet" href="../../public/common.css">`;
-insert(document.head,link);
-
-insert(q('.demo'), jsx('div', {className: 'swiper-demo'}));
-
-let swiperItemSerial = 3;
-const createDemoSwiperItem = (serial) => ({
-  title: String(serial),
-  image: `https://picsum.photos/300/200/?random=${serial}`,
-  blank: false,
-});
-const requestSwiperItems = async () =>
-  new Promise((resolve) => setTimeout(() => resolve([1, 2, 3].map(createDemoSwiperItem)), 1000));
-const demoSwiper = createSwiper({
-  autoplay: false,
-  data: requestSwiperItems,
-}).mount(q('.swiper-demo'));
-createEffect(() => console.log(demoSwiper.state.loading));
-insert(
-  q('.demo'),
-  jsx('div', {
-    style: {
-      display: 'flex',
-      gap: '8px',
-      marginTop: '8px',
-    },
-    children: [
-      jsx('button', {
-        type: 'button',
-        className: 'j-button is-outline',
-        children: '添加数据',
-        onClick: () => {
-          swiperItemSerial += 1;
-          const nextIndex = demoSwiper.state.data.length;
-          demoSwiper.state.data.push(createDemoSwiperItem(swiperItemSerial));
-          demoSwiper.slideTo(nextIndex);
-        },
-      }),
-      jsx('button', {
-        type: 'button',
-        className: 'j-button is-error',
-        children: '删除当前项',
-        onClick: () => {
-          if (demoSwiper.realCount === 0) return;
-          demoSwiper.state.data.splice(demoSwiper.realIndex, 1);
-        },
-      }),
-    ],
-  })
-);
-```

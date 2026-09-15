@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - common
+---
+
 # 布局
 
 > 推荐使用 `tailwindcss`, `unocss` 等 CSS 工具，更有利于个性化定制 UI 和按需构建最小化 CSS 文件。
@@ -435,9 +441,3 @@ Grid 布局适合**二维布局**（卡片网格、仪表盘、画廊）。
 
 - Flex 布局理解更简单，更易用。
 - Grid 布局更灵活，支持自动填充和响应式列，写法更简洁。
-
-```vp-script
-import { insert, jsx } from 'vanilla-signal';
-const link= jsx`<link rel="stylesheet" href="../../public/common.css">`;
-insert(document.head,link);
-```

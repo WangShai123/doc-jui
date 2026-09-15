@@ -150,7 +150,6 @@ vanilla-jui/
 │ ├── locales/
 │ ├── primitives/
 │ ├── utilities/
-│ ├── validation/
 │ ├── index.ts
 │ ├── types.d.ts
 :::

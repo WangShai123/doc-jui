@@ -26,14 +26,21 @@ createToc({
 
 ## 参数
 
-| 字段        | 类型                                | 默认值        | 说明                                             |
-| ----------- | ----------------------------------- | ------------- | ------------------------------------------------ |
-| `target`    | `string \| Element \| Node \| null` | `'.j-editor'` | 扫描标题的单一内容区域                           |
-| `headings`  | `string`                            | `'h2, h3'`    | 标题选择器                                       |
-| `offset`    | `number`                            | `80`          | 定位当前标题的顶部偏移，单位 px                  |
-| `reactive`  | `boolean`                           | `false`       | 是否观察目标 DOM 变化并自动同步 `state.items`    |
-| `className` | `object`                            | 见下表        | 自定义样式类                                     |
-| `onChange`  | `Function \| null`                  | `null`        | active 项变化后触发，参数为 `(item, index, toc)` |
+| 字段                    | 类型                                | 默认值              | 说明                                             |
+| ----------------------- | ----------------------------------- | ------------------- | ------------------------------------------------ |
+| `target`                | `string \| Element \| Node \| null` | `'.j-editor'`       | 扫描标题的单一内容区域                           |
+| `headings`              | `string`                            | `'h2, h3'`          | 标题选择器                                       |
+| `offset`                | `number`                            | `80`                | 定位当前标题的顶部偏移，单位 px                  |
+| `reactive`              | `boolean`                           | `false`             | 是否观察目标 DOM 变化并自动同步 `state.items`    |
+| `className`             | `object`                            | 见下表              | 自定义样式类                                     |
+| `onChange`              | `Function \| null`                  | `null`              | active 项变化后触发，参数为 `(item, index, toc)` |
+| `title`                 | `boolean`                           | `false`             | 是否显示目录标题                                 |
+| `indicator`             | `object`                            | `{}`                | 自定义目录指示器样式                             |
+| `indicator.width`       | `string`                            | `2px`               | 目录指示器宽度                                   |
+| `indicator.heightRatio` | `number`                            | `5`                 | 目录指示器高度比例，合法值 `1-10`                |
+| `indicator.radius`      | `string`                            | `2px`               | 目录指示器圆角半径                               |
+| `indicator.left`        | `string`                            | `0`                 | 目录指示器左侧偏移                               |
+| `indicator.color`       | `string`                            | `var(--tone-solid)` | 目录指示器颜色                                   |
 
 ## 实例属性
 
@@ -69,6 +76,16 @@ createToc({
 | `item`  | `object` | 当前 active 项数据 |
 | `index` | `number` | 当前 active 项索引 |
 | `toc`   | `Toc`    | 当前目录实例       |
+
+### className
+
+| 属性        | 默认值          | 说明               |
+| ----------- | --------------- | ------------------ |
+| `toc`       | `j-toc`         | 目录根元素类名     |
+| `title`     | `toc-title`     | 目录标题元素类名   |
+| `list`      | `toc-list`      | 目录列表元素类名   |
+| `link`      | `toc-link`      | 目录链接元素类名   |
+| `indicator` | `toc-indicator` | 目录指示器元素类名 |
 
 ## 实例方法
 

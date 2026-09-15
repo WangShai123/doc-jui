@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - common
+---
+
 # 容器
 
 > 推荐使用 `tailwindcss`, `unocss` 等 CSS 工具，更有利于个性化定制 UI 和按需构建最小化 CSS 文件。
@@ -117,28 +123,6 @@ JUI 默认提供了 9 种背景渐变。使用工具类 `bg-gradient-*` 用于�
 | `w-half`   | 50%   | 父容器半宽 |
 | `w-screen` | 100vw | 视口全宽   |
 
-### 列宽类
-
-| 类名           | 宽度  | 宽度 px | 描述       |
-| -------------- | ----- | ------- | ---------- |
-| `columns-auto` | auto  | auto    | 自动列宽   |
-| `columns-6xs`  | 10rem | 160px   | 6xs 列列宽 |
-| `columns-5xs`  | 12rem | 192px   | 5xs 列列宽 |
-| `columns-4xs`  | 14rem | 224px   | 4xs 列列宽 |
-| `columns-3xs`  | 16rem | 256px   | 3xs 列列宽 |
-| `columns-2xs`  | 18rem | 288px   | 2xs 列列宽 |
-| `columns-xs`   | 20rem | 320px   | xs 列列宽  |
-| `columns-sm`   | 24rem | 384px   | sm 列列宽  |
-| `columns-md`   | 28rem | 448px   | md 列列宽  |
-| `columns-lg`   | 32rem | 512px   | lg 列列宽  |
-| `columns-xl`   | 36rem | 576px   | xl 列列宽  |
-| `columns-2xl`  | 42rem | 672px   | 2xl 列列宽 |
-| `columns-3xl`  | 48rem | 768px   | 3xl 列列宽 |
-| `columns-4xl`  | 56rem | 896px   | 4xl 列列宽 |
-| `columns-5xl`  | 64rem | 1024px  | 5xl 列列宽 |
-| `columns-6xl`  | 72rem | 1152px  | 6xl 列列宽 |
-| `columns-7xl`  | 80rem | 1280px  | 7xl 列列宽 |
-
 ### 宽高比
 
 ```html
@@ -152,9 +136,3 @@ JUI 默认提供了 9 种背景渐变。使用工具类 `bg-gradient-*` 用于�
 | `aspect-square` | 1:1  | 正方形     |
 | `aspect-video`  | 16:9 | 视频/宽屏  |
 | `aspect-auto`   | auto | 自然宽高比 |
-
-```vp-script
-import { insert, jsx } from 'vanilla-signal';
-const link= jsx`<link rel="stylesheet" href="../../public/common.css">`;
-insert(document.head,link);
-```

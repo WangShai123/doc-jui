@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - icons
+---
+
 # Icons
 
 Icons is a built-in SVG icon utility. It provides functional APIs to get icon nodes or strings and supports custom extension.
@@ -27,24 +33,28 @@ container.innerHTML = html;
 
 Only a small set of common icon `path` definitions is built in.
 
-| Name          | Example | Description |
-| ------------- | ------- | ----------- |
-| `info`        |         | Info |
-| `success`     |         | Success, check mark |
+| Name          | Example | Description               |
+| ------------- | ------- | ------------------------- |
+| `info`        |         | Info                      |
+| `success`     |         | Success, check mark       |
 | `warning`     |         | Warning, exclamation mark |
-| `error`       |         | Error, cross |
-| `arrow-left`  |         | Left arrow |
-| `arrow-right` |         | Right arrow |
-| `arrow-up`    |         | Up arrow |
-| `arrow-down`  |         | Down arrow |
-| `more`        |         | More, three dots |
-| `close`       |         | Close, cross |
-| `loader`      |         | Loading |
-| `menu`        |         | Menu, three lines |
-| `palette`     |         | Palette |
-| `message`     |         | Message |
-| `chat`        |         | Chat |
-| `discuss`     |         | Discuss |
+| `error`       |         | Error, cross              |
+| `arrow-left`  |         | Left arrow                |
+| `arrow-right` |         | Right arrow               |
+| `arrow-up`    |         | Up arrow                  |
+| `arrow-down`  |         | Down arrow                |
+| `more`        |         | More, three dots          |
+| `close`       |         | Close, cross              |
+| `loader`      |         | Loading                   |
+| `menu`        |         | Menu, three lines         |
+| `palette`     |         | Palette                   |
+| `message`     |         | Message                   |
+| `chat`        |         | Chat                      |
+| `discuss`     |         | Discuss                   |
+| `like`        |         | Like                      |
+| `dislike`     |         | Dislike                   |
+| `thumb-up`    |         | Thumb up                  |
+| `thumb-down`  |         | Thumb down                |
 
 ## Methods
 
@@ -56,9 +66,9 @@ Gets an SVG icon node.
 icon(name, props?) → SVGElement
 ```
 
-| Parameter | Type     | Default | Description |
-| --------- | -------- | ------- | ----------- |
-| `name`    | `string` | —       | Icon name |
+| Parameter | Type     | Default | Description                                                    |
+| --------- | -------- | ------- | -------------------------------------------------------------- |
+| `name`    | `string` | —       | Icon name                                                      |
 | `props`   | `object` | `{}`    | SVG attributes. `className` is automatically mapped to `class` |
 
 **Returns**: `SVGElement`.
@@ -81,7 +91,7 @@ iconHtml(name) → string
 
 | Parameter | Type     | Description |
 | --------- | -------- | ----------- |
-| `name`    | `string` | Icon name |
+| `name`    | `string` | Icon name   |
 
 **Returns**: `string` — full `<svg>...</svg>` markup.
 
@@ -113,8 +123,8 @@ Registers custom icons in batch. Values should be SVG path fragments (`<path ...
 addIcons(svgPathObjects) → void
 ```
 
-| Parameter        | Type                     | Description |
-| ---------------- | ------------------------ | ----------- |
+| Parameter        | Type                     | Description                      |
+| ---------------- | ------------------------ | -------------------------------- |
 | `svgPathObjects` | `Record<string, string>` | Map from icon names to SVG paths |
 
 **Throws**: `Error` when the argument is not a valid object or when a path does not start with `<`.
@@ -127,19 +137,4 @@ addIcons({
 
 // Can be used after registration
 icon('star');
-```
-
-```vp-script
-import { q, all, icon, getRegistedIconPath } from 'vanilla-jui';
-import { render } from 'vanilla-signal';
-
-const icons = getRegistedIconPath();
-const iconsKeys = Object.keys(icons);
-const body = q('table tbody');
-const tds = all('tr td:nth-child(2)', body)
-
-for (let i = 0; i < tds.length; i++) {
-  tds[i].style.verticalAlign = 'middle';
-  render(icon(iconsKeys[i], {width:16}), tds[i])
-}
 ```

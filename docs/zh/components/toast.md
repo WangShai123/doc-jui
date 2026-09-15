@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - toast
+---
+
 # 通知
 
 通知组件是一种临时显示消息的组件，通常用于通知用户操作结果或提示信息。它不需要实例化，直接通过静态方法展示消息。
@@ -102,7 +108,6 @@ submit().finally(() => setLoading(false));
 
 | 选项           | 默认值       | 说明             |
 | -------------- | ------------ | ---------------- |
-| `theme`        | `info`       | 操作型消息主题   |
 | `once`         | `true`       | 是否仅展示一次   |
 | `text`         | `{}`         | 操作按钮文本     |
 | `text.close`   | 关闭/Close   | 关闭按钮文本     |
@@ -136,106 +141,3 @@ submit().finally(() => setLoading(false));
 | `error`      | `is-error`           | 错误类型类     |
 | `primary`    | `is-primary`         | 主色类型类     |
 
-```vp-script
-import { Toast, q } from 'vanilla-jui';
-import { jsx, insert, createSignal } from 'vanilla-signal';
-const demo = jsx('div', {
-    style: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '16px',
-    },
-    children: [
-        jsx('div', {
-            style: {
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '16px',
-            },
-            children: [
-                jsx('button', {
-                    className: 'j-button is-default',
-                    children: '默认 Toast',
-                    onClick: () => Toast.show('Hi, Toast'),
-                }),
-                jsx('button', {
-                    className: 'j-button is-primary',
-                    children: '主色 Toast',
-                    onClick: () => Toast.primary('Hi, Primary Toast'),
-                }),
-                jsx('button', {
-                    className: 'j-button is-success',
-                    children: '成功 Toast',
-                    onClick: () => Toast.success('Hi, Success Toast'),
-                }),
-                jsx('button', {
-                    className: 'j-button is-warning',
-                    children: '警告 Toast',
-                    onClick: () => Toast.warning('Hi, Warning Toast'),
-                }),
-                jsx('button', {
-                    className: 'j-button is-error',
-                    children: '错误 Toast',
-                    onClick: () => Toast.error('Hi, Error Toast'),
-                }),
-            ]
-        }),
-        jsx('div', {
-            style: {
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '16px',
-            },
-            children: [
-                jsx('button', {
-                    className: 'j-button is-default',
-                    children: '单例 Toast',
-                    onClick: () => Toast.info('Hi, Singleton Toast', {once:true}),
-                }),
-                jsx('button', {
-                    className: 'j-button is-secondary',
-                    children: '轻提示 Toast',
-                    onClick: () => Toast.lite('Hi, Lite Toast'),
-                }),
-                jsx('button', {
-                    className: 'j-button is-outline',
-                    children: '确认 Toast',
-                    onClick: () => Toast.confirm('Hi, Confirm Toast', {
-                        onConfirm: () => Toast.lite('已确认'),
-                    }),
-                }),
-            ]
-        }),
-        jsx('div', {
-            children: jsx('button', {
-                className: 'j-button is-default',
-                children: '异步 Toast 用法',
-                onClick: () => {
-                    const [loading, setLoading] = createSignal(true);
-                    let timer = null;
-                    const reset = () => {
-                        if (timer) clearTimeout(timer);
-                        timer = null;
-                        setLoading(true);
-                    };
-                    Toast.show('Hi, Async Toast', {
-                        duration: 3000,
-                        loading,
-                        onCancel: () => {
-                            Toast.lite('已取消');
-                            reset();
-                        },
-                        onClose: reset,
-                        once: true
-                    });
-                    timer = setTimeout(() => {
-                        timer = null;
-                        setLoading(false);
-                    }, 1000);
-                },
-            })
-        })
-    ]
-})
-insert(q('.demo'), demo);
-```

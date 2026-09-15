@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - drop
+---
+
 # 下拉容器
 
 Drop 是一个下拉容器组件，是通用浮层行为控制器。
@@ -87,76 +93,3 @@ const drop = createDrop(button, {
 | `toggle()`       |        | 切换显示状态                 |
 | `destroy()`      |        | 销毁实例，解绑事件并移除 DOM |
 
-```vp-script
-import { q, createDrop } from 'vanilla-jui';
-import { jsx, insert, createSignal } from 'vanilla-signal';
-
-insert(q('.demo'), jsx('div', {
-  style: {
-    display:'flex',
-    flexWrap:'wrap',
-    gap:'8px'
-  },
-  children: [
-    jsx`<div class="j-button is-default click-demo">点击触发</div>`,
-    jsx`<div class="j-button is-default hover-demo">悬停触发</div>`,
-    jsx`<div class="j-button is-default async-demo">异步内容</div>`,
-  ],
-}));
-createDrop(q('.click-demo'), {
-  content: 'Drop Content',
-});
-createDrop(q('.hover-demo'), {
-  mode: 'hover',
-  hoverIntent: true,
-  delay: 50,
-  content: 'Drop Content',
-});
-
-const [count, setCount] = createSignal(10);
-let asyncDropRequestCount = 0;
-let asyncDropCountdownTimer = null;
-let asyncDropCountdownStopTimer = null;
-const startAsyncDropCountdown = () => {
-  if (asyncDropCountdownTimer) clearInterval(asyncDropCountdownTimer);
-  if (asyncDropCountdownStopTimer) clearTimeout(asyncDropCountdownStopTimer);
-
-  setCount(10);
-  asyncDropCountdownTimer = setInterval(() => {
-    setCount((value) => {
-      const next = value - 1;
-      return next > 0 ? next : 0;
-    });
-  }, 1000);
-  asyncDropCountdownStopTimer = setTimeout(() => {
-    clearInterval(asyncDropCountdownTimer);
-    asyncDropCountdownTimer = null;
-    asyncDropCountdownStopTimer = null;
-    setCount(0);
-  }, 10000);
-};
-const loadAsyncDropContent = () =>
-  new Promise((resolve) => {
-    const requestIndex = asyncDropRequestCount + 1;
-    setTimeout(() => {
-      asyncDropRequestCount = requestIndex;
-      startAsyncDropCountdown();
-      resolve(
-        jsx('div', {
-          style: {
-            padding: '8px',
-          },
-          children: () =>
-            `渲染成功，缓存10秒，${count() > 0 ? `倒计时 ${count()}` : '缓存过期'}`,
-        })
-      );
-    }, 1000);
-  });
-
-createDrop(q('.async-demo'), {
-  position: 'bottom-left',
-  content: () => loadAsyncDropContent(),
-  cache: true,
-  ttl: 10000,
-});
-```

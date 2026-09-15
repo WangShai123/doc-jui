@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - dom
+---
+
 # DOM
 
 DOM 常用工具函数集。
@@ -225,18 +231,4 @@ export function createLoading(
   xDirection: flexPosition = 'center',
   yDirection: flexPosition = 'center'
 ): HTMLDivElement {}
-```
-
-```vp-script
-import { createLoading, q } from 'vanilla-jui';
-import { insert, jsx } from 'vanilla-signal';
-
-insert(q('.demo'), jsx('div',{
-  style:{
-    width: '24px',
-    height: '24px',
-    position: 'relative'
-  },
-  children: createLoading()
-}));
 ```

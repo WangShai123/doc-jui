@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - dom
+---
+
 # DOM
 
 Common DOM utility functions.
@@ -89,19 +95,19 @@ export function isRenderableContent(
 
 ## Type Predicates
 
-| Method             | Return value                                  |
-| ------------------ | --------------------------------------------- |
-| `isNode(value)`    | Whether the value is a `Node` in this runtime |
+| Method             | Return value                                      |
+| ------------------ | ------------------------------------------------- |
+| `isNode(value)`    | Whether the value is a `Node` in this runtime     |
 | `isElement(value)` | Whether the value is an `Element` in this runtime |
 
 In SSR environments without matching DOM constructors, both return `false`.
 
 ## Reference Resolution
 
-| Method                 | Result                                                       |
-| ---------------------- | ------------------------------------------------------------ |
+| Method                 | Result                                                                   |
+| ---------------------- | ------------------------------------------------------------------------ |
 | `resolveNodeList(ref)` | All nodes; `null` when empty, unmatched, or an array contains a non-Node |
-| `resolveNode(ref)`     | A Node, the first selector result, or the first node in an array |
+| `resolveNode(ref)`     | A Node, the first selector result, or the first node in an array         |
 | `resolveElement(ref)`  | An Element, the first selector element, or the first Element in an array |
 
 `DOMReference` is often shortened to `ref`. It can be a `Node`, CSS selector, recursive node array, or `false | null | undefined`.
@@ -192,11 +198,11 @@ export function lazyRender(
 ): CleanupFunction {}
 ```
 
-| Option       | Default | Description                                  |
-| ------------ | ------- | -------------------------------------------- |
-| `threshold`  | `0.1`   | IntersectionObserver threshold               |
-| `rootMargin` | `'0px'` | observer root margin                         |
-| `root`       | `null`  | observer root                                |
+| Option       | Default | Description                                                          |
+| ------------ | ------- | -------------------------------------------------------------------- |
+| `threshold`  | `0.1`   | IntersectionObserver threshold                                       |
+| `rootMargin` | `'0px'` | observer root margin                                                 |
+| `root`       | `null`  | observer root                                                        |
 | `waitForDOM` | `true`  | Whether to wait with MutationObserver when the target is not mounted |
 
 - Renders immediately when IntersectionObserver is unavailable.
@@ -224,18 +230,4 @@ export function createLoading(
   xDirection: flexPosition = 'center',
   yDirection: flexPosition = 'center'
 ): HTMLDivElement {}
-```
-
-```vp-script
-import { createLoading, q } from 'vanilla-jui';
-import { insert, jsx } from 'vanilla-signal';
-
-insert(q('.demo'), jsx('div',{
-  style:{
-    width: '24px',
-    height: '24px',
-    position: 'relative'
-  },
-  children: createLoading()
-}));
 ```

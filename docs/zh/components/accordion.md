@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - accordion
+---
+
 # 折叠面板
 
 Accordion 是折叠面板组件，适用于展示多个内容区域。
@@ -141,94 +147,3 @@ accordion.state.data = accordion.state.data.filter(
 
 公共控制器方法还包括 `own()`、`use()`、`on()`、`off()` 和 `emit()`，语义见 [定义组件](../core/define.html)。
 
-```vp-script
-import { createAccordion, q, Toast } from 'vanilla-jui';
-import { createSignal, jsx } from 'vanilla-signal';
-
-const [asyncCount, setAsyncCount] = createSignal(10);
-let asyncAccordionRequestCount = 0;
-let asyncAccordionCountdownTimer = null;
-let asyncAccordionCountdownStopTimer = null;
-const startAsyncAccordionCountdown = () => {
-    if (asyncAccordionCountdownTimer) clearInterval(asyncAccordionCountdownTimer);
-    if (asyncAccordionCountdownStopTimer) clearTimeout(asyncAccordionCountdownStopTimer);
-
-    setAsyncCount(10);
-    asyncAccordionCountdownTimer = setInterval(() => {
-        setAsyncCount((value) => {
-            const next = value - 1;
-            return next > 0 ? next : 0;
-        });
-    }, 1000);
-    asyncAccordionCountdownStopTimer = setTimeout(() => {
-        clearInterval(asyncAccordionCountdownTimer);
-        asyncAccordionCountdownTimer = null;
-        asyncAccordionCountdownStopTimer = null;
-        setAsyncCount(0);
-    }, 10_000);
-};
-
-const loadAsyncAccordionContent = () =>
-    new Promise((resolve) => {
-        const requestIndex = asyncAccordionRequestCount + 1;
-        setTimeout(() => {
-            asyncAccordionRequestCount = requestIndex;
-            startAsyncAccordionCountdown();
-            resolve(
-                jsx('div', {
-                    children: [
-                        jsx('p', {
-                            children: `异步接口请求 第 ${requestIndex} 次`,
-                        }),
-                        jsx('p', {
-                            style: { marginBlock: '4px' },
-                            children: '当前折叠面板数据项已经开启缓存功能，缓存时间为 10 秒。',
-                        }),
-                        jsx('p', {
-                            style: { marginBlock: '4px' },
-                            children: '10 秒内，反复打开该数据项，将显示缓存内容。',
-                        }),
-                        jsx('p', {
-                            style: { marginBlock: '4px' },
-                            children: '10 秒后，内容过期，将重新请求并渲染。',
-                        }),
-                        jsx('p', {
-                            style: { marginBlock: '4px' },
-                            children: () =>
-                                asyncCount() > 0
-                                    ? `倒计时 ${asyncCount()} 秒`
-                                    : '缓存已过期',
-                        }),
-                    ],
-                })
-            );
-        }, 1000);
-    });
-
-createAccordion({
-    data: [
-        {
-            name: 'profile',
-            title: ({ index }) => `同步面板 ${index + 1}`,
-            content: ({ item }) => `同步面板 name: ${item.name}`,
-        },
-        {
-            name: 'settings',
-            title: ({ index }) => `同步面板 ${index + 1}`,
-            content: ({ item }) => `同步面板 name: ${item.name}`,
-        },
-        {
-            name: 'async',
-            title: '异步面板',
-            content: () => loadAsyncAccordionContent(),
-            cache: true,
-            ttl: 10_000,
-        },
-    ],
-    onChange: (index, name, header, panel, accordion) => {
-        Toast.lite(`${name} 面板已打开`);
-        console.log(header)
-        console.log(panel)
-    },
-}).mount(q('.demo'));
-```

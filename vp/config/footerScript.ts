@@ -1,5 +1,5 @@
 import type { FooterScriptConfig } from 'vanilla-press';
 
 export default `
-console.log('Welcome to JUI!');
+console.log('Thanks to VanillaPress!');
 ` satisfies FooterScriptConfig;

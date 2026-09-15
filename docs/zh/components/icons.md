@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - icons
+---
+
 # 图标
 
 Icons 是内置 SVG 图标工具，提供函数式 API 获取图标节点或字符串，支持自定义扩展。
@@ -45,6 +51,10 @@ container.innerHTML = html;
 | `message`     |      | 消息           |
 | `chat`        |      | 会话           |
 | `discuss`     |      | 讨论           |
+| `like`        |      | 喜欢           |
+| `dislike`     |      | 不喜欢         |
+| `thumb-up`    |      | 点赞           |
+| `thumb-down`  |      | 点踩           |
 
 ## 方法
 
@@ -127,19 +137,4 @@ addIcons({
 
 // 之后即可使用
 icon('star');
-```
-
-```vp-script
-import { q, all, icon, getRegistedIconPath } from 'vanilla-jui';
-import { render } from 'vanilla-signal';
-
-const icons = getRegistedIconPath();
-const iconsKeys = Object.keys(icons);
-const body = q('table tbody');
-const tds = all('tr td:nth-child(2)', body)
-
-for (let i = 0; i < tds.length; i++) {
-  tds[i].style.verticalAlign = 'middle';
-  render(icon(iconsKeys[i], {width:16}), tds[i])
-}
 ```

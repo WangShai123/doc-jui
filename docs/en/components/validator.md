@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - validator
+---
+
 # Form Validation
 
 Validator is a form validation module. It only reads form fields, runs validation rules, writes failed states, and creates error hint nodes.
@@ -229,75 +235,3 @@ Validator first uses the nearest `[data-field-control]` as the field container. 
 - **Automatic validation**: After submit or a manual `validate()` call fails, Validator uses the error field records stored in `runtime.error` to automatically revalidate on `input` / `change` events. After the `runtime.error` records are cleared, the automatic validation events are also cleared.
 - **Custom error styles**: You can use the `className` configuration to customize error hint styles.
 
-```vp-script
-import { createForm, Toast, q } from 'vanilla-jui';
-createForm({
-    fields: [
-        {
-            type: 'email',
-            payload: {
-                label: 'Email',
-                name: 'email',
-                required: true,
-                placeholder: 'Enter email',
-            }
-        },
-        {
-            type: 'password',
-            payload: {
-                label: 'Password',
-                name: 'password',
-                required: true,
-                placeholder: 'Enter password',
-            }
-        },
-        {
-            type: 'password',
-            payload: {
-                label: 'Confirm Password',
-                name: 'confirmPassword',
-                required: true,
-                placeholder: 'Confirm password',
-            }
-        }
-    ],
-    validator: {
-        rules: {
-            email: {
-                required: true,
-                email: true,
-            },
-            password: {
-                required: true,
-                minLength: 6,
-                maxLength: 12,
-            },
-            confirmPassword: {
-                required: true,
-                equalTo: 'password',
-            },
-        },
-        messages: {
-            email: {
-                required: 'Email is required',
-                email: 'Please enter a valid email address',
-            },
-            password: {
-                required: 'Password is required',
-                minLength: 'Password length cannot be less than 6 characters',
-                maxLength: 'Password length cannot be greater than 12 characters',
-            },
-            confirmPassword: {
-                required: 'Confirm password is required',
-                equalTo: 'The two passwords do not match',
-            },
-        },
-    },
-    onSubmit: (data) => {
-        Toast.success('Bingo! Form validation succeeded');
-        console.table(data);
-    },
-    style: 'max-width: 280px',
-    buttonsPosition: 'start'
-}).mount(q('.demo'));
-```

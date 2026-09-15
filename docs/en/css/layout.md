@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - common
+---
+
 # Layout
 
 > CSS tools such as `tailwindcss` and `unocss` are recommended. They make UI customization easier and help build smaller CSS files on demand.
@@ -436,9 +442,3 @@ Mobile: 1 column; tablet: 2 columns; desktop: 3 columns
 
 - Flex layout is easier to understand and use.
 - Grid layout is more flexible. It supports auto-fill and responsive columns with shorter markup.
-
-```vp-script
-import { insert, jsx } from 'vanilla-signal';
-const link= jsx`<link rel="stylesheet" href="../../public/common.css">`;
-insert(document.head,link);
-```

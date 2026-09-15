@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - validator
+---
+
 # 表单验证
 
 Validator 是表单校验模块，它只负责读取表单字段、执行规则校验、写入失败状态和错误提示节点。
@@ -229,75 +235,3 @@ Validator 优先使用最近的 `[data-field-control]` 作为字段容器；如�
 - **自动校验**：提交或手动调用 `validate()` 且校验失败后，Validator 会根据 `runtime.error` 存储的错误字段的 `input` / `change` 事件进行自动重验。`runtime.error` 错误记录清空后，自动校验事件也会清空。
 - **自定义错误样式**：你可以利用 `className` 配置，来自定义错误提示样式。
 
-```vp-script
-import { createForm, Toast, q } from 'vanilla-jui';
-createForm({
-    fields: [
-        {
-            type: 'email',
-            payload: {
-                label: '邮箱',
-                name: 'email',
-                required: true,
-                placeholder: '请输入邮箱',
-            }
-        },
-        {
-            type: 'password',
-            payload: {
-                label: '密码',
-                name: 'password',
-                required: true,
-                placeholder: '请输入密码',
-            }
-        },
-        {
-            type: 'password',
-            payload: {
-                label: '确认密码',
-                name: 'confirmPassword',
-                required: true,
-                placeholder: '请确认密码',
-            }
-        }
-    ],
-    validator: {
-        rules: {
-            email: {
-                required: true,
-                email: true,
-            },
-            password: {
-                required: true,
-                minLength: 6,
-                maxLength: 12,
-            },
-            confirmPassword: {
-                required: true,
-                equalTo: 'password',
-            },
-        },
-        messages: {
-            email: {
-                required: '邮箱不能为空',
-                email: '请输入正确的邮箱格式',
-            },
-            password: {
-                required: '密码不能为空',
-                minLength: '密码长度不能小于 6 位',
-                maxLength: '密码长度不能大于 12 位',
-            },
-            confirmPassword: {
-                required: '确认密码不能为空',
-                equalTo: '两次输入密码不一致',
-            },
-        },
-    },
-    onSubmit: (data) => {
-        Toast.success('Bingo! 表单验证成功');
-        console.table(data);
-    },
-    style: 'max-width: 280px',
-    buttonsPosition: 'start'
-}).mount(q('.demo'));
-```

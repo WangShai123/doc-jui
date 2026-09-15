@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - drop
+---
+
 # Drop
 
 Drop is a dropdown container component and a general floating-layer behavior controller.
@@ -87,68 +93,3 @@ Available values: `top-left`, `top-center`, `top-right`, `bottom-left`, `bottom-
 | `toggle()`       |         | Toggles visible state |
 | `destroy()`      |         | Destroys the instance, unbinds events, and removes DOM |
 
-```vp-script
-import { q, createDrop } from 'vanilla-jui';
-import { jsx, insert, createSignal } from 'vanilla-signal';
-
-insert(q('.demo'), jsx('div', {
-  style: {
-    display:'flex',
-    flexWrap:'wrap',
-    gap:'8px'
-  },
-  children: [
-    jsx`<div class="j-button is-default click-demo">Click trigger</div>`,
-    jsx`<div class="j-button is-default hover-demo">Hover trigger</div>`,
-    jsx`<div class="j-button is-default async-demo">Async content</div>`,
-  ],
-}));
-createDrop(q('.click-demo'), {
-  content: 'Drop Content',
-});
-createDrop(q('.hover-demo'), {
-  mode: 'hover',
-  hoverIntent: true,
-  delay: 50,
-  content: 'Drop Content',
-});
-
-const [count, setCount] = createSignal(10);
-let asyncDropCountdownTimer = null;
-let asyncDropCountdownStopTimer = null;
-const startAsyncDropCountdown = () => {
-  if (asyncDropCountdownTimer) clearInterval(asyncDropCountdownTimer);
-  if (asyncDropCountdownStopTimer) clearTimeout(asyncDropCountdownStopTimer);
-
-  setCount(10);
-  asyncDropCountdownTimer = setInterval(() => {
-    setCount((value) => Math.max(value - 1, 0));
-  }, 1000);
-  asyncDropCountdownStopTimer = setTimeout(() => {
-    clearInterval(asyncDropCountdownTimer);
-    asyncDropCountdownTimer = null;
-    asyncDropCountdownStopTimer = null;
-    setCount(0);
-  }, 10000);
-};
-const loadAsyncDropContent = () =>
-  new Promise((resolve) => {
-    setTimeout(() => {
-      startAsyncDropCountdown();
-      resolve(
-        jsx('div', {
-          style: { padding: '8px' },
-          children: () =>
-            `Rendered successfully. Cached for 10 seconds. ${count() > 0 ? `Countdown ${count()}s` : 'Cache expired'}`,
-        })
-      );
-    }, 1000);
-  });
-
-createDrop(q('.async-demo'), {
-  position: 'bottom-left',
-  content: () => loadAsyncDropContent(),
-  cache: true,
-  ttl: 10000,
-});
-```

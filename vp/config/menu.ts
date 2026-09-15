@@ -6,12 +6,12 @@ export default [
   { label: 'CSS', path: 'tokens/tokens' },
   {
     label: 'menu.documents',
-    path: 'https://www.jealer.com/docs/',
+    path: 'https://www.jealer.com/docs',
     target: '_blank',
   },
   {
     label: 'menu.learn',
-    path: 'https://www.jealer.com/learn/',
+    path: 'https://www.jealer.com/learn',
     target: '_blank',
   },
 ] satisfies MenuConfig;

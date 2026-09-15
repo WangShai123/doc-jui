@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - form
+---
+
 # 表单
 
 Form 用于按字段配置渲染表单，并内置 `Validator` 验证模块与提交数据收集。
@@ -65,8 +71,6 @@ const form = createForm({
 | `onReset`         | `Function \| null`             | `null`    | 重置时触发，参数为 `(event, form)`                                |
 | `id`              | `string \| null`               | 自动生成  | 表单根节点 id                                                     |
 | `style`           | `string \| object`             | `''`      | 表单根节点内联样式                                                |
-| `vertical`        | `boolean`                      | `true`    | 表单纵向布局                                                      |
-| `itemVertical`    | `boolean`                      | `true`    | 表单字段纵向布局                                                  |
 | `buttons`         | `boolean \| string`            | 见下表    | 移除或反转按钮位置                                                |
 | `buttonsPosition` | `'start' \| 'center' \| 'end'` | `'start'` | 按钮组水平位置                                                    |
 | `size`            | `'sm' \| 'md' \| 'lg'`         | `'md'`    | 表单大小                                                          |
@@ -156,34 +160,28 @@ const form = createForm({
 
 自定义样式类。className 配置包含以下字段：
 
-| 属性               | 默认值                | 说明             |
-| ------------------ | --------------------- | ---------------- |
-| `form`             | `j-form`              | 表单容器         |
-| `vertical`         | `is-vertical`         | 表单垂直布局     |
-| `horizontal`       | `is-horizontal`       | 表单水平布局     |
-| `itemVertical`     | `is-item-vertical`    | 表单项垂直布局   |
-| `itemHorizontal`   | `is-item-horizontal`  | 表单项水平布局   |
-| `item`             | `form-field`          | 表单项容器       |
-| `label`            | `field-legend`        | 表单项标签       |
-| `required`         | `is-required`         | 必填标记         |
-| `control`          | `field-control`       | 表单项控件容器   |
-| `helpInvalid`      | `is-invalid`          | 无效状态提示     |
-| `buttons`          | `form-buttons`        | 按钮组容器       |
-| `button`           | `j-button`            | 通用按钮         |
-| `submitBtn`        | `is-primary`          | 提交按钮         |
-| `resetBtn`         | `is-ghost`            | 重置按钮         |
-| `input`            | `j-input`             | 输入框           |
-| `textarea`         | `j-textarea`          | 文本域           |
-| `select`           | `j-select`            | 选择框           |
-| `radio`            | `j-radio`             | 单选框           |
-| `checkbox`         | `j-checkbox`          | 多选框           |
-| `choiceVertical`   | `is-vertical`         | 多选控件垂直布局 |
-| `choiceHorizontal` | `is-horizontal`       | 多选控件水平布局 |
-| `choiceGroup`      | `is-group`            | 多选控件分组布局 |
-| `radioLabel`       | `radio-label`         | 单选框标签       |
-| `radioText`        | `radio-text`          | 单选框文本       |
-| `switch`           | `j-switch is-default` | 开关             |
-| `switchSlider`     | `switch-slider`       | 开关滑块         |
+| 属性           | 默认值                | 说明             |
+| -------------- | --------------------- | ---------------- |
+| `form`         | `j-form`              | 表单容器         |
+| `item`         | `form-field`          | 表单项容器       |
+| `label`        | `field-legend`        | 表单项标签       |
+| `required`     | `is-required`         | 必填标记         |
+| `control`      | `field-control`       | 表单项控件容器   |
+| `helpInvalid`  | `is-invalid`          | 无效状态提示     |
+| `buttons`      | `form-buttons`        | 按钮组容器       |
+| `button`       | `j-button`            | 通用按钮         |
+| `submitBtn`    | `is-primary`          | 提交按钮         |
+| `resetBtn`     | `is-ghost`            | 重置按钮         |
+| `input`        | `j-input`             | 输入框           |
+| `textarea`     | `j-textarea`          | 文本域           |
+| `select`       | `j-select`            | 选择框           |
+| `radio`        | `j-radio`             | 单选框           |
+| `checkbox`     | `j-checkbox`          | 多选框           |
+| `choiceGroup`  | `is-group`            | 多选控件分组布局 |
+| `radioLabel`   | `radio-label`         | 单选框标签       |
+| `radioText`    | `radio-text`          | 单选框文本       |
+| `switch`       | `j-switch is-default` | 开关             |
+| `switchSlider` | `switch-slider`       | 开关滑块         |
 
 ## 实例属性
 
@@ -226,76 +224,3 @@ const form = createForm({
 
 - 校验规则复用 `Validator` 验证模块的规则与消息格式。
 - 需要优先使用浏览器原生表单验证能力时，设置 `validator.vanilla: true`。
-
-```vp-script
-import { createForm, Toast, q } from 'vanilla-jui';
-createForm({
-    fields: [
-        {
-            type: 'email',
-            payload: {
-                label: '邮箱',
-                name: 'email',
-                required: true,
-                placeholder: '请输入邮箱',
-            }
-        },
-        {
-            type: 'password',
-            payload: {
-                label: '密码',
-                name: 'password',
-                required: true,
-                placeholder: '请输入密码',
-            }
-        },
-        {
-            type: 'password',
-            payload: {
-                label: '确认密码',
-                name: 'confirmPassword',
-                required: true,
-                placeholder: '请确认密码',
-            }
-        }
-    ],
-    validator: {
-        rules: {
-            email: {
-                required: true,
-                email: true,
-            },
-            password: {
-                required: true,
-                minLength: 6,
-                maxLength: 12,
-            },
-            confirmPassword: {
-                required: true,
-                equalTo: 'password',
-            },
-        },
-        messages: {
-            email: {
-                required: '邮箱不能为空',
-                email: '请输入正确的邮箱格式',
-            },
-            password: {
-                required: '密码不能为空',
-                minLength: '密码长度不能小于 6 位',
-                maxLength: '密码长度不能大于 12 位',
-            },
-            confirmPassword: {
-                required: '确认密码不能为空',
-                equalTo: '两次输入密码不一致',
-            },
-        },
-    },
-    onSubmit: (data) => {
-        Toast.success('Bingo! 表单验证成功');
-        console.table(data);
-    },
-    style: 'max-width: 280px',
-    buttonsPosition: 'start'
-}).mount(q('.demo'));
-```

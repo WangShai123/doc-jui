@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - accordion
+---
+
 # Accordion
 
 Accordion is a collapsible panel component for showing multiple content areas.
@@ -141,94 +147,3 @@ accordion.state.data = accordion.state.data.filter(
 
 Common controller methods also include `own()`, `use()`, `on()`, `off()`, and `emit()`. See [Define Component](../core/define.html) for their meaning.
 
-```vp-script
-import { createAccordion, q, Toast } from 'vanilla-jui';
-import { createSignal, jsx } from 'vanilla-signal';
-
-const [asyncCount, setAsyncCount] = createSignal(10);
-let asyncAccordionRequestCount = 0;
-let asyncAccordionCountdownTimer = null;
-let asyncAccordionCountdownStopTimer = null;
-const startAsyncAccordionCountdown = () => {
-    if (asyncAccordionCountdownTimer) clearInterval(asyncAccordionCountdownTimer);
-    if (asyncAccordionCountdownStopTimer) clearTimeout(asyncAccordionCountdownStopTimer);
-
-    setAsyncCount(10);
-    asyncAccordionCountdownTimer = setInterval(() => {
-        setAsyncCount((value) => {
-            const next = value - 1;
-            return next > 0 ? next : 0;
-        });
-    }, 1000);
-    asyncAccordionCountdownStopTimer = setTimeout(() => {
-        clearInterval(asyncAccordionCountdownTimer);
-        asyncAccordionCountdownTimer = null;
-        asyncAccordionCountdownStopTimer = null;
-        setAsyncCount(0);
-    }, 10_000);
-};
-
-const loadAsyncAccordionContent = () =>
-    new Promise((resolve) => {
-        const requestIndex = asyncAccordionRequestCount + 1;
-        setTimeout(() => {
-            asyncAccordionRequestCount = requestIndex;
-            startAsyncAccordionCountdown();
-            resolve(
-                jsx('div', {
-                    children: [
-                        jsx('p', {
-                            children: `Async API request #${requestIndex}`,
-                        }),
-                        jsx('p', {
-                            style: { marginBlock: '4px' },
-                            children: 'This accordion data item has caching enabled. The cache time is 10 seconds.',
-                        }),
-                        jsx('p', {
-                            style: { marginBlock: '4px' },
-                            children: 'Within 10 seconds, repeatedly opening this data item will show the cached content.',
-                        }),
-                        jsx('p', {
-                            style: { marginBlock: '4px' },
-                            children: 'After 10 seconds, the content expires and will be requested and rendered again.',
-                        }),
-                        jsx('p', {
-                            style: { marginBlock: '4px' },
-                            children: () =>
-                                asyncCount() > 0
-                                    ? `Countdown ${asyncCount()} seconds`
-                                    : 'Cache expired',
-                        }),
-                    ],
-                })
-            );
-        }, 1000);
-    });
-
-createAccordion({
-    data: [
-        {
-            name: 'profile',
-            title: ({ index }) => `Sync Panel ${index + 1}`,
-            content: ({ item }) => `Sync panel name: ${item.name}`,
-        },
-        {
-            name: 'settings',
-            title: ({ index }) => `Sync Panel ${index + 1}`,
-            content: ({ item }) => `Sync panel name: ${item.name}`,
-        },
-        {
-            name: 'async',
-            title: 'Async Panel',
-            content: () => loadAsyncAccordionContent(),
-            cache: true,
-            ttl: 10_000,
-        },
-    ],
-    onChange: (index, name, header, panel, accordion) => {
-        Toast.lite(`${name} panel opened`);
-        console.log(header)
-        console.log(panel)
-    },
-}).mount(q('.demo'));
-```

@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - toast
+---
+
 # Toast
 
 The Toast component displays temporary messages. It is usually used to tell users the result of an action or show a short prompt. It does not need to be instantiated. You show messages directly through static methods.
@@ -56,16 +62,16 @@ confirm('Confirm delete?', {
 
 `Toast.show(message, options)`
 
-| Option         | Default      | Description                                                    |
-| -------------- | ------------ | -------------------------------------------------------------- |
-| `duration`     | `3000`       | Message display time in milliseconds                           |
-| `theme`        | `info`       | Message theme                                                  |
-| `once`         | `false`      | Whether to show only once                                      |
+| Option         | Default      | Description                                                          |
+| -------------- | ------------ | -------------------------------------------------------------------- |
+| `duration`     | `3000`       | Message display time in milliseconds                                 |
+| `theme`        | `info`       | Message theme                                                        |
+| `once`         | `false`      | Whether to show only once                                            |
 | `loading`      | `false`      | Reactive loading state. When `true`, shows the loading icon and text |
-| `text`         | `{}`         | Text configuration                                             |
-| `text.loading` | `Loading...` | Text shown while loading                                       |
-| `onClose`      | `null`       | Triggered after the user actively closes the toast             |
-| `onCancel`     | `null`       | Triggered when the toast is closed before `loading` changes    |
+| `text`         | `{}`         | Text configuration                                                   |
+| `text.loading` | `Loading...` | Text shown while loading                                             |
+| `onClose`      | `null`       | Triggered after the user actively closes the toast                   |
+| `onCancel`     | `null`       | Triggered when the toast is closed before `loading` changes          |
 
 ### loading
 
@@ -100,15 +106,14 @@ The `show` method provides several shortcuts for different theme states:
 
 `Toast.confirm(message, options)`
 
-| Option         | Default           | Description                     |
-| -------------- | ----------------- | ------------------------------- |
-| `theme`        | `info`            | Action message theme            |
-| `once`         | `true`            | Whether to show only once       |
-| `text`         | `{}`              | Action button text              |
-| `text.close`   | Close/Close       | Close button text               |
-| `text.confirm` | Confirm/Confirm   | Confirm button text             |
-| `onConfirm`    | `null`            | Callback for the confirm button |
-| `onClose`      | `null`            | Callback for the close button   |
+| Option         | Default         | Description                     |
+| -------------- | --------------- | ------------------------------- |
+| `once`         | `true`          | Whether to show only once       |
+| `text`         | `{}`            | Action button text              |
+| `text.close`   | Close/Close     | Close button text               |
+| `text.confirm` | Confirm/Confirm | Confirm button text             |
+| `onConfirm`    | `null`          | Callback for the confirm button |
+| `onClose`      | `null`          | Callback for the close button   |
 
 ## className
 
@@ -118,124 +123,21 @@ The `show` method provides several shortcuts for different theme states:
 
 `lite()` is for the simplest use cases. Its third parameter accepts the className configuration directly.
 
-| Field        | Default              | Description                     |
-| ------------ | -------------------- | ------------------------------- |
-| `container`  | `j-toast-container`  | Container                       |
-| `toast`      | `j-toast`            | Regular Toast                   |
-| `icon`       | `el-icon`            | Icon                            |
-| `message`    | `el-text`            | Text                            |
-| `lite`       | `j-toast-lite`       | Lightweight Toast               |
-| `confirm`    | `j-toast is-confirm` | Confirm Toast                   |
-| `buttons`    | `toast-buttons`      | Button area                     |
-| `button`     | `j-button is-sm`     | Base class for action buttons   |
-| `closeBtn`   | `is-ghost`           | Close button class              |
-| `confirmBtn` | `is-outline`         | Confirm button class            |
-| `info`       | `is-info`            | Info type class                 |
-| `success`    | `is-success`         | Success type class              |
-| `warning`    | `is-warning`         | Warning type class              |
-| `error`      | `is-error`           | Error type class                |
-| `primary`    | `is-primary`         | Primary type class              |
+| Field        | Default              | Description                   |
+| ------------ | -------------------- | ----------------------------- |
+| `container`  | `j-toast-container`  | Container                     |
+| `toast`      | `j-toast`            | Regular Toast                 |
+| `icon`       | `el-icon`            | Icon                          |
+| `message`    | `el-text`            | Text                          |
+| `lite`       | `j-toast-lite`       | Lightweight Toast             |
+| `confirm`    | `j-toast is-confirm` | Confirm Toast                 |
+| `buttons`    | `toast-buttons`      | Button area                   |
+| `button`     | `j-button is-sm`     | Base class for action buttons |
+| `closeBtn`   | `is-ghost`           | Close button class            |
+| `confirmBtn` | `is-outline`         | Confirm button class          |
+| `info`       | `is-info`            | Info type class               |
+| `success`    | `is-success`         | Success type class            |
+| `warning`    | `is-warning`         | Warning type class            |
+| `error`      | `is-error`           | Error type class              |
+| `primary`    | `is-primary`         | Primary type class            |
 
-```vp-script
-import { Toast, q } from 'vanilla-jui';
-import { jsx, insert, createSignal } from 'vanilla-signal';
-const demo = jsx('div', {
-    style: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '16px',
-    },
-    children: [
-        jsx('div', {
-            style: {
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '16px',
-            },
-            children: [
-                jsx('button', {
-                    className: 'j-button is-default',
-                    children: 'Default Toast',
-                    onClick: () => Toast.show('Hi, Toast'),
-                }),
-                jsx('button', {
-                    className: 'j-button is-primary',
-                    children: 'Primary Toast',
-                    onClick: () => Toast.primary('Hi, Primary Toast'),
-                }),
-                jsx('button', {
-                    className: 'j-button is-success',
-                    children: 'Success Toast',
-                    onClick: () => Toast.success('Hi, Success Toast'),
-                }),
-                jsx('button', {
-                    className: 'j-button is-warning',
-                    children: 'Warning Toast',
-                    onClick: () => Toast.warning('Hi, Warning Toast'),
-                }),
-                jsx('button', {
-                    className: 'j-button is-error',
-                    children: 'Error Toast',
-                    onClick: () => Toast.error('Hi, Error Toast'),
-                }),
-            ]
-        }),
-        jsx('div', {
-            style: {
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '16px',
-            },
-            children: [
-                jsx('button', {
-                    className: 'j-button is-default',
-                    children: 'Singleton Toast',
-                    onClick: () => Toast.info('Hi, Singleton Toast', {once:true}),
-                }),
-                jsx('button', {
-                    className: 'j-button is-secondary',
-                    children: 'Lite Toast',
-                    onClick: () => Toast.lite('Hi, Lite Toast'),
-                }),
-                jsx('button', {
-                    className: 'j-button is-outline',
-                    children: 'Confirm Toast',
-                    onClick: () => Toast.confirm('Hi, Confirm Toast', {
-                        onConfirm: () => Toast.lite('Confirmed'),
-                    }),
-                }),
-            ]
-        }),
-        jsx('div', {
-            children: jsx('button', {
-                className: 'j-button is-default',
-                children: 'Async Toast Usage',
-                onClick: () => {
-                    const [loading, setLoading] = createSignal(true);
-                    let timer = null;
-                    const reset = () => {
-                        if (timer) clearTimeout(timer);
-                        timer = null;
-                        setLoading(true);
-                    };
-                    Toast.show('Hi, Async Toast', {
-                        duration: 3000,
-                        loading,
-                        onCancel: () => {
-                            Toast.lite('Canceled');
-                            reset();
-                        },
-                        onClose: reset,
-                        once: true
-                    });
-                    timer = setTimeout(() => {
-                        timer = null;
-                        setLoading(false);
-                    }, 1000);
-                },
-            })
-        })
-    ]
-})
-insert(q('.demo'), demo);
-```

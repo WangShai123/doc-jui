@@ -24,6 +24,7 @@ export default [
   },
   {
     label: 'sidebar.interactionComponents',
+    collapse: true,
     children: [
       { label: 'sidebar.modal', path: 'components/modal' },
       { label: 'sidebar.form', path: 'components/form' },

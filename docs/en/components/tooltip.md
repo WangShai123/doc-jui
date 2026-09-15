@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - tooltip
+---
+
 # Tooltip
 
 Tooltip displays short messages on an element. It is a text-tip controller and a UI wrapper built on top of `Drop`.
@@ -78,33 +84,3 @@ Same as Drop instance methods.
 | `toggle()`       | Toggles display state |
 | `destroy()`      | Destroys Tooltip and the underlying Drop |
 
-```vp-script
-import { createTooltip, q } from 'vanilla-jui';
-import { jsx, insert } from 'vanilla-signal';
-insert(q('.demo'), jsx('div', {
-    style:{
-        display:'flex',
-        flexWrap:'wrap',
-        gap:'8px',
-    },
-    children:[
-        jsx('button', {
-            className: 'tooltip-demo j-button is-default',
-            children:'Tooltip',
-        }),
-        jsx('button', {
-            className: 'tooltip-theme-demo j-button is-error',
-            children:'Themed tooltip',
-        }),
-    ]
-}));
-createTooltip(q('.tooltip-demo'), {
-    message: 'Changes are synced after saving',
-    position: 'top-center'
-});
-createTooltip(q('.tooltip-theme-demo'), {
-    message: 'This cannot be restored after deletion',
-    theme: 'error',
-    position: 'top-center'
-});
-```

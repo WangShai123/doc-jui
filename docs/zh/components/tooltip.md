@@ -1,3 +1,9 @@
+---
+client:
+  entry:
+    - tooltip
+---
+
 # 提示
 
 Tooltip 组件用于在元素上显示提示信息，是文本提示控制器，是基于 `Drop` 组件的视图 UI 包装。
@@ -78,33 +84,3 @@ const tooltip = createTooltip(button, {
 | `toggle()`       | 切换展示状态             |
 | `destroy()`      | 销毁 Tooltip 和底层 Drop |
 
-```vp-script
-import { createTooltip, q } from 'vanilla-jui';
-import { jsx, insert } from 'vanilla-signal';
-insert(q('.demo'), jsx('div', {
-    style:{
-        display:'flex',
-        flexWrap:'wrap',
-        gap:'8px',
-    },
-    children:[
-        jsx('button', {
-            className: 'tooltip-demo j-button is-default',
-            children:'提示',
-        }),
-        jsx('button', {
-            className: 'tooltip-theme-demo j-button is-error',
-            children:'带主题的提示',
-        }),
-    ]
-}));
-createTooltip(q('.tooltip-demo'), {
-    message: '保存成功后会自动同步',
-    position: 'top-center'
-});
-createTooltip(q('.tooltip-theme-demo'), {
-    message: '删除后不可恢复',
-    theme: 'error',
-    position: 'top-center'
-});
-```
